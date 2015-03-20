@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		3C85E0951AB1F5A400820C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0941AB1F5A400820C9A /* AppDelegate.swift */; };
 		3C85E0981AB1F5A400820C9A /* Kraft_Ausdauer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0961AB1F5A400820C9A /* Kraft_Ausdauer.xcdatamodeld */; };
-		3C85E09A1AB1F5A400820C9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0991AB1F5A400820C9A /* ViewController.swift */; };
 		3C85E09D1AB1F5A400820C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C85E09B1AB1F5A400820C9A /* Main.storyboard */; };
 		3C85E09F1AB1F5A400820C9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C85E09E1AB1F5A400820C9A /* Images.xcassets */; };
 		3C85E0A21AB1F5A400820C9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C85E0A01AB1F5A400820C9A /* LaunchScreen.xib */; };
+		3C85E0B81AB1F75600820C9A /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0B71AB1F75600820C9A /* MainTableViewController.swift */; };
+		3C85E0C61AB2065100820C9A /* Training.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0C51AB2065100820C9A /* Training.m */; };
+		3C85E0C91AB2086400820C9A /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0C81AB2086400820C9A /* Exercise.m */; };
+		3C85E0CB1AB2090C00820C9A /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85E0CA1AB2090C00820C9A /* CoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,18 @@
 		3C85E0931AB1F5A400820C9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C85E0941AB1F5A400820C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C85E0971AB1F5A400820C9A /* Kraft_Ausdauer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kraft_Ausdauer.xcdatamodel; sourceTree = "<group>"; };
-		3C85E0991AB1F5A400820C9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C85E09C1AB1F5A400820C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C85E09E1AB1F5A400820C9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C85E0A11AB1F5A400820C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3C85E0AC1AB1F5A400820C9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C85E0AD1AB1F5A400820C9A /* Kraft_AusdauerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kraft_AusdauerTests.swift; sourceTree = "<group>"; };
+		3C85E0B71AB1F75600820C9A /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		3C85E0B91AB1FE5200820C9A /* Kraft-Ausdauer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kraft-Ausdauer-Bridging-Header.h"; sourceTree = "<group>"; };
+		3C85E0C41AB2065100820C9A /* Training.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Training.h; sourceTree = "<group>"; };
+		3C85E0C51AB2065100820C9A /* Training.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Training.m; sourceTree = "<group>"; };
+		3C85E0C71AB2086400820C9A /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		3C85E0C81AB2086400820C9A /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		3C85E0CA1AB2090C00820C9A /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +54,7 @@
 				3C85E0911AB1F5A300820C9A /* Kraft-Ausdauer */,
 				3C85E0AA1AB1F5A400820C9A /* Kraft-AusdauerTests */,
 				3C85E0901AB1F5A300820C9A /* Products */,
+				3C85E0B91AB1FE5200820C9A /* Kraft-Ausdauer-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +69,12 @@
 		3C85E0911AB1F5A300820C9A /* Kraft-Ausdauer */ = {
 			isa = PBXGroup;
 			children = (
+				3C85E0C01AB1FEB900820C9A /* CoreData */,
 				3C85E0941AB1F5A400820C9A /* AppDelegate.swift */,
-				3C85E0991AB1F5A400820C9A /* ViewController.swift */,
 				3C85E09B1AB1F5A400820C9A /* Main.storyboard */,
 				3C85E09E1AB1F5A400820C9A /* Images.xcassets */,
 				3C85E0A01AB1F5A400820C9A /* LaunchScreen.xib */,
-				3C85E0961AB1F5A400820C9A /* Kraft_Ausdauer.xcdatamodeld */,
+				3C85E0B71AB1F75600820C9A /* MainTableViewController.swift */,
 				3C85E0921AB1F5A400820C9A /* Supporting Files */,
 			);
 			path = "Kraft-Ausdauer";
@@ -93,6 +103,19 @@
 				3C85E0AC1AB1F5A400820C9A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3C85E0C01AB1FEB900820C9A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3C85E0961AB1F5A400820C9A /* Kraft_Ausdauer.xcdatamodeld */,
+				3C85E0C41AB2065100820C9A /* Training.h */,
+				3C85E0C51AB2065100820C9A /* Training.m */,
+				3C85E0C71AB2086400820C9A /* Exercise.h */,
+				3C85E0C81AB2086400820C9A /* Exercise.m */,
+				3C85E0CA1AB2090C00820C9A /* CoreData.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,8 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C85E09A1AB1F5A400820C9A /* ViewController.swift in Sources */,
+				3C85E0C61AB2065100820C9A /* Training.m in Sources */,
+				3C85E0C91AB2086400820C9A /* Exercise.m in Sources */,
 				3C85E0981AB1F5A400820C9A /* Kraft_Ausdauer.xcdatamodeld in Sources */,
+				3C85E0B81AB1F75600820C9A /* MainTableViewController.swift in Sources */,
+				3C85E0CB1AB2090C00820C9A /* CoreData.swift in Sources */,
 				3C85E0951AB1F5A400820C9A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,9 +302,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Kraft-Ausdauer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kraft-Ausdauer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -286,9 +315,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Kraft-Ausdauer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kraft-Ausdauer-Bridging-Header.h";
 			};
 			name = Release;
 		};
