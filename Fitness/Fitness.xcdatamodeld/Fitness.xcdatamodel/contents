@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDExercise" representedClassName="CDExercise" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="interval" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="warmup" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="training" maxCount="1" deletionRule="Nullify" destinationEntity="CDTraining" inverseName="exercises" inverseEntity="CDTraining" syncable="YES"/>
+    </entity>
+    <entity name="CDTraining" representedClassName="CDTraining" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="exercises" toMany="YES" deletionRule="Cascade" destinationEntity="CDExercise" inverseName="training" inverseEntity="CDExercise" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDTraining" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="CDExercise" positionX="169" positionY="9" width="128" height="118"/>
+    </elements>
+</model>
