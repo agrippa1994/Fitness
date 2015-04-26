@@ -17,8 +17,11 @@
 @interface TrainingTableViewController () <EditTrainingTableViewControllerDelegate, ORKTaskViewControllerDelegate>
 @property(strong) NSMutableArray *trainings;
 @property NSDate *trainingStart;
+@property NSInteger lastStep;
+@property UILocalNotification *currentNotification;
 
 - (void)startLocalNotificationWithInterval:(NSTimeInterval)interval;
+- (void)cancelLocalNotification;
 
 @end
 
@@ -125,6 +128,7 @@
         
         controller.delegate = self;
         self.trainingStart = [NSDate date];
+        self.lastStep = 0;
         
         [self presentViewController:controller animated:YES completion:nil];
     }
@@ -165,29 +169,42 @@
         [[Health health] addTraining:self.trainingStart end:[NSDate date] completion:nil];
         [self startLocalNotificationWithInterval:0];
     }
+    
+    self.lastStep = 0;
 }
 
 - (void)taskViewController:(ORKTaskViewController * __nonnull)taskViewController stepViewControllerWillAppear:(ORKStepViewController * __nonnull)stepViewController {
+    ORKTaskProgress progress = [taskViewController.task progressOfCurrentStep:stepViewController.step withResult:taskViewController.result];
+    if(progress.current <= self.lastStep)
+        [self cancelLocalNotification];
+    
+    self.lastStep = progress.current;
+    
     if(stepViewController.step != nil) {
         if([stepViewController.step isKindOfClass:[ORKActiveStep class]]) {
-            ORKActiveStep *step = (ORKActiveStep *)stepViewController.step;
-            [self startLocalNotificationWithInterval:step.stepDuration];
+            [self startLocalNotificationWithInterval:((ORKActiveStep *)stepViewController.step).stepDuration];
         }
     }
 }
 
 #pragma mark Methods
 - (void)startLocalNotificationWithInterval:(NSTimeInterval)interval {
-    UILocalNotification *notification = [UILocalNotification new];
-    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:interval];
-    notification.alertBody = @"Zeit abgelaufen!";
-    notification.soundName = UILocalNotificationDefaultSoundName;
+    self.currentNotification = [UILocalNotification new];
+    self.currentNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:interval];
+    self.currentNotification.alertBody = @"Zeit abgelaufen!";
+    self.currentNotification.soundName = UILocalNotificationDefaultSoundName;
     
     if(interval == 0)
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:self.currentNotification];
     else
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        [[UIApplication sharedApplication] scheduleLocalNotification:self.currentNotification];
 }
 
-
+- (void)cancelLocalNotification {
+    if(self.currentNotification == nil)
+        return;
+    
+    [[UIApplication sharedApplication] cancelLocalNotification:self.currentNotification];
+    self.currentNotification = nil;
+}
 @end
