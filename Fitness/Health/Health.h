@@ -21,6 +21,11 @@
 - (void)addCalories:(double)calories forDate:(NSDate *)date withCompletion:(void (^)(BOOL success))completion;
 
 // Add a training
-- (void)addTraining:(NSDate *)start end:(NSDate *)end calories:(double)calories distance:(double)distance trainingInfo:(NSDictionary *)trainingInfo completion:(void (^)(BOOL success))completion;
+//- (void)addTraining:(NSDate *)start end:(NSDate *)end calories:(double)calories distance:(double)distance trainingInfo:(NSDictionary *)trainingInfo completion:(void (^)(BOOL success))completion;
+- (void)addTraining:(NSDate *)start end:(NSDate *)end completion:(void (^)(BOOL success))completion;
+
+// Steps and track
+- (void)numberOfStepsFrom:(NSDate *)start toEnd:(NSDate *)end withCompletion:(void (^)(BOOL success, NSInteger steps))completionHandler;
+- (void)numberOfKilometersFrom:(NSDate *)start toEnd:(NSDate *)end withCompletion:(void (^)(BOOL success, double track))completionHandler;
 
 @end

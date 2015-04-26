@@ -74,9 +74,16 @@
 - (ORKOrderedTask *)trainingTask {
     NSMutableArray *exerciseTasks = [NSMutableArray array];
     
-    for(Exercise *exercise in self.exercises)
-        for(ORKStep *step in [exercise createResearchKitTasks])
+    NSInteger index = 0;
+    for(Exercise *exercise in self.exercises) {
+        NSArray *tasks = [exercise createResearchKitTasks:index];
+        
+        for(ORKStep *step in tasks) {
             [exerciseTasks addObject:step];
+        }
+        
+        index++;
+    }
     
     return [[ORKOrderedTask alloc] initWithIdentifier:@"trainingTask" steps:exerciseTasks];
 }

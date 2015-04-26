@@ -9,12 +9,14 @@
 #import <ResearchKit/ResearchKit.h>
 #import "TrainingTableViewController.h"
 #import "EditTrainingTableViewController.h"
+#import "../Health/Health.h"
 #import "../Resources/Training.h"
 #import "../Resources/Exercise.h"
 #import "../Resources/Storage.h"
 
 @interface TrainingTableViewController () <EditTrainingTableViewControllerDelegate, ORKTaskViewControllerDelegate>
 @property(strong) NSMutableArray *trainings;
+@property NSDate *trainingStart;
 @end
 
 @implementation TrainingTableViewController
@@ -120,7 +122,10 @@
     } else {
         Training *training = [self.trainings objectAtIndex:indexPath.row];
         ORKTaskViewController *controller = [[ORKTaskViewController alloc] initWithTask:[training trainingTask] taskRunUUID:nil];
+        
         controller.delegate = self;
+        self.trainingStart = [NSDate date];
+        
         [self presentViewController:controller animated:YES completion:nil];
     }
 }
@@ -154,6 +159,12 @@
 #pragma mark ORKTaskViewController Delegation
 - (void)taskViewController:(ORKTaskViewController * __nonnull)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(nullable NSError *)error {
     [taskViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    // Add data to HealthKit
+    if(reason == ORKTaskViewControllerFinishReasonCompleted) {
+        [[Health health] addTraining:self.trainingStart end:[NSDate date] completion:nil];
+    }
 }
+
 
 @end

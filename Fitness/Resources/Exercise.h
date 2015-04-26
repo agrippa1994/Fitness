@@ -31,6 +31,6 @@ enum ExerciseType: int16_t {
 @property (nonatomic, retain) NSNumber * interval;
 
 + (NSString *)exerciseTypeToString:(enum ExerciseType)type;
-- (NSArray *)createResearchKitTasks;
+- (NSArray *)createResearchKitTasks:(NSInteger)index;
 
 @end

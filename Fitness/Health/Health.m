@@ -86,7 +86,66 @@
         if(error)
             NSLog(@"Error while saving workout: %@", error.localizedDescription);
         
-        completion(success);
+        if(completion)
+            completion(success);
+    }];
+}
+
+- (void)addTraining:(NSDate *)start end:(NSDate *)end completion:(void (^)(BOOL success))completion {
+    HKWorkout *workout = [HKWorkout workoutWithActivityType:HKWorkoutActivityTypeCrossTraining startDate:start endDate:end duration:0 totalEnergyBurned:nil totalDistance:nil metadata:nil];
+    
+    [_store saveObject:workout withCompletion:^(BOOL success, NSError *error) {
+        if(error)
+            NSLog(@"Error while saving workout: %@", error.localizedDescription);
+        
+        if(completion)
+            completion(success);
+    }];
+}
+
+- (void)numberOfStepsFrom:(NSDate *)start toEnd:(NSDate *)end withCompletion:(void (^)(BOOL success, NSInteger steps))completionHandler {
+    [self isAllowedToUse:^(BOOL success) {
+        if(!success)
+            return completionHandler(NO, 0);
+        
+        HKQuantityType *sampleType = [HKSampleType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+        NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:start endDate:end options:HKQueryOptionNone];
+        
+        HKStatisticsQuery *query = [[HKStatisticsQuery alloc] initWithQuantityType:sampleType quantitySamplePredicate:predicate options:HKStatisticsOptionCumulativeSum completionHandler:^(HKStatisticsQuery *query, HKStatistics *result, NSError *error) {
+            if(error != nil)
+                return completionHandler(NO, 0);
+            
+            HKQuantity *quantity = [result sumQuantity];
+            if(quantity == nil)
+                return completionHandler(NO, 0);
+            
+            return completionHandler(YES, (NSInteger)[quantity doubleValueForUnit:[HKUnit countUnit]]);
+        }];
+        
+        [_store executeQuery:query];
+    }];
+}
+
+- (void)numberOfKilometersFrom:(NSDate *)start toEnd:(NSDate *)end withCompletion:(void (^)(BOOL success, double track))completionHandler {
+    [self isAllowedToUse:^(BOOL success) {
+        if(!success)
+            return completionHandler(NO, 0);
+        
+        HKQuantityType *sampleType = [HKSampleType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning];
+        NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:start endDate:end options:HKQueryOptionNone];
+        
+        HKStatisticsQuery *query = [[HKStatisticsQuery alloc] initWithQuantityType:sampleType quantitySamplePredicate:predicate options:HKStatisticsOptionCumulativeSum completionHandler:^(HKStatisticsQuery *query, HKStatistics *result, NSError *error) {
+            if(error != nil)
+                return completionHandler(NO, 0);
+            
+            HKQuantity *quantity = [result sumQuantity];
+            if(quantity == nil)
+                return completionHandler(NO, 0);
+            
+            return completionHandler(YES, (NSInteger)[quantity doubleValueForUnit:[HKUnit unitFromString:@"km"]]);
+        }];
+        
+        [_store executeQuery:query];
     }];
 }
 

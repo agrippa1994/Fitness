@@ -95,18 +95,20 @@
 }
 
 #pragma mark Dynamic Methods
-- (NSArray *)createResearchKitTasks {
-    ORKInstructionStep *instructionStep = [[ORKInstructionStep alloc] initWithIdentifier:@"task"];
+- (NSArray *)createResearchKitTasks:(NSInteger)index {
+    
+    
+    ORKInstructionStep *instructionStep = [[ORKInstructionStep alloc] initWithIdentifier:[NSString stringWithFormat:@"task %ld", index]];
     instructionStep.title = [[self class] exerciseTypeToString: self.type];
     
-    ORKCountdownStep *countdown = [[ORKCountdownStep alloc] initWithIdentifier:@"countdown"];
+    ORKCountdownStep *countdown = [[ORKCountdownStep alloc] initWithIdentifier:[NSString stringWithFormat:@"countdown %ld", index]];
     countdown.stepDuration = [self.warmup integerValue];
     countdown.shouldPlaySoundOnFinish = YES;
     countdown.shouldSpeakCountDown = YES;
     countdown.title = @"Vorbereitung";
     countdown.text = @"Bereite dich auf die Übung vor";
     
-    ORKCountdownStep *training = [[ORKCountdownStep alloc] initWithIdentifier:@"training"];
+    ORKCountdownStep *training = [[ORKCountdownStep alloc] initWithIdentifier:[NSString stringWithFormat:@"training %ld", index]];
     training.stepDuration = [self.interval integerValue];
     training.shouldPlaySoundOnFinish = YES;
     training.shouldSpeakCountDown = YES;
