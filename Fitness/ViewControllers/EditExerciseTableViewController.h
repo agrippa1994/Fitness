@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../CoreData/CDExercise.h"
+#import "../Resources/Exercise.h"
 
 @class EditExerciseTableViewController;
 

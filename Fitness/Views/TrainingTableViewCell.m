@@ -31,6 +31,10 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if(_delegate == nil)
+        return FALSE;
+    
+    [_delegate trainingTableViewCell:self didEnteredText:textField.text];
     [textField resignFirstResponder];
     return YES;
 }

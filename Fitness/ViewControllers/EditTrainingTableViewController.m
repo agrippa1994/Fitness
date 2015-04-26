@@ -9,14 +9,10 @@
 #import "EditTrainingTableViewController.h"
 #import "EditExerciseTableViewController.h"
 #import "../Views/TrainingTableViewCell.h"
-#import "../CoreData/CoreData.h"
+#import "../Resources/Training.h"
+#import "../Resources/Exercise.h"
 
-@interface EditTrainingTableViewController () <EditExerciseTableViewControllerDelegate, NSFetchedResultsControllerDelegate>
-{
-    NSFetchedResultsController *_fetchController;
-}
-
-- (NSArray *)sortedExercises;
+@interface EditTrainingTableViewController () <EditExerciseTableViewControllerDelegate, TrainingTableViewCellDelegate>
 
 @end
 
@@ -51,21 +47,7 @@
     [super viewDidLoad];
     
     self.tableView.allowsSelectionDuringEditing = YES;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    NSManagedObjectContext *context = [[CoreData coreData] managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"CDExercise"];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
-    [request setSortDescriptors:@[sortDescriptor]];
-    
-    _fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
-    _fetchController.delegate = self;
-    
-    [_fetchController performFetch:nil];
+    self.tableView.editing = YES;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -103,6 +85,22 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
    
+    if(indexPath.section == 0) {
+        TrainingTableViewCell *ptr = (TrainingTableViewCell *)cell;
+        
+        [ptr setInputText:self.training.name];
+        ptr.delegate = self;
+    }
+    
+    if(indexPath.section == 1) {
+        Exercise *exercise = [self.training.exercises objectAtIndex:indexPath.row];
+        
+        NSInteger minutes = [exercise.interval integerValue] / 60;
+        NSInteger seconds = [exercise.interval integerValue] % 60;
+        
+        cell.textLabel.text = [Exercise exerciseTypeToString:exercise.type];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Minute%@ %ld Sekunde%@", minutes, minutes == 1 ? @"" : @"n", seconds, seconds == 1 ? @"" : @"n"];
+    }
     
     return cell;
 }
@@ -124,13 +122,27 @@
     if (editingStyle != UITableViewCellEditingStyleDelete)
         return;
 
+    [self.training.exercises removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if (sourceIndexPath.section != proposedDestinationIndexPath.section) {
+        NSInteger row = 0;
+        if (sourceIndexPath.section < proposedDestinationIndexPath.section) {
+            row = [tableView numberOfRowsInSection:sourceIndexPath.section] - 1;
+        }
+        return [NSIndexPath indexPathForRow:row inSection:sourceIndexPath.section];
+    }
+    
+    return proposedDestinationIndexPath;
+}
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    
+    id movee = [self.training.exercises objectAtIndex:fromIndexPath.row];
+    [self.training.exercises removeObject:movee];
+    [self.training.exercises insertObject:movee atIndex:toIndexPath.row];
 }
 
 
@@ -149,8 +161,10 @@
             controller.sender = sender;
             
             if([sender isKindOfClass:[UITableViewCell class]]) {
-                //Exercise *exercise = [self.training.exercises objectAtIndex:<#(NSUInteger)#>]
-                //controller setInitialData:<#(enum ExerciseType)#> warmupTime:<#(NSTimeInterval)#> timeInterval:<#(NSTimeInterval)#>
+                NSUInteger index = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
+                
+                Exercise *exercise = [self.training.exercises objectAtIndex:index];
+                [controller setInitialData:exercise.type warmupTime:[exercise.warmup integerValue] timeInterval:[exercise.interval integerValue]];
             }
         }
     }
@@ -160,27 +174,29 @@
     
     if(controller.sender == nil)
         return;
-    
-    NSManagedObjectContext *context = [[CoreData coreData] managedObjectContext];
-    
+
     // Edit the object only
     if([controller.sender isKindOfClass:[UITableViewCell class]]) {
         UITableViewCell *cell = (UITableViewCell *)controller.sender;
         NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        NSUInteger index = path.row;
+        
+        Exercise *exercise = [self.training.exercises objectAtIndex:index];
+        exercise.type = type;
+        exercise.warmup = [NSNumber numberWithInteger:warmup];
+        exercise.interval = [NSNumber numberWithInteger:interval];
         
         // Disable the highlighting of the table's cell
         [self.tableView deselectRowAtIndexPath:path animated:YES];
     } else {
-        NSEntityDescription *description = [NSEntityDescription entityForName:@"CDExercise" inManagedObjectContext:context];
-        CDExercise *exercise = [[CDExercise alloc] initWithEntity:description insertIntoManagedObjectContext:nil];
-        
+        Exercise *exercise = [[Exercise alloc] init];
         
         exercise.type = type;
         exercise.warmup = [NSNumber numberWithInteger:warmup];
         exercise.interval = [NSNumber numberWithInteger:interval];
-        exercise.index = [NSNumber numberWithInt:(int)[self sortedExercises].count];
         
-        [self.training addExercisesObject:exercise];
+        [self.training.exercises addObject:exercise];
+        NSLog(@"%ld", self.training.exercises.count);
     }
     
     [self.tableView reloadData];
@@ -192,9 +208,8 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSArray *)sortedExercises {
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
-    return [self.training.exercises sortedArrayUsingDescriptors:@[descriptor]];
+- (void)trainingTableViewCell:(TrainingTableViewCell *)cell didEnteredText:(NSString *)text {
+    self.training.name = text;
 }
 
 @end

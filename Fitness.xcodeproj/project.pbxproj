@@ -15,8 +15,6 @@
 		3C81291D1AE8F29500243413 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C81291B1AE8F29500243413 /* LaunchScreen.xib */; };
 		3C8129291AE8F29500243413 /* FitnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129281AE8F29500243413 /* FitnessTests.m */; };
 		3C8129341AE8F3B500243413 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8129331AE8F3B500243413 /* HealthKit.framework */; };
-		3C81293E1AE8FB5900243413 /* CDExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81293D1AE8FB5900243413 /* CDExercise.m */; };
-		3C8129441AE8FCFE00243413 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129431AE8FCFE00243413 /* CoreData.m */; };
 		3C8129481AE8FDCC00243413 /* Health.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129471AE8FDCC00243413 /* Health.m */; };
 		3C8129541AE902D800243413 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129531AE902D800243413 /* MainNavigationController.m */; };
 		3C8129571AE9032000243413 /* TrainingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129561AE9032000243413 /* TrainingTableViewController.m */; };
@@ -24,7 +22,9 @@
 		3C8129611AE9046900243413 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129601AE9046900243413 /* ErrorViewController.m */; };
 		3C8129641AE925CD00243413 /* EditTrainingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129631AE925CD00243413 /* EditTrainingTableViewController.m */; };
 		3C8129671AE925E000243413 /* EditExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129661AE925E000243413 /* EditExerciseTableViewController.m */; };
-		3C81296D1AE96C7100243413 /* CDTraining.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81296C1AE96C7100243413 /* CDTraining.m */; };
+		3CC6FC0F1AEBC34C00A3F03F /* Training.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FC0A1AEBC34C00A3F03F /* Training.m */; };
+		3CC6FC111AEBC34C00A3F03F /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FC0E1AEBC34C00A3F03F /* Exercise.m */; };
+		3CC6FC141AEBC45100A3F03F /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FC131AEBC45100A3F03F /* Storage.m */; };
 		AA41DD974DAE4FEEAB888825 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B54887A475164A5AA0DE6EB5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +51,6 @@
 		3C8129281AE8F29500243413 /* FitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FitnessTests.m; sourceTree = "<group>"; };
 		3C8129321AE8F3B500243413 /* Fitness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Fitness.entitlements; sourceTree = "<group>"; };
 		3C8129331AE8F3B500243413 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		3C81293C1AE8FB5900243413 /* CDExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDExercise.h; path = CoreData/CDExercise.h; sourceTree = "<group>"; };
-		3C81293D1AE8FB5900243413 /* CDExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDExercise.m; path = CoreData/CDExercise.m; sourceTree = "<group>"; };
-		3C8129421AE8FCFE00243413 /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreData.h; path = CoreData/CoreData.h; sourceTree = "<group>"; };
-		3C8129431AE8FCFE00243413 /* CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreData.m; path = CoreData/CoreData.m; sourceTree = "<group>"; };
 		3C8129461AE8FDCC00243413 /* Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Health.h; path = Health/Health.h; sourceTree = "<group>"; };
 		3C8129471AE8FDCC00243413 /* Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Health.m; path = Health/Health.m; sourceTree = "<group>"; };
 		3C81294D1AE8FEF100243413 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
@@ -73,8 +69,13 @@
 		3C8129631AE925CD00243413 /* EditTrainingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTrainingTableViewController.m; path = ViewControllers/EditTrainingTableViewController.m; sourceTree = "<group>"; };
 		3C8129651AE925E000243413 /* EditExerciseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditExerciseTableViewController.h; path = ViewControllers/EditExerciseTableViewController.h; sourceTree = "<group>"; };
 		3C8129661AE925E000243413 /* EditExerciseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditExerciseTableViewController.m; path = ViewControllers/EditExerciseTableViewController.m; sourceTree = "<group>"; };
-		3C81296B1AE96C7100243413 /* CDTraining.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDTraining.h; path = CoreData/CDTraining.h; sourceTree = "<group>"; };
-		3C81296C1AE96C7100243413 /* CDTraining.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDTraining.m; path = CoreData/CDTraining.m; sourceTree = "<group>"; };
+		3CC6FC091AEBC34C00A3F03F /* Training.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Training.h; path = Resources/Training.h; sourceTree = "<group>"; };
+		3CC6FC0A1AEBC34C00A3F03F /* Training.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Training.m; path = Resources/Training.m; sourceTree = "<group>"; };
+		3CC6FC0B1AEBC34C00A3F03F /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = Resources/Exercise.h; sourceTree = "<group>"; };
+		3CC6FC0E1AEBC34C00A3F03F /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = Resources/Exercise.m; sourceTree = "<group>"; };
+		3CC6FC121AEBC45100A3F03F /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Storage.h; path = Resources/Storage.h; sourceTree = "<group>"; };
+		3CC6FC131AEBC45100A3F03F /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Storage.m; path = Resources/Storage.m; sourceTree = "<group>"; };
+		3CC6FC151AEBC47B00A3F03F /* Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Helpers.h; path = Resources/Helpers.h; sourceTree = "<group>"; };
 		6DED02AC9EC548B2AF1BFE89 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B54887A475164A5AA0DE6EB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,7 +135,7 @@
 				3C81295B1AE9037F00243413 /* Views */,
 				3C8129511AE9029E00243413 /* ViewControllers */,
 				3C8129451AE8FDAE00243413 /* Health */,
-				3C8129351AE8FAEB00243413 /* CoreData */,
+				3C8129351AE8FAEB00243413 /* Resources */,
 				3C8129321AE8F3B500243413 /* Fitness.entitlements */,
 				3C81290D1AE8F29500243413 /* AppDelegate.h */,
 				3C81290E1AE8F29500243413 /* AppDelegate.m */,
@@ -173,17 +174,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3C8129351AE8FAEB00243413 /* CoreData */ = {
+		3C8129351AE8FAEB00243413 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3C81293C1AE8FB5900243413 /* CDExercise.h */,
-				3C81293D1AE8FB5900243413 /* CDExercise.m */,
-				3C8129421AE8FCFE00243413 /* CoreData.h */,
-				3C8129431AE8FCFE00243413 /* CoreData.m */,
-				3C81296B1AE96C7100243413 /* CDTraining.h */,
-				3C81296C1AE96C7100243413 /* CDTraining.m */,
+				3CC6FC091AEBC34C00A3F03F /* Training.h */,
+				3CC6FC0A1AEBC34C00A3F03F /* Training.m */,
+				3CC6FC0B1AEBC34C00A3F03F /* Exercise.h */,
+				3CC6FC0E1AEBC34C00A3F03F /* Exercise.m */,
+				3CC6FC121AEBC45100A3F03F /* Storage.h */,
+				3CC6FC131AEBC45100A3F03F /* Storage.m */,
+				3CC6FC151AEBC47B00A3F03F /* Helpers.h */,
 			);
-			name = CoreData;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		3C8129451AE8FDAE00243413 /* Health */ = {
@@ -361,18 +363,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C81296D1AE96C7100243413 /* CDTraining.m in Sources */,
-				3C81293E1AE8FB5900243413 /* CDExercise.m in Sources */,
+				3CC6FC111AEBC34C00A3F03F /* Exercise.m in Sources */,
+				3CC6FC0F1AEBC34C00A3F03F /* Training.m in Sources */,
 				3C81290F1AE8F29500243413 /* AppDelegate.m in Sources */,
 				3C8129641AE925CD00243413 /* EditTrainingTableViewController.m in Sources */,
 				3C8129671AE925E000243413 /* EditExerciseTableViewController.m in Sources */,
+				3CC6FC141AEBC45100A3F03F /* Storage.m in Sources */,
 				3C8129121AE8F29500243413 /* Fitness.xcdatamodeld in Sources */,
 				3C81295E1AE903AF00243413 /* TrainingTableViewCell.m in Sources */,
 				3C8129481AE8FDCC00243413 /* Health.m in Sources */,
 				3C81290C1AE8F29500243413 /* main.m in Sources */,
 				3C8129541AE902D800243413 /* MainNavigationController.m in Sources */,
 				3C8129611AE9046900243413 /* ErrorViewController.m in Sources */,
-				3C8129441AE8FCFE00243413 /* CoreData.m in Sources */,
 				3C8129571AE9032000243413 /* TrainingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,14 +8,12 @@
 
 #import "TrainingTableViewController.h"
 #import "EditTrainingTableViewController.h"
-#import "../CoreData/CoreData.h"
-#import "../CoreData/CDTraining.h"
+#import "../Resources/Training.h"
+#import "../Resources/Exercise.h"
+#import "../Resources/Storage.h"
 
-@interface TrainingTableViewController () <NSFetchedResultsControllerDelegate, EditTrainingTableViewControllerDelegate>
-{
-    NSFetchedResultsController *_fetchController;
-}
-
+@interface TrainingTableViewController () <EditTrainingTableViewControllerDelegate>
+@property(strong) NSMutableArray *trainings;
 @end
 
 @implementation TrainingTableViewController
@@ -26,16 +24,8 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.tableView.allowsSelectionDuringEditing = YES;
     
-    NSManagedObjectContext *context = [[CoreData coreData] managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"CDTraining"];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
-    [request setSortDescriptors:@[sortDescriptor]];
-    
-    _fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
-    _fetchController.delegate = self;
-    
-    [_fetchController performFetch:nil];
+    // Load the trainings
+    self.trainings = [Storage trainings];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,16 +37,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[_fetchController fetchedObjects] count];
+    return self.trainings.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingTableViewCell" forIndexPath:indexPath];
     
-    CDTraining *training = ((CDTraining *)[[_fetchController fetchedObjects] objectAtIndex:indexPath.row]);
+    Training *training = [self.trainings objectAtIndex:indexPath.row];
     cell.textLabel.text = training.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Übungen", training.exercises.count];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Übung%@", training.exercises.count, training.exercises.count == 1 ? @"" : @"en"];
     
     return cell;
 }
@@ -69,33 +59,20 @@
     if (editingStyle != UITableViewCellEditingStyleDelete)
         return;
     
-    // Delete object from context
-    NSManagedObjectContext *context = [[CoreData coreData] managedObjectContext];
-    [context deleteObject:[[_fetchController fetchedObjects] objectAtIndex:indexPath.row]];
-    
-    // Refetch data
-    [_fetchController performFetch:nil];
-    
-    // Reorder indices
-    NSArray *array = [_fetchController fetchedObjects];
-    for(int i = 0; i < array.count; i++)
-        ((CDTraining *)[array objectAtIndex:i]).index = [NSNumber numberWithInt:i];
+    [self.trainings removeObjectAtIndex:indexPath.row];
+    [Storage saveTrainings:self.trainings];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation: UITableViewRowAnimationFade];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    NSMutableArray *array = [[_fetchController fetchedObjects] mutableCopy];
+    if(fromIndexPath.section != 1 || toIndexPath.section != 1)
+        return;
     
-    id movee = [array objectAtIndex:fromIndexPath.row];
-    
-    [array removeObjectAtIndex:fromIndexPath.row];
-    [array insertObject:movee atIndex:toIndexPath.row];
-    
-    for(int i = 0; i < array.count; i++)
-        ((CDTraining *)[array objectAtIndex:i]).index = [NSNumber numberWithInt:i];
-    
-    [_fetchController performFetch:nil];
+    id movee = [self.trainings objectAtIndex:fromIndexPath.row];
+    [self.trainings removeObject:movee];
+    [self.trainings insertObject:movee atIndex:toIndexPath.row];
+    [Storage saveTrainings:self.trainings];
 }
 
 
@@ -121,15 +98,14 @@
             controller.delegate = self;
             controller.sender = sender;
             
+            // Edit training
             if([sender isKindOfClass:[UITableViewCell class]]) {
                 NSInteger index = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
-                controller.training = (CDTraining *)[[_fetchController fetchedObjects] objectAtIndex:index];
+                controller.training = [[self.trainings objectAtIndex:index] mutableCopy];
             }
             else {
-                NSManagedObjectContext *context = [[CoreData coreData] managedObjectContext];
-                NSEntityDescription *description = [NSEntityDescription entityForName:@"CDTraining" inManagedObjectContext:context];
-                
-                controller.training = [[CDTraining alloc] initWithEntity:description insertIntoManagedObjectContext:nil];
+                // Insert training
+                controller.training = [[Training alloc] init];
             }
         }
     }
@@ -145,23 +121,19 @@
     
     // The controller was opened by a table cell
     if([controller.sender isKindOfClass:[UITableViewCell class]]) {
-        [self.tableView reloadData];
+        NSUInteger index = [self.tableView indexPathForCell:(UITableViewCell *)controller.sender].row;
+        [self.trainings setObject:controller.training atIndexedSubscript:index];
+                            
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForCell:(UITableViewCell *)controller.sender] animated:YES];
     } else {
         // Store the new training and appent it at the end
-        controller.training.index = [NSNumber numberWithInt:(int)[_fetchController fetchedObjects].count];
-        [[[CoreData coreData] managedObjectContext] insertObject:controller.training];
+        [self.trainings addObject:controller.training];
         
-        // Store all exercises
-        for(NSManagedObject *exercise in controller.training.exercises) {
-            [[[CoreData coreData] managedObjectContext] insertObject:exercise];
-        }
     }
-    
-    [controller dismissViewControllerAnimated:YES completion:nil];
-    
-    [_fetchController performFetch:nil];
+                            
     [self.tableView reloadData];
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    [Storage saveTrainings:self.trainings];
 }
 
 @end

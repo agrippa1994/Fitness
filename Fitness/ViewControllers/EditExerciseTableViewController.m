@@ -43,9 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _initialExerciseType = 0;
-    _initialWarmup = 5;
-    _initialInterval = 60;
+    if(_initialWarmup < 5)
+        _initialWarmup = 5;
+    
+    if(_initialInterval <= 0)
+        _initialInterval = 60;
     
     self.exercisePickerView.delegate = self;
     self.warmUpPickerView.delegate = self;
@@ -85,7 +87,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if(pickerView == self.exercisePickerView)
-        return [CDExercise exerciseTypeToString:(enum ExerciseType)row];
+        return [Exercise exerciseTypeToString:(enum ExerciseType)row];
     
     if(pickerView == self.warmUpPickerView)
         return [NSString stringWithFormat:@"%ld Sekunden", row + 5];

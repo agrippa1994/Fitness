@@ -10,7 +10,7 @@
 
 
 @class EditTrainingTableViewController;
-@class CDTraining;
+@class Training;
 
 @protocol EditTrainingTableViewControllerDelegate
 - (void)editTrainingTableViewControllerDidCancelled:(EditTrainingTableViewController *)controller;
@@ -22,6 +22,6 @@
 @property(weak) id<EditTrainingTableViewControllerDelegate> delegate;
 @property(weak) NSObject *sender;
 
-@property(strong) CDTraining *training;
+@property(strong) Training *training;
 
 @end
