@@ -13,7 +13,7 @@
 #import "../Resources/Exercise.h"
 #import "../Resources/Storage.h"
 
-@interface TrainingTableViewController () <EditTrainingTableViewControllerDelegate>
+@interface TrainingTableViewController () <EditTrainingTableViewControllerDelegate, ORKTaskViewControllerDelegate>
 @property(strong) NSMutableArray *trainings;
 @end
 
@@ -118,7 +118,10 @@
     if(tableView.isEditing) {
         [self performSegueWithIdentifier:@"EditTrainingTableViewController" sender:[tableView cellForRowAtIndexPath:indexPath]];
     } else {
-        
+        Training *training = [self.trainings objectAtIndex:indexPath.row];
+        ORKTaskViewController *controller = [[ORKTaskViewController alloc] initWithTask:[training trainingTask] taskRunUUID:nil];
+        controller.delegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
     }
 }
 
@@ -146,6 +149,11 @@
     [self.tableView reloadData];
     [controller dismissViewControllerAnimated:YES completion:nil];
     [Storage saveTrainings:self.trainings];
+}
+
+#pragma mark ORKTaskViewController Delegation
+- (void)taskViewController:(ORKTaskViewController * __nonnull)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(nullable NSError *)error {
+    [taskViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

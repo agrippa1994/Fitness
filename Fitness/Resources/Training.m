@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Mani. All rights reserved.
 //
 
+#import <ResearchKit/ResearchKit.h>
 #import "Training.h"
 #import "Exercise.h"
 #import "Helpers.h"
@@ -63,10 +64,21 @@
 #pragma mark Methods
 - (NSTimeInterval)exerciseDuration {
     NSTimeInterval duration = 0;
+    
     for(Exercise *exercise in self.exercises)
         duration += [exercise.interval integerValue];
     
     return duration;
+}
+
+- (ORKOrderedTask *)trainingTask {
+    NSMutableArray *exerciseTasks = [NSMutableArray array];
+    
+    for(Exercise *exercise in self.exercises)
+        for(ORKStep *step in [exercise createResearchKitTasks])
+            [exerciseTasks addObject:step];
+    
+    return [[ORKOrderedTask alloc] initWithIdentifier:@"trainingTask" steps:exerciseTasks];
 }
 
 @end

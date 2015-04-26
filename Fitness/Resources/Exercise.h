@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 enum ExerciseType: int16_t {
     ExerciseTypeRunning = 0,
     ExerciseTypeBreast,
@@ -32,5 +31,6 @@ enum ExerciseType: int16_t {
 @property (nonatomic, retain) NSNumber * interval;
 
 + (NSString *)exerciseTypeToString:(enum ExerciseType)type;
+- (NSArray *)createResearchKitTasks;
 
 @end

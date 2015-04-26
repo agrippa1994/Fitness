@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORKOrderedTask;
+
 @interface Training : NSObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSMutableArray *exercises;
 
 - (NSTimeInterval)exerciseDuration;
+- (ORKOrderedTask *)trainingTask;
 
 @end

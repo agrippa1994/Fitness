@@ -73,7 +73,7 @@
         _textLabel = [ORKSubheadlineLabel new];
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        _textLabel.text =  ORKLocalizedString(@"COUNTDOWN_LABEL", nil);
+        _textLabel.text = ORKLocalizedString(@"COUNTDOWN_LABEL", nil);
         [self addSubview:_textLabel];
         
         _timeLabel = [ORKCountDownViewLabel new];
@@ -209,6 +209,12 @@
     
     _countdownView = [[ORKCountdownView alloc] init];
     _countdownView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    ORKCountdownStep * ptr = (ORKCountdownStep *)self.step;
+    if(ptr != nil)
+        if(ptr.subtitle != nil)
+            _countdownView.textLabel.text = ptr.subtitle;
+            
     self.activeStepView.activeCustomView = _countdownView;
     
     [self updateCountdownLabel];

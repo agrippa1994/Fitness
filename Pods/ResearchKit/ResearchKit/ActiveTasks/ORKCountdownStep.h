@@ -43,4 +43,6 @@
 ORK_CLASS_AVAILABLE
 @interface ORKCountdownStep : ORKActiveStep
 
+@property(strong) NSString *subtitle;
+
 @end
