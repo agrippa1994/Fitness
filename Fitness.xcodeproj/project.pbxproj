@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3C81290C1AE8F29500243413 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81290B1AE8F29500243413 /* main.m */; };
 		3C81290F1AE8F29500243413 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81290E1AE8F29500243413 /* AppDelegate.m */; };
-		3C8129121AE8F29500243413 /* Fitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C8129101AE8F29500243413 /* Fitness.xcdatamodeld */; };
 		3C8129181AE8F29500243413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8129161AE8F29500243413 /* Main.storyboard */; };
 		3C81291A1AE8F29500243413 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C8129191AE8F29500243413 /* Images.xcassets */; };
 		3C81291D1AE8F29500243413 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C81291B1AE8F29500243413 /* LaunchScreen.xib */; };
@@ -25,6 +24,7 @@
 		3CC6FC0F1AEBC34C00A3F03F /* Training.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FC0A1AEBC34C00A3F03F /* Training.m */; };
 		3CC6FC111AEBC34C00A3F03F /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FC0E1AEBC34C00A3F03F /* Exercise.m */; };
 		3CC6FC141AEBC45100A3F03F /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FC131AEBC45100A3F03F /* Storage.m */; };
+		3CC6FC171AECF7DD00A3F03F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC6FC161AECF7DD00A3F03F /* AudioToolbox.framework */; };
 		AA41DD974DAE4FEEAB888825 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B54887A475164A5AA0DE6EB5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,6 @@
 		3C81290B1AE8F29500243413 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C81290D1AE8F29500243413 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C81290E1AE8F29500243413 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3C8129111AE8F29500243413 /* Fitness.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fitness.xcdatamodel; sourceTree = "<group>"; };
 		3C8129191AE8F29500243413 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C8129221AE8F29500243413 /* FitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8129271AE8F29500243413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		3CC6FC121AEBC45100A3F03F /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Storage.h; path = Resources/Storage.h; sourceTree = "<group>"; };
 		3CC6FC131AEBC45100A3F03F /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Storage.m; path = Resources/Storage.m; sourceTree = "<group>"; };
 		3CC6FC151AEBC47B00A3F03F /* Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Helpers.h; path = Resources/Helpers.h; sourceTree = "<group>"; };
+		3CC6FC161AECF7DD00A3F03F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6DED02AC9EC548B2AF1BFE89 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B54887A475164A5AA0DE6EB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +87,7 @@
 			files = (
 				AA41DD974DAE4FEEAB888825 /* libPods.a in Frameworks */,
 				3C8129341AE8F3B500243413 /* HealthKit.framework in Frameworks */,
+				3CC6FC171AECF7DD00A3F03F /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +104,7 @@
 		1D329C642B44405F9EAD8DFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CC6FC161AECF7DD00A3F03F /* AudioToolbox.framework */,
 				3C8129331AE8F3B500243413 /* HealthKit.framework */,
 				B54887A475164A5AA0DE6EB5 /* libPods.a */,
 			);
@@ -132,17 +134,15 @@
 		3C8129081AE8F29500243413 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				3C81290D1AE8F29500243413 /* AppDelegate.h */,
+				3C81290E1AE8F29500243413 /* AppDelegate.m */,
+				3CC6FC181AECF82300A3F03F /* Storyboards */,
 				3C81295B1AE9037F00243413 /* Views */,
 				3C8129511AE9029E00243413 /* ViewControllers */,
 				3C8129451AE8FDAE00243413 /* Health */,
 				3C8129351AE8FAEB00243413 /* Resources */,
 				3C8129321AE8F3B500243413 /* Fitness.entitlements */,
-				3C81290D1AE8F29500243413 /* AppDelegate.h */,
-				3C81290E1AE8F29500243413 /* AppDelegate.m */,
-				3C8129161AE8F29500243413 /* Main.storyboard */,
 				3C8129191AE8F29500243413 /* Images.xcassets */,
-				3C81291B1AE8F29500243413 /* LaunchScreen.xib */,
-				3C8129101AE8F29500243413 /* Fitness.xcdatamodeld */,
 				3C8129091AE8F29500243413 /* Supporting Files */,
 			);
 			path = Fitness;
@@ -223,6 +223,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		3CC6FC181AECF82300A3F03F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3C8129161AE8F29500243413 /* Main.storyboard */,
+				3C81291B1AE8F29500243413 /* LaunchScreen.xib */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,6 +286,9 @@
 						DevelopmentTeam = PZP46GS9KE;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
 								enabled = 1;
 							};
 						};
@@ -369,7 +381,6 @@
 				3C8129641AE925CD00243413 /* EditTrainingTableViewController.m in Sources */,
 				3C8129671AE925E000243413 /* EditExerciseTableViewController.m in Sources */,
 				3CC6FC141AEBC45100A3F03F /* Storage.m in Sources */,
-				3C8129121AE8F29500243413 /* Fitness.xcdatamodeld in Sources */,
 				3C81295E1AE903AF00243413 /* TrainingTableViewCell.m in Sources */,
 				3C8129481AE8FDCC00243413 /* Health.m in Sources */,
 				3C81290C1AE8F29500243413 /* main.m in Sources */,
@@ -511,6 +522,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -526,6 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -594,19 +607,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3C8129101AE8F29500243413 /* Fitness.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3C8129111AE8F29500243413 /* Fitness.xcdatamodel */,
-			);
-			currentVersion = 3C8129111AE8F29500243413 /* Fitness.xcdatamodel */;
-			path = Fitness.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3C8128FE1AE8F29400243413 /* Project object */;
 }

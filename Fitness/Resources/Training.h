@@ -1,5 +1,5 @@
 //
-//  CDTraining.h
+//  Training.h
 //  Fitness
 //
 //  Created by Mani on 23.04.15.
@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface Training : NSObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSMutableArray *exercises;
+
+- (NSTimeInterval)exerciseDuration;
 
 @end

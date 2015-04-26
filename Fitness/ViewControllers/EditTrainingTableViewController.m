@@ -18,31 +18,24 @@
 
 @implementation EditTrainingTableViewController
 
+#pragma mark Storyboard Actions
 - (IBAction)onCancel:(id)sender {
     if(_delegate != nil)
         [_delegate editTrainingTableViewControllerDidCancelled:self];
 }
 
 - (IBAction)onSave:(id)sender {
+    if(self.training.name.length == 0)
+        return [[[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Name ist leer!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     
-    TrainingTableViewCell *cell = (TrainingTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    
-    if([cell inputText].length == 0) {
-        [[[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Name ist leer!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    if(self.training.exercises.count == 0) {
-        [[[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Keine Übungen!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        return;
-    }
-    
-    self.training.name = [cell inputText];
+    if(self.training.exercises.count == 0)
+        return [[[UIAlertView alloc] initWithTitle:@"Fehler" message:@"Keine Übungen!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     
     if(_delegate != nil)
         [_delegate editTrainingTableViewControllerDidFinished:self];
 }
 
+#pragma mark Overloaded Base Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -50,6 +43,26 @@
     self.tableView.editing = YES;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+        UIViewController *underlayingController = ((UINavigationController *)segue.destinationViewController).topViewController;
+        
+        if([underlayingController isKindOfClass:[EditExerciseTableViewController class]]) {
+            EditExerciseTableViewController *controller = (EditExerciseTableViewController *)underlayingController;
+            controller.delegate = self;
+            controller.sender = sender;
+            
+            if([sender isKindOfClass:[UITableViewCell class]]) {
+                NSUInteger index = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
+                
+                Exercise *exercise = [self.training.exercises objectAtIndex:index];
+                [controller setInitialData:exercise.type warmupTime:[exercise.warmup integerValue] timeInterval:[exercise.interval integerValue]];
+            }
+        }
+    }
+}
+
+#pragma mark UITableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
@@ -67,7 +80,7 @@
     return 0;
 }
 
-
+#pragma mark UITableView Delegation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *reuseIdentifier = @"";
@@ -150,26 +163,7 @@
     return indexPath.section == 1; // Move only exercises;
 }
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
-        UIViewController *underlayingController = ((UINavigationController *)segue.destinationViewController).topViewController;
-        
-        if([underlayingController isKindOfClass:[EditExerciseTableViewController class]]) {
-            EditExerciseTableViewController *controller = (EditExerciseTableViewController *)underlayingController;
-            controller.delegate = self;
-            controller.sender = sender;
-            
-            if([sender isKindOfClass:[UITableViewCell class]]) {
-                NSUInteger index = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
-                
-                Exercise *exercise = [self.training.exercises objectAtIndex:index];
-                [controller setInitialData:exercise.type warmupTime:[exercise.warmup integerValue] timeInterval:[exercise.interval integerValue]];
-            }
-        }
-    }
-}
-
+#pragma mark EditExerciseTableViewController Delegation
 - (void)editExerciseTableViewController:(EditExerciseTableViewController *)controller didFinishedWithExerciseType:(enum ExerciseType)type withWarmupInterval:(NSTimeInterval)warmup withTimeInterval:(NSTimeInterval)interval {
     
     if(controller.sender == nil)
@@ -196,7 +190,6 @@
         exercise.interval = [NSNumber numberWithInteger:interval];
         
         [self.training.exercises addObject:exercise];
-        NSLog(@"%ld", self.training.exercises.count);
     }
     
     [self.tableView reloadData];
@@ -208,7 +201,8 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)trainingTableViewCell:(TrainingTableViewCell *)cell didEnteredText:(NSString *)text {
+#pragma mark TrainingTableViewCell Delegation
+- (void)trainingTableViewCell:(TrainingTableViewCell *)cell didChangedText:(NSString *)text {
     self.training.name = text;
 }
 

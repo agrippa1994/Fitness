@@ -1,5 +1,5 @@
 //
-//  CDExercise.h
+//  Exercise.h
 //  Fitness
 //
 //  Created by Mani on 23.04.15.
@@ -19,6 +19,7 @@ enum ExerciseType: int16_t {
     ExerciseTypeCalves,
     ExerciseTypeShoulders,
     ExerciseTypeStomach,
+    ExerciseTypeLowerBack,
     ExerciseTypePause,
     ExerciseTypeCount
 };

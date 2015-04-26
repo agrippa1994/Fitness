@@ -19,6 +19,7 @@
 
 @implementation MainNavigationController
 
+#pragma mark Overloaded Base Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -40,6 +41,7 @@
     }
 }
 
+#pragma mark Methods
 - (void)validateHealthKit {
     [[Health health] isAllowedToUse:^(BOOL success) {
        if(!success)
@@ -47,6 +49,7 @@
     }];
 }
 
+#pragma mark Notifications
 - (void)applicationDidEnterForeground {
     [self validateHealthKit];
 }

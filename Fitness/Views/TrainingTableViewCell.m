@@ -16,27 +16,33 @@
 
 @implementation TrainingTableViewCell
 
+#pragma mark Actions
+- (void)textFieldDidChange:(UITextField *)textField {
+    if(_delegate)
+        [_delegate trainingTableViewCell:self didChangedText:textField.text];
+}
+
+#pragma mark Overrided Base Methods
 -(void) awakeFromNib {
     [super awakeFromNib];
     
+    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.textField.delegate = self;
 }
 
+#pragma mark UITextField Delegation
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark Methods
 - (NSString *)inputText {
     return self.textField.text;
 }
 
 - (void)setInputText:(NSString *)text {
     self.textField.text = text;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if(_delegate == nil)
-        return FALSE;
-    
-    [_delegate trainingTableViewCell:self didEnteredText:textField.text];
-    [textField resignFirstResponder];
-    return YES;
 }
 
 @end

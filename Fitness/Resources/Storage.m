@@ -12,6 +12,7 @@
 
 @implementation Storage
 
+#pragma mark Methods
 + (NSMutableArray *)trainings {
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@KEY];
     if(data == nil)

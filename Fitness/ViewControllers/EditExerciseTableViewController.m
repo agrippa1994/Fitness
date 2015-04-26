@@ -24,6 +24,7 @@
 
 @implementation EditExerciseTableViewController
 
+#pragma mark Storyboard Actions
 - (IBAction)onSave:(id)sender {
     
     enum ExerciseType type = (enum ExerciseType)[self.exercisePickerView selectedRowInComponent:0];
@@ -40,6 +41,7 @@
         [_delegate editExerciseTableViewControllerDidCancel:self];
 }
 
+#pragma mark Overloaded Base Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -64,13 +66,13 @@
     
 }
 
+#pragma mark UIPickerView Data Source
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     // The interval picker also supports minutes, so we need two components
     return (pickerView == self.intervalPickerView) ? 2 : 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    
     if(pickerView == self.exercisePickerView)
         return (NSInteger)ExerciseTypeCount;
     
@@ -78,13 +80,14 @@
         return 16;
     
     if(pickerView == self.intervalPickerView) {
-        if(component == 0) return 120; // 120 minutes
-        else return 60; // 60 seconds
+        if(component == 0) return 121; // 120 minutes (0-120 = 121)
+        else return 60; // 60 seconds (0-59 = 60)
     }
     
     return 0;
 }
 
+#pragma mark UIPickerView Delegation
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if(pickerView == self.exercisePickerView)
         return [Exercise exerciseTypeToString:(enum ExerciseType)row];
@@ -94,14 +97,15 @@
     
     if(pickerView == self.intervalPickerView) {
         if(component == 0)  // minutes
-            return [NSString stringWithFormat:@"%ld Minuten", row];
+            return [NSString stringWithFormat:@"%ld Minute%@", row, row == 1 ? @"" : @"n"];
         else // seconds
-            return [NSString stringWithFormat:@"%ld Sekunden", row];
+            return [NSString stringWithFormat:@"%ld Sekunde%@", row, row == 1 ? @"" : @"n"];
     }
     
     return @"";
 }
 
+#pragma mark Methods
 - (BOOL)setInitialData:(enum ExerciseType)type warmupTime:(NSTimeInterval)warmup timeInterval:(NSTimeInterval)interval {
     _initialExerciseType = type;
     _initialWarmup = warmup;

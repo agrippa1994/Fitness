@@ -12,18 +12,8 @@
 @class EditExerciseTableViewController;
 
 @protocol EditExerciseTableViewControllerDelegate
-@required
-- (void)editExerciseTableViewControllerDidCancel:
-    (EditExerciseTableViewController *)controller
-;
-
-- (void)editExerciseTableViewController:
-    (EditExerciseTableViewController *)controller
-    didFinishedWithExerciseType:(enum ExerciseType)type
-    withWarmupInterval:(NSTimeInterval)warmup
-    withTimeInterval:(NSTimeInterval)interval
-;
-
+- (void)editExerciseTableViewControllerDidCancel:(EditExerciseTableViewController *)controller;
+- (void)editExerciseTableViewController:(EditExerciseTableViewController *)controller didFinishedWithExerciseType:(enum ExerciseType)type withWarmupInterval:(NSTimeInterval)warmup withTimeInterval:(NSTimeInterval)interval;
 @end
 
 @interface EditExerciseTableViewController : UITableViewController

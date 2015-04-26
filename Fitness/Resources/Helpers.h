@@ -6,7 +6,10 @@
 //  Copyright (c) 2015 Mani. All rights reserved.
 //
 
+#pragma mark Util Helpers
 #define STRINGIFY(x) #x
+
+#pragma mark NSCoding Helpers
 #define ENCODE_OBJ(x, c) [c encodeObject: x forKey:@STRINGIFY(x)]
 #define DECODE_OBJ(x, c) x = [c decodeObjectForKey:@STRINGIFY(x)]
 

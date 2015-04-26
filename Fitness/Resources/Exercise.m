@@ -1,5 +1,5 @@
 //
-//  CDExercise.m
+//  Exercise.m
 //  Fitness
 //
 //  Created by Mani on 23.04.15.
@@ -28,6 +28,7 @@
     return self;
 }
 
+#pragma mark NSCoding Protocol
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [self init];
     
@@ -38,6 +39,13 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    ENCODE_ENUM(self.type, aCoder);
+    ENCODE_OBJ(self.warmup, aCoder);
+    ENCODE_OBJ(self.interval, aCoder);
+}
+
+#pragma mark NSCopying Protocol
 - (id)copyWithZone:(NSZone *)zone {
     Exercise *newObject = [[self class] allocWithZone:zone];
     
@@ -48,6 +56,7 @@
     return newObject;
 }
 
+#pragma mark NSMutableCopying Protocol
 - (id)mutableCopyWithZone:(NSZone *)zone {
     Exercise *newObject = [[self class] allocWithZone:zone];
     
@@ -58,12 +67,7 @@
     return newObject;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    ENCODE_ENUM(self.type, aCoder);
-    ENCODE_OBJ(self.warmup, aCoder);
-    ENCODE_OBJ(self.interval, aCoder);
-}
-
+#pragma mark Methods
 + (NSDictionary *)exerciseTypes {
     return @{
              @(ExerciseTypeRunning): @"Laufen",
@@ -75,6 +79,7 @@
              @(ExerciseTypeCalves): @"Waden",
              @(ExerciseTypeShoulders): @"Schultern",
              @(ExerciseTypeStomach): @"Bauch",
+             @(ExerciseTypeLowerBack): @"Kreuz",
              @(ExerciseTypePause): @"Pause"
     };
 }

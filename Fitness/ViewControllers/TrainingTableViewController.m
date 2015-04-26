@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Mani. All rights reserved.
 //
 
+#import <ResearchKit/ResearchKit.h>
 #import "TrainingTableViewController.h"
 #import "EditTrainingTableViewController.h"
 #import "../Resources/Training.h"
@@ -18,6 +19,7 @@
 
 @implementation TrainingTableViewController
 
+#pragma mark Overloaded Base Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -32,6 +34,30 @@
     [super viewWillAppear:animated];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
+        UIViewController *underlayingController = ((UINavigationController *)segue.destinationViewController).topViewController;
+        
+        if([underlayingController isKindOfClass:[EditTrainingTableViewController class]]) {
+            EditTrainingTableViewController *controller = (EditTrainingTableViewController *)underlayingController;
+            
+            controller.delegate = self;
+            controller.sender = sender;
+            
+            // Edit training
+            if([sender isKindOfClass:[UITableViewCell class]]) {
+                NSInteger index = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
+                controller.training = [[self.trainings objectAtIndex:index] mutableCopy];
+            }
+            else {
+                // Insert training
+                controller.training = [[Training alloc] init];
+            }
+        }
+    }
+}
+
+#pragma mark UITableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -40,13 +66,21 @@
     return self.trainings.count;
 }
 
-
+#pragma mark UITableView Delegation
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainingTableViewCell" forIndexPath:indexPath];
     
     Training *training = [self.trainings objectAtIndex:indexPath.row];
     cell.textLabel.text = training.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Übung%@", training.exercises.count, training.exercises.count == 1 ? @"" : @"en"];
+    
+    NSInteger durationMinutes = ((NSInteger)[training exerciseDuration]) / 60;
+    NSInteger durationSeconds = ((NSInteger)[training exerciseDuration]) % 60;
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Übung%@, Dauer: %ld Minute%@ %ld Sekunde%@",
+                                 training.exercises.count, training.exercises.count == 1 ? @"" : @"en",
+                                 durationMinutes, durationMinutes == 1 ? @"" : @"n",
+                                 durationSeconds, durationSeconds == 1 ? @"" : @"n"
+                                 ];
     
     return cell;
 }
@@ -88,29 +122,7 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[UINavigationController class]]) {
-        UIViewController *underlayingController = ((UINavigationController *)segue.destinationViewController).topViewController;
-        
-        if([underlayingController isKindOfClass:[EditTrainingTableViewController class]]) {
-            EditTrainingTableViewController *controller = (EditTrainingTableViewController *)underlayingController;
-            
-            controller.delegate = self;
-            controller.sender = sender;
-            
-            // Edit training
-            if([sender isKindOfClass:[UITableViewCell class]]) {
-                NSInteger index = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
-                controller.training = [[self.trainings objectAtIndex:index] mutableCopy];
-            }
-            else {
-                // Insert training
-                controller.training = [[Training alloc] init];
-            }
-        }
-    }
-}
-
+#pragma mark EditTrainingTableViewController Delegation
 - (void)editTrainingTableViewControllerDidCancelled:(EditTrainingTableViewController *)controller {
     [controller dismissViewControllerAnimated:YES completion:nil];
 }

@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="1707" y="754"/>
         </scene>
-        <!--Training Table View Controller-->
+        <!--Trainings-->
         <scene sceneID="239-cF-xJI">
             <objects>
                 <tableViewController id="SgT-mN-Ev5" customClass="TrainingTableViewController" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                             <outlet property="delegate" destination="SgT-mN-Ev5" id="BJl-sF-TeG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="czL-7t-Td2">
+                    <navigationItem key="navigationItem" title="Trainings" id="czL-7t-Td2">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="qTy-R9-fZO"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bJa-aG-8It">
                             <connections>
@@ -151,7 +151,7 @@
                                     <segue destination="TTq-Vn-4v9" kind="presentation" identifier="EditExerciseTableViewController" id="kSC-i8-1g9"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTrainingCell" id="hFS-UJ-zHi">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddTrainingCell" id="hFS-UJ-zHi">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hFS-UJ-zHi" id="OWN-1e-Dbu">
                                     <autoresizingMask key="autoresizingMask"/>

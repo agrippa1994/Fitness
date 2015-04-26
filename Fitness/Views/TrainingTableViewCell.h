@@ -11,7 +11,7 @@
 @class TrainingTableViewCell;
 
 @protocol TrainingTableViewCellDelegate
-- (void)trainingTableViewCell:(TrainingTableViewCell *)cell didEnteredText:(NSString *)text;
+- (void)trainingTableViewCell:(TrainingTableViewCell *)cell didChangedText:(NSString *)text;
 @end
 
 @interface TrainingTableViewCell : UITableViewCell

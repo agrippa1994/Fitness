@@ -1,5 +1,5 @@
 //
-//  CDTraining.m
+//  Training.m
 //  Fitness
 //
 //  Created by Mani on 23.04.15.
@@ -7,6 +7,7 @@
 //
 
 #import "Training.h"
+#import "Exercise.h"
 #import "Helpers.h"
 
 @interface Training () <NSCoding, NSCopying, NSMutableCopying>
@@ -24,6 +25,7 @@
     return self;
 }
 
+#pragma mark NSCoding Protocol
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [self init];
     
@@ -33,6 +35,12 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    ENCODE_OBJ(self.name, aCoder);
+    ENCODE_OBJ(self.exercises, aCoder);
+}
+
+#pragma mark NSCopying Protocol
 - (id)copyWithZone:(NSZone *)zone {
     Training *newObject = [[self class] allocWithZone:zone];
     
@@ -42,6 +50,7 @@
     return newObject;
 }
 
+#pragma mark NSMutableCopying Protocol
 - (id)mutableCopyWithZone:(NSZone *)zone {
     Training *newObject = [[self class] allocWithZone:zone];
     
@@ -51,9 +60,13 @@
     return newObject;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    ENCODE_OBJ(self.name, aCoder);
-    ENCODE_OBJ(self.exercises, aCoder);
+#pragma mark Methods
+- (NSTimeInterval)exerciseDuration {
+    NSTimeInterval duration = 0;
+    for(Exercise *exercise in self.exercises)
+        duration += [exercise.interval integerValue];
+    
+    return duration;
 }
 
 @end
