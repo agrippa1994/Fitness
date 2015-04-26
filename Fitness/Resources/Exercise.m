@@ -96,8 +96,6 @@
 
 #pragma mark Dynamic Methods
 - (NSArray *)createResearchKitTasks:(NSInteger)index {
-    
-    
     ORKInstructionStep *instructionStep = [[ORKInstructionStep alloc] initWithIdentifier:[NSString stringWithFormat:@"task %ld", index]];
     instructionStep.title = [[self class] exerciseTypeToString: self.type];
     

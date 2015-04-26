@@ -17,6 +17,9 @@
 @interface TrainingTableViewController () <EditTrainingTableViewControllerDelegate, ORKTaskViewControllerDelegate>
 @property(strong) NSMutableArray *trainings;
 @property NSDate *trainingStart;
+
+- (void)startLocalNotificationWithInterval:(NSTimeInterval)interval;
+
 @end
 
 @implementation TrainingTableViewController
@@ -102,9 +105,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    if(fromIndexPath.section != 1 || toIndexPath.section != 1)
-        return;
-    
     id movee = [self.trainings objectAtIndex:fromIndexPath.row];
     [self.trainings removeObject:movee];
     [self.trainings insertObject:movee atIndex:toIndexPath.row];
@@ -163,7 +163,30 @@
     // Add data to HealthKit
     if(reason == ORKTaskViewControllerFinishReasonCompleted) {
         [[Health health] addTraining:self.trainingStart end:[NSDate date] completion:nil];
+        [self startLocalNotificationWithInterval:0];
     }
+}
+
+- (void)taskViewController:(ORKTaskViewController * __nonnull)taskViewController stepViewControllerWillAppear:(ORKStepViewController * __nonnull)stepViewController {
+    if(stepViewController.step != nil) {
+        if([stepViewController.step isKindOfClass:[ORKActiveStep class]]) {
+            ORKActiveStep *step = (ORKActiveStep *)stepViewController.step;
+            [self startLocalNotificationWithInterval:step.stepDuration];
+        }
+    }
+}
+
+#pragma mark Methods
+- (void)startLocalNotificationWithInterval:(NSTimeInterval)interval {
+    UILocalNotification *notification = [UILocalNotification new];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:interval];
+    notification.alertBody = @"Zeit abgelaufen!";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    if(interval == 0)
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    else
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
 
