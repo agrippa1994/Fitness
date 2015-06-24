@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */; };
-		3CCDAC691B3B374C00400C1F /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC681B3B374C00400C1F /* UIStoryboard+Extensions.swift */; };
-		3CCDAC6B1B3B381E00400C1F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC6A1B3B381E00400C1F /* Exercise.swift */; };
-		3CCDAC6D1B3B38C800400C1F /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC6C1B3B38C800400C1F /* Training.swift */; };
-		3CCDAC721B3B430300400C1F /* Copier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC711B3B430300400C1F /* Copier.swift */; };
+		3CCDAC8A1B3B4A5800400C1F /* Copier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC861B3B4A5800400C1F /* Copier.swift */; };
+		3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC871B3B4A5800400C1F /* Exercise.swift */; };
+		3CCDAC8C1B3B4A5800400C1F /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC881B3B4A5800400C1F /* Training.swift */; };
+		3CCDAC8D1B3B4A5800400C1F /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */; };
 		3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8361B3AFBDB003AC334 /* Images.xcassets */; };
 		3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */; };
 		3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86C1B3B2954003AC334 /* HealthKit.framework */; };
@@ -28,11 +28,11 @@
 
 /* Begin PBXFileReference section */
 		3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTrainingTableViewController.swift; path = ViewControllers/EditTrainingTableViewController.swift; sourceTree = "<group>"; };
-		3CCDAC681B3B374C00400C1F /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
-		3CCDAC6A1B3B381E00400C1F /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		3CCDAC6C1B3B38C800400C1F /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		3CCDAC701B3B3B7C00400C1F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3CCDAC711B3B430300400C1F /* Copier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copier.swift; sourceTree = "<group>"; };
+		3CCDAC861B3B4A5800400C1F /* Copier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copier.swift; path = Core/Copier.swift; sourceTree = "<group>"; };
+		3CCDAC871B3B4A5800400C1F /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Core/Exercise.swift; sourceTree = "<group>"; };
+		3CCDAC881B3B4A5800400C1F /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Training.swift; path = Core/Training.swift; sourceTree = "<group>"; };
+		3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "Core/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		3CD8D82A1B3AFBDB003AC334 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD8D82E1B3AFBDB003AC334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CD8D8361B3AFBDB003AC334 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -138,11 +138,11 @@
 		3CD8D87B1B3B2A84003AC334 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3CCDAC861B3B4A5800400C1F /* Copier.swift */,
+				3CCDAC871B3B4A5800400C1F /* Exercise.swift */,
+				3CCDAC881B3B4A5800400C1F /* Training.swift */,
+				3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */,
 				3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */,
-				3CCDAC681B3B374C00400C1F /* UIStoryboard+Extensions.swift */,
-				3CCDAC6A1B3B381E00400C1F /* Exercise.swift */,
-				3CCDAC6C1B3B38C800400C1F /* Training.swift */,
-				3CCDAC711B3B430300400C1F /* Copier.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -232,16 +232,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */,
+				3CCDAC8A1B3B4A5800400C1F /* Copier.swift in Sources */,
 				3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */,
 				3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */,
 				3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */,
 				3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */,
-				3CCDAC721B3B430300400C1F /* Copier.swift in Sources */,
 				3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */,
-				3CCDAC691B3B374C00400C1F /* UIStoryboard+Extensions.swift in Sources */,
 				3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */,
-				3CCDAC6B1B3B381E00400C1F /* Exercise.swift in Sources */,
-				3CCDAC6D1B3B38C800400C1F /* Training.swift in Sources */,
+				3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */,
+				3CCDAC8D1B3B4A5800400C1F /* UIStoryboard+Extensions.swift in Sources */,
+				3CCDAC8C1B3B4A5800400C1F /* Training.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
