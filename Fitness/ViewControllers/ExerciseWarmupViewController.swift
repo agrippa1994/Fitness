@@ -9,17 +9,12 @@
 import UIKit
 
 class ExerciseWarmupViewController: UIViewController {
-
+    // MARK: - Storyboard Outlets
     @IBOutlet weak var timerView: ExerciseTimerView!
     
+    // MARK: - Overrided Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "asdf"
-        self.navigationItem.backBarButtonItem?.title = "1234"
-        self.navigationItem.leftBarButtonItem?.title = "4321"
-        
-        self.timerView.text = "888"
-        self.timerView.textSize = 30.0
     }
 }

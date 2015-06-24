@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  Fitness
+
+  Created by Manuel Stampfl on 24.06.15.
+  Copyright (c) 2015 mani1337. All rights reserved.
+*/
+
+"EXERCISETYPE_RUNNING" = "Laufen";
+
+"EXERCISETYPE_BREAST" = "Brust";
+
+"EXERCISETYPE_BACK" = "Rücken";
+
+"EXERCISETYPE_TRICEPS" = "Trizeps";
+
+"EXERCISETYPE_BICEPS" = "Bizeps";
+
+"EXERCISETYPE_LEGS" = "Beine";
+
+"EXERCISETYPE_CALVES" = "Waden";
+
+"EXERCISETYPE_SHOULDERS" = "Schultern";
+
+"EXERCISETYPE_STOMACH" = "Bauch";
+
+"EXERCISETYPE_LOWERBACK" = "Kreuz";
+
+"EXERCISETYPE_PAUSE" = "Pause";

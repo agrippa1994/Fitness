@@ -9,24 +9,17 @@
 import UIKit
 
 class ExercisePrepareViewController: UIViewController {
-
+    // MARK: - Storyboard Outlets
     @IBOutlet weak var trainingNameLabel: UILabel!
     
+    // MARK: - Storyboard Actions
     @IBAction func onGoButton(sender: AnyObject) {
         
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController2") as! UIViewController
-        
-        self.navigationController!.pushViewController(vc, animated: true)
     }
+    
+    // MARK: - Overrided Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

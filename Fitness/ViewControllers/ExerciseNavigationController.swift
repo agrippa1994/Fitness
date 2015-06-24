@@ -17,13 +17,14 @@ import UIKit
 }
 
 class ExerciseNavigationController: UINavigationController {
-
+    // MARK: - Overrided Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    // MARK: - Private member functions
     private func createPrepareViewController() -> ExercisePrepareViewController {
         return self.storyboard!.instantiateViewControllerWithIdentifier("ExercisePrepareViewController") as! ExercisePrepareViewController
     }

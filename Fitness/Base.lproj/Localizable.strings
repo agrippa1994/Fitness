@@ -5,3 +5,25 @@
   Created by Manuel Stampfl on 24.06.15.
   Copyright (c) 2015 mani1337. All rights reserved.
 */
+
+"EXERCISETYPE_RUNNING" = "Running";
+
+"EXERCISETYPE_BREAST" = "Breast";
+
+"EXERCISETYPE_BACK" = "Back";
+
+"EXERCISETYPE_TRICEPS" = "Triceps";
+
+"EXERCISETYPE_BICEPS" = "Biceps";
+
+"EXERCISETYPE_LEGS" = "Legs";
+
+"EXERCISETYPE_CALVES" = "Calves";
+
+"EXERCISETYPE_SHOULDERS" = "Shoulders";
+
+"EXERCISETYPE_STOMACH" = "Stomach";
+
+"EXERCISETYPE_LOWERBACK" = "Lower Back";
+
+"EXERCISETYPE_PAUSE" = "Pause";
