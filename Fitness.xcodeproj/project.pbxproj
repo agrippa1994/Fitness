@@ -7,35 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CD8D8301B3AFBDB003AC334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D82F1B3AFBDB003AC334 /* AppDelegate.swift */; };
-		3CD8D8321B3AFBDB003AC334 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8311B3AFBDB003AC334 /* ViewController.swift */; };
-		3CD8D8351B3AFBDB003AC334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8331B3AFBDB003AC334 /* Main.storyboard */; };
 		3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8361B3AFBDB003AC334 /* Images.xcassets */; };
 		3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */; };
-		3CD8D8461B3AFBDB003AC334 /* FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8451B3AFBDB003AC334 /* FitnessTests.swift */; };
+		3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86C1B3B2954003AC334 /* HealthKit.framework */; };
+		3CD8D86F1B3B295B003AC334 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */; };
+		3CD8D8731B3B299B003AC334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8711B3B299B003AC334 /* Main.storyboard */; };
+		3CD8D8781B3B2A57003AC334 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D87A1B3B2A57003AC334 /* Localizable.strings */; };
+		3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */; };
+		3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */; };
+		3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */; };
+		3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */; };
+		3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */; };
+		3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3CD8D8401B3AFBDB003AC334 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3CD8D8221B3AFBDB003AC334 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3CD8D8291B3AFBDB003AC334;
-			remoteInfo = Fitness;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3CD8D82A1B3AFBDB003AC334 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD8D82E1B3AFBDB003AC334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CD8D82F1B3AFBDB003AC334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CD8D8311B3AFBDB003AC334 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3CD8D8341B3AFBDB003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CD8D8361B3AFBDB003AC334 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3CD8D8391B3AFBDB003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3CD8D83F1B3AFBDB003AC334 /* FitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CD8D8441B3AFBDB003AC334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CD8D8451B3AFBDB003AC334 /* FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTests.swift; sourceTree = "<group>"; };
+		3CD8D86B1B3B2954003AC334 /* Fitness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Fitness.entitlements; sourceTree = "<group>"; };
+		3CD8D86C1B3B2954003AC334 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3CD8D8721B3B299B003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3CD8D8741B3B29EC003AC334 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		3CD8D8751B3B29EC003AC334 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3CD8D8791B3B2A57003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
+		3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrainingsTableViewController.swift; path = ViewControllers/TrainingsTableViewController.swift; sourceTree = "<group>"; };
+		3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseTimerView.swift; path = Views/ExerciseTimerView.swift; sourceTree = "<group>"; };
+		3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseNavigationController.swift; path = ViewControllers/ExerciseNavigationController.swift; sourceTree = "<group>"; };
+		3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExercisePrepareViewController.swift; path = ViewControllers/ExercisePrepareViewController.swift; sourceTree = "<group>"; };
+		3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseWarmupViewController.swift; path = ViewControllers/ExerciseWarmupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,13 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CD8D83C1B3AFBDB003AC334 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */,
+				3CD8D86F1B3B295B003AC334 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,8 +57,9 @@
 		3CD8D8211B3AFBDB003AC334 = {
 			isa = PBXGroup;
 			children = (
+				3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */,
+				3CD8D86C1B3B2954003AC334 /* HealthKit.framework */,
 				3CD8D82C1B3AFBDB003AC334 /* Fitness */,
-				3CD8D8421B3AFBDB003AC334 /* FitnessTests */,
 				3CD8D82B1B3AFBDB003AC334 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				3CD8D82A1B3AFBDB003AC334 /* Fitness.app */,
-				3CD8D83F1B3AFBDB003AC334 /* FitnessTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,11 +75,11 @@
 		3CD8D82C1B3AFBDB003AC334 /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
-				3CD8D82F1B3AFBDB003AC334 /* AppDelegate.swift */,
-				3CD8D8311B3AFBDB003AC334 /* ViewController.swift */,
-				3CD8D8331B3AFBDB003AC334 /* Main.storyboard */,
-				3CD8D8361B3AFBDB003AC334 /* Images.xcassets */,
-				3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */,
+				3CD8D87B1B3B2A84003AC334 /* Core */,
+				3CD8D86B1B3B2954003AC334 /* Fitness.entitlements */,
+				3CD8D8701B3B298D003AC334 /* Storyboards */,
+				3CD8D85E1B3B28CB003AC334 /* Views */,
+				3CD8D85D1B3B28BF003AC334 /* ViewControllers */,
 				3CD8D82D1B3AFBDB003AC334 /* Supporting Files */,
 			);
 			path = Fitness;
@@ -90,26 +88,47 @@
 		3CD8D82D1B3AFBDB003AC334 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CD8D87A1B3B2A57003AC334 /* Localizable.strings */,
+				3CD8D8361B3AFBDB003AC334 /* Images.xcassets */,
 				3CD8D82E1B3AFBDB003AC334 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3CD8D8421B3AFBDB003AC334 /* FitnessTests */ = {
+		3CD8D85D1B3B28BF003AC334 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3CD8D8451B3AFBDB003AC334 /* FitnessTests.swift */,
-				3CD8D8431B3AFBDB003AC334 /* Supporting Files */,
+				3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */,
+				3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */,
+				3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */,
+				3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */,
 			);
-			path = FitnessTests;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		3CD8D8431B3AFBDB003AC334 /* Supporting Files */ = {
+		3CD8D85E1B3B28CB003AC334 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3CD8D8441B3AFBDB003AC334 /* Info.plist */,
+				3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */,
 			);
-			name = "Supporting Files";
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3CD8D8701B3B298D003AC334 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3CD8D8711B3B299B003AC334 /* Main.storyboard */,
+				3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		3CD8D87B1B3B2A84003AC334 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,24 +151,6 @@
 			productReference = 3CD8D82A1B3AFBDB003AC334 /* Fitness.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3CD8D83E1B3AFBDB003AC334 /* FitnessTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3CD8D84C1B3AFBDB003AC334 /* Build configuration list for PBXNativeTarget "FitnessTests" */;
-			buildPhases = (
-				3CD8D83B1B3AFBDB003AC334 /* Sources */,
-				3CD8D83C1B3AFBDB003AC334 /* Frameworks */,
-				3CD8D83D1B3AFBDB003AC334 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3CD8D8411B3AFBDB003AC334 /* PBXTargetDependency */,
-			);
-			name = FitnessTests;
-			productName = FitnessTests;
-			productReference = 3CD8D83F1B3AFBDB003AC334 /* FitnessTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +162,18 @@
 				TargetAttributes = {
 					3CD8D8291B3AFBDB003AC334 = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					3CD8D83E1B3AFBDB003AC334 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 3CD8D8291B3AFBDB003AC334;
+						DevelopmentTeam = PZP46GS9KE;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -182,7 +191,6 @@
 			projectRoot = "";
 			targets = (
 				3CD8D8291B3AFBDB003AC334 /* Fitness */,
-				3CD8D83E1B3AFBDB003AC334 /* FitnessTests */,
 			);
 		};
 /* End PBXProject section */
@@ -192,16 +200,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD8D8351B3AFBDB003AC334 /* Main.storyboard in Resources */,
+				3CD8D8731B3B299B003AC334 /* Main.storyboard in Resources */,
+				3CD8D8781B3B2A57003AC334 /* Localizable.strings in Resources */,
 				3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */,
 				3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CD8D83D1B3AFBDB003AC334 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,44 +214,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD8D8321B3AFBDB003AC334 /* ViewController.swift in Sources */,
-				3CD8D8301B3AFBDB003AC334 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CD8D83B1B3AFBDB003AC334 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3CD8D8461B3AFBDB003AC334 /* FitnessTests.swift in Sources */,
+				3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */,
+				3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */,
+				3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */,
+				3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */,
+				3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */,
+				3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		3CD8D8411B3AFBDB003AC334 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3CD8D8291B3AFBDB003AC334 /* Fitness */;
-			targetProxy = 3CD8D8401B3AFBDB003AC334 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		3CD8D8331B3AFBDB003AC334 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3CD8D8341B3AFBDB003AC334 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3CD8D8391B3AFBDB003AC334 /* Base */,
+				3CD8D8751B3B29EC003AC334 /* de */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		3CD8D8711B3B299B003AC334 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CD8D8721B3B299B003AC334 /* Base */,
+				3CD8D8741B3B29EC003AC334 /* de */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3CD8D87A1B3B2A57003AC334 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CD8D8791B3B2A57003AC334 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -342,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fitness/Fitness.entitlements;
 				INFOPLIST_FILE = Fitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,43 +353,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fitness/Fitness.entitlements;
 				INFOPLIST_FILE = Fitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		3CD8D84D1B3AFBDB003AC334 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FitnessTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitness.app/Fitness";
-			};
-			name = Debug;
-		};
-		3CD8D84E1B3AFBDB003AC334 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FitnessTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitness.app/Fitness";
 			};
 			name = Release;
 		};
@@ -411,14 +379,7 @@
 				3CD8D84B1B3AFBDB003AC334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		3CD8D84C1B3AFBDB003AC334 /* Build configuration list for PBXNativeTarget "FitnessTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3CD8D84D1B3AFBDB003AC334 /* Debug */,
-				3CD8D84E1B3AFBDB003AC334 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

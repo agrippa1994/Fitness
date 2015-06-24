@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Bereite dich auf die Übung vor"; ObjectID = "3aV-NQ-8v6"; */
+"3aV-NQ-8v6.text" = "Bereite dich auf die Übung vor";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ALa-Ju-y8y"; */
+"ALa-Ju-y8y.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Vorbereitung"; ObjectID = "IfU-pn-Dnx"; */
+"IfU-pn-Dnx.text" = "Vorbereitung";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "QtJ-FV-JWo"; */
+"QtJ-FV-JWo.title" = "Title";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "X7X-cm-nvc"; */
+"X7X-cm-nvc.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = ">"; ObjectID = "dG6-8v-Fqt"; */
+"dG6-8v-Fqt.normalTitle" = ">";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gj8-gj-G0c"; */
+"gj8-gj-G0c.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Los gehts"; ObjectID = "iqm-Ag-y31"; */
+"iqm-Ag-y31.normalTitle" = "Los gehts";

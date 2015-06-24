@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Fitness
+//  ExerciseViewController
 //
-//  Created by Manuel Stampfl on 24.06.15.
+//  Created by Manuel Stampfl on 23.06.15.
 //  Copyright (c) 2015 mani1337. All rights reserved.
 //
 
