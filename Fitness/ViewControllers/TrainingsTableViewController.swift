@@ -8,7 +8,15 @@
 
 import UIKit
 
-class TrainingsTableViewController: UITableViewController {
+class TrainingsTableViewController: UITableViewController, EditTrainingTableViewControllerDelegate {
+    // MARK: - Storyboard Actions
+    @IBAction func onBarButtonItemAdd(sender: AnyObject) {
+        if let vc: (UINavigationController, EditTrainingTableViewController) = self.storyboard?.instantiateNavigationControllerAndTopControllerWithIdentifier("EditTrainingTableViewController") {
+            
+            vc.1.delegate = self
+            self.presentViewController(vc.0, animated: true, completion: nil)
+        }
+    }
     // MARK: - Overrided Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,5 +60,13 @@ class TrainingsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+    }
+    
+    func editTrainingTableViewDidCancelled(controller: EditTrainingTableViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func editTrainingTableViewDidFinished(controller: EditTrainingTableViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }

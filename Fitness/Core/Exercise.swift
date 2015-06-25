@@ -58,20 +58,24 @@ enum ExerciseType: Int {
 
 class Exercise: NSObject, NSCoding {
     // MARK: - Internal vars
-    var warmupTime: NSTimeInterval = 0
-    var trainingTime: NSTimeInterval = 0
+    var warmup: NSTimeInterval = 0
+    var duration: NSTimeInterval = 0
     var type: ExerciseType = .Running
     
     // MARK: - NSCoding
     @objc required init(coder aDecoder: NSCoder) {
-        self.warmupTime = aDecoder.decodeObjectForKey("warmupTime") as! NSTimeInterval
-        self.trainingTime = aDecoder.decodeObjectForKey("trainingTime") as! NSTimeInterval
+        self.warmup = aDecoder.decodeObjectForKey("warmup") as! NSTimeInterval
+        self.duration = aDecoder.decodeObjectForKey("duration") as! NSTimeInterval
         self.type = ExerciseType(rawValue: aDecoder.decodeObjectForKey("type") as! Int)!
     }
     
     @objc func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.warmupTime, forKey: "warmupTime")
-        aCoder.encodeObject(self.trainingTime, forKey: "trainingTime")
+        aCoder.encodeObject(self.warmup, forKey: "warmup")
+        aCoder.encodeObject(self.duration, forKey: "duration")
         aCoder.encodeObject(self.type.rawValue, forKey: "type")
+    }
+    
+    // MARK: - Initializers
+    override init() {
     }
 }

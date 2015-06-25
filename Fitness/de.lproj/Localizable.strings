@@ -27,3 +27,7 @@
 "EXERCISETYPE_LOWERBACK" = "Kreuz";
 
 "EXERCISETYPE_PAUSE" = "Pause";
+
+"EXERCISE_NAVIGATION_CONTROLLER_PROMPT" = "Übung %d von %d";
+
+"SECONDS" = "Sekunden";

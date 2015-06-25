@@ -27,3 +27,7 @@
 "EXERCISETYPE_LOWERBACK" = "Lower Back";
 
 "EXERCISETYPE_PAUSE" = "Pause";
+
+"EXERCISE_NAVIGATION_CONTROLLER_PROMPT" = "Exercise %d / %d";
+
+"SECONDS" = "seconds";

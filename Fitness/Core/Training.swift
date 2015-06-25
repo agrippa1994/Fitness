@@ -24,11 +24,15 @@ class Training: NSObject, NSCoding {
         aCoder.encodeObject(self.exercises, forKey: "exercises")
     }
     
+    // MARK: - Initializers
+    override init() {
+    }
+    
     // MARK: - Methods
     func exerciseDuration() -> NSTimeInterval {
         var duration: NSTimeInterval = 0.0
         for exercise in self.exercises {
-            duration += exercise.trainingTime
+            duration += exercise.duration
         }
         
         return duration

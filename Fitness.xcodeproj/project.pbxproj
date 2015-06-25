@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CA52DB41B3C881D00439E58 /* EditExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA52DB31B3C881D00439E58 /* EditExerciseTableViewController.swift */; };
+		3CA52DB61B3C8E0F00439E58 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */; };
 		3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */; };
 		3CCDAC8A1B3B4A5800400C1F /* Copier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC861B3B4A5800400C1F /* Copier.swift */; };
 		3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC871B3B4A5800400C1F /* Exercise.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3CA52DB31B3C881D00439E58 /* EditExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditExerciseTableViewController.swift; path = ViewControllers/EditExerciseTableViewController.swift; sourceTree = "<group>"; };
+		3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Core/Array+Extensions.swift"; sourceTree = "<group>"; };
 		3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTrainingTableViewController.swift; path = ViewControllers/EditTrainingTableViewController.swift; sourceTree = "<group>"; };
 		3CCDAC701B3B3B7C00400C1F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CCDAC861B3B4A5800400C1F /* Copier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copier.swift; path = Core/Copier.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */,
 				3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */,
 				3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */,
+				3CA52DB31B3C881D00439E58 /* EditExerciseTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -138,11 +143,12 @@
 		3CD8D87B1B3B2A84003AC334 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3CCDAC861B3B4A5800400C1F /* Copier.swift */,
+				3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */,
 				3CCDAC871B3B4A5800400C1F /* Exercise.swift */,
 				3CCDAC881B3B4A5800400C1F /* Training.swift */,
+				3CCDAC861B3B4A5800400C1F /* Copier.swift */,
 				3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */,
-				3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */,
+				3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -236,9 +242,11 @@
 				3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */,
 				3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */,
 				3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */,
+				3CA52DB41B3C881D00439E58 /* EditExerciseTableViewController.swift in Sources */,
 				3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */,
 				3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */,
 				3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */,
+				3CA52DB61B3C8E0F00439E58 /* Array+Extensions.swift in Sources */,
 				3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */,
 				3CCDAC8D1B3B4A5800400C1F /* UIStoryboard+Extensions.swift in Sources */,
 				3CCDAC8C1B3B4A5800400C1F /* Training.swift in Sources */,
