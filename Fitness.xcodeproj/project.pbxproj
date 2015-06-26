@@ -26,6 +26,14 @@
 		3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */; };
 		3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */; };
 		3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */; };
+		3CE6B5A31B3D992E0030187A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B5A21B3D992E0030187A /* Storage.swift */; };
+		3CE6B5A51B3DBF880030187A /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */; };
+		3CE6B61F1B3DD08B0030187A /* ChameleonShorthand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B6141B3DD08B0030187A /* ChameleonShorthand.swift */; };
+		3CE6B6201B3DD08B0030187A /* ChameleonStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B6161B3DD08B0030187A /* ChameleonStatusBar.m */; };
+		3CE6B6211B3DD08B0030187A /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B6181B3DD08B0030187A /* NSArray+Chameleon.m */; };
+		3CE6B6221B3DD08B0030187A /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B61A1B3DD08B0030187A /* UIColor+Chameleon.m */; };
+		3CE6B6231B3DD08B0030187A /* UIColor+CIELAB.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B61C1B3DD08B0030187A /* UIColor+CIELAB.m */; };
+		3CE6B6241B3DD08B0030187A /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B61E1B3DD08B0030187A /* UIViewController+Chameleon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +53,6 @@
 		3CD8D86C1B3B2954003AC334 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3CD8D8721B3B299B003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3CD8D8741B3B29EC003AC334 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3CD8D8751B3B29EC003AC334 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3CD8D8791B3B2A57003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +61,23 @@
 		3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseNavigationController.swift; path = ViewControllers/ExerciseNavigationController.swift; sourceTree = "<group>"; };
 		3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExercisePrepareViewController.swift; path = ViewControllers/ExercisePrepareViewController.swift; sourceTree = "<group>"; };
 		3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseWarmupViewController.swift; path = ViewControllers/ExerciseWarmupViewController.swift; sourceTree = "<group>"; };
+		3CE6B5A21B3D992E0030187A /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Core/Storage.swift; sourceTree = "<group>"; };
+		3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTableViewCell.swift; path = Views/InputTableViewCell.swift; sourceTree = "<group>"; };
+		3CE6B5A71B3DC6820030187A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		3CE6B6111B3DD04D0030187A /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		3CE6B6121B3DD08B0030187A /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chameleon.h; path = Chameleon/Chameleon.h; sourceTree = "<group>"; };
+		3CE6B6131B3DD08B0030187A /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChameleonMacros.h; path = Chameleon/ChameleonMacros.h; sourceTree = "<group>"; };
+		3CE6B6141B3DD08B0030187A /* ChameleonShorthand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChameleonShorthand.swift; path = Chameleon/ChameleonShorthand.swift; sourceTree = "<group>"; };
+		3CE6B6151B3DD08B0030187A /* ChameleonStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChameleonStatusBar.h; path = Chameleon/ChameleonStatusBar.h; sourceTree = "<group>"; };
+		3CE6B6161B3DD08B0030187A /* ChameleonStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChameleonStatusBar.m; path = Chameleon/ChameleonStatusBar.m; sourceTree = "<group>"; };
+		3CE6B6171B3DD08B0030187A /* NSArray+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Chameleon.h"; path = "Chameleon/NSArray+Chameleon.h"; sourceTree = "<group>"; };
+		3CE6B6181B3DD08B0030187A /* NSArray+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Chameleon.m"; path = "Chameleon/NSArray+Chameleon.m"; sourceTree = "<group>"; };
+		3CE6B6191B3DD08B0030187A /* UIColor+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Chameleon.h"; path = "Chameleon/UIColor+Chameleon.h"; sourceTree = "<group>"; };
+		3CE6B61A1B3DD08B0030187A /* UIColor+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Chameleon.m"; path = "Chameleon/UIColor+Chameleon.m"; sourceTree = "<group>"; };
+		3CE6B61B1B3DD08B0030187A /* UIColor+CIELAB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+CIELAB.h"; path = "Chameleon/UIColor+CIELAB.h"; sourceTree = "<group>"; };
+		3CE6B61C1B3DD08B0030187A /* UIColor+CIELAB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CIELAB.m"; path = "Chameleon/UIColor+CIELAB.m"; sourceTree = "<group>"; };
+		3CE6B61D1B3DD08B0030187A /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Chameleon.h"; path = "Chameleon/UIViewController+Chameleon.h"; sourceTree = "<group>"; };
+		3CE6B61E1B3DD08B0030187A /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Chameleon.m"; path = "Chameleon/UIViewController+Chameleon.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +96,11 @@
 		3CD8D8211B3AFBDB003AC334 = {
 			isa = PBXGroup;
 			children = (
+				3CE6B6111B3DD04D0030187A /* ObjCBridge.h */,
 				3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */,
 				3CD8D86C1B3B2954003AC334 /* HealthKit.framework */,
 				3CD8D82C1B3AFBDB003AC334 /* Fitness */,
+				3CE6B6101B3DD0050030187A /* Chameleon */,
 				3CD8D82B1B3AFBDB003AC334 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				3CD8D87B1B3B2A84003AC334 /* Core */,
-				3CD8D86B1B3B2954003AC334 /* Fitness.entitlements */,
 				3CD8D8701B3B298D003AC334 /* Storyboards */,
 				3CD8D85E1B3B28CB003AC334 /* Views */,
 				3CD8D85D1B3B28BF003AC334 /* ViewControllers */,
@@ -103,6 +128,7 @@
 		3CD8D82D1B3AFBDB003AC334 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CD8D86B1B3B2954003AC334 /* Fitness.entitlements */,
 				3CD8D87A1B3B2A57003AC334 /* Localizable.strings */,
 				3CD8D8361B3AFBDB003AC334 /* Images.xcassets */,
 				3CD8D82E1B3AFBDB003AC334 /* Info.plist */,
@@ -127,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */,
+				3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -149,8 +176,29 @@
 				3CCDAC861B3B4A5800400C1F /* Copier.swift */,
 				3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */,
 				3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */,
+				3CE6B5A21B3D992E0030187A /* Storage.swift */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		3CE6B6101B3DD0050030187A /* Chameleon */ = {
+			isa = PBXGroup;
+			children = (
+				3CE6B6121B3DD08B0030187A /* Chameleon.h */,
+				3CE6B6131B3DD08B0030187A /* ChameleonMacros.h */,
+				3CE6B6141B3DD08B0030187A /* ChameleonShorthand.swift */,
+				3CE6B6151B3DD08B0030187A /* ChameleonStatusBar.h */,
+				3CE6B6161B3DD08B0030187A /* ChameleonStatusBar.m */,
+				3CE6B6171B3DD08B0030187A /* NSArray+Chameleon.h */,
+				3CE6B6181B3DD08B0030187A /* NSArray+Chameleon.m */,
+				3CE6B6191B3DD08B0030187A /* UIColor+Chameleon.h */,
+				3CE6B61A1B3DD08B0030187A /* UIColor+Chameleon.m */,
+				3CE6B61B1B3DD08B0030187A /* UIColor+CIELAB.h */,
+				3CE6B61C1B3DD08B0030187A /* UIColor+CIELAB.m */,
+				3CE6B61D1B3DD08B0030187A /* UIViewController+Chameleon.h */,
+				3CE6B61E1B3DD08B0030187A /* UIViewController+Chameleon.m */,
+			);
+			name = Chameleon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +234,9 @@
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = PZP46GS9KE;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -238,14 +289,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */,
+				3CE6B5A31B3D992E0030187A /* Storage.swift in Sources */,
 				3CCDAC8A1B3B4A5800400C1F /* Copier.swift in Sources */,
 				3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */,
 				3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */,
 				3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */,
+				3CE6B6241B3DD08B0030187A /* UIViewController+Chameleon.m in Sources */,
 				3CA52DB41B3C881D00439E58 /* EditExerciseTableViewController.swift in Sources */,
+				3CE6B6201B3DD08B0030187A /* ChameleonStatusBar.m in Sources */,
 				3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */,
+				3CE6B6211B3DD08B0030187A /* NSArray+Chameleon.m in Sources */,
+				3CE6B6221B3DD08B0030187A /* UIColor+Chameleon.m in Sources */,
+				3CE6B6231B3DD08B0030187A /* UIColor+CIELAB.m in Sources */,
 				3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */,
 				3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */,
+				3CE6B61F1B3DD08B0030187A /* ChameleonShorthand.swift in Sources */,
+				3CE6B5A51B3DBF880030187A /* InputTableViewCell.swift in Sources */,
 				3CA52DB61B3C8E0F00439E58 /* Array+Extensions.swift in Sources */,
 				3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */,
 				3CCDAC8D1B3B4A5800400C1F /* UIStoryboard+Extensions.swift in Sources */,
@@ -269,7 +328,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3CD8D8721B3B299B003AC334 /* Base */,
-				3CD8D8741B3B29EC003AC334 /* de */,
+				3CE6B5A71B3DC6820030187A /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -374,9 +433,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Fitness/Fitness.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridge.h;
 			};
 			name = Debug;
 		};
@@ -385,9 +448,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Fitness/Fitness.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridge.h;
 			};
 			name = Release;
 		};

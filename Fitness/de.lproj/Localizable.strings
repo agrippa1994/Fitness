@@ -30,4 +30,16 @@
 
 "EXERCISE_NAVIGATION_CONTROLLER_PROMPT" = "Übung %d von %d";
 
+"TRAININGSTABLEVIEWCONTROLLER_DURATION" = "%.0lf Minuten und %.0lf Sekunden";
+
+"TRAININGSTABLEVIEWCONTROLLER_SECTION_0" = "Name des Trainings";
+
+"TRAININGSTABLEVIEWCONTROLLER_SECTION_1" = "Übungen";
+
+"TRAININGSTABLEVIEWCONTROLLER_INVALID_DATA_TITLE" = "Fehler beim Speichern";
+
+"TRAININGSTABLEVIEWCONTROLLER_INVALID_DATA_TEXT" = "Dieses Training-Set ist ungültig, da es keinen gültigen Namen besitzt oder Übungen enthält";
+
+"TRAININGSTABLEVIEWCONTROLLER_INVALID_DATA_ACK" = "Bestätigen";
+
 "SECONDS" = "Sekunden";

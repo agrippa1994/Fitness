@@ -53,11 +53,18 @@ class EditExerciseTableViewController: UITableViewController, UIPickerViewDataSo
         self.durationTimerView.delegate = self
         self.durationTimerView.dataSource = self
         
+        var type: ExerciseType = .Running
+        var warmup: NSTimeInterval = 5.0
+        var duration: NSTimeInterval = 60.0
         if self.exercise != nil {
-            self.typePickerView.selectRow(self.exercise!.type.rawValue, inComponent: 0, animated: false)
-            self.warmupPickerView.selectRow(Int(self.exercise!.warmup) - 5, inComponent: 0, animated: false)
-            self.durationTimerView.selectRow(Int(self.exercise!.duration) - 1, inComponent: 0, animated: false)
+            type = self.exercise!.type
+            warmup = self.exercise!.warmup
+            duration = self.exercise!.duration
         }
+        
+        self.typePickerView.selectRow(type.rawValue, inComponent: 0, animated: false)
+        self.warmupPickerView.selectRow(Int(warmup) - 5, inComponent: 0, animated: false)
+        self.durationTimerView.selectRow(Int(duration) - 1, inComponent: 0, animated: false)
     }
     
 

@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="height" constant="55" id="8N5-iq-kqR"/>
                                     <constraint firstAttribute="width" constant="116" id="qrB-2f-uuG"/>
                                 </constraints>
-                                <state key="normal" title="Los gehts"/>
+                                <state key="normal" title="Let's go"/>
                                 <connections>
                                     <action selector="onGoButton:" destination="lCT-hb-UgH" eventType="touchUpInside" id="9C3-xl-fTJ"/>
                                 </connections>
@@ -144,6 +144,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InputCell" id="spW-HQ-vTn" customClass="InputTableViewCell" customModule="Fitness" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="spW-HQ-vTn" id="HkL-Mz-Bek">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Training's name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eeA-0B-hoz">
+                                            <rect key="frame" x="18" y="8" width="574" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <connections>
+                                                <action selector="onTextFieldChanged:" destination="spW-HQ-vTn" eventType="editingChanged" id="g5x-nw-MgF"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eeA-0B-hoz" firstAttribute="top" secondItem="HkL-Mz-Bek" secondAttribute="topMargin" id="ZFK-wK-rWD"/>
+                                        <constraint firstItem="eeA-0B-hoz" firstAttribute="trailing" secondItem="HkL-Mz-Bek" secondAttribute="trailingMargin" id="ua5-0Q-6oS"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eeA-0B-hoz" secondAttribute="bottom" id="uvf-K2-WRx"/>
+                                        <constraint firstItem="eeA-0B-hoz" firstAttribute="leading" secondItem="HkL-Mz-Bek" secondAttribute="leadingMargin" constant="10" id="xo7-zM-YmN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="eeA-0B-hoz" id="loJ-WE-x9t"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseCell" textLabel="yia-YT-ieK" detailTextLabel="4eM-bq-DUK" style="IBUITableViewCellStyleSubtitle" id="RI8-a4-850">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RI8-a4-850" id="to7-OE-yDB">
@@ -172,7 +197,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add training ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Up-wb-vea">
                                             <rect key="frame" x="8" y="8" width="584" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.80076152146464641" blue="0.20585450585492351" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -216,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection id="o5K-fH-MQ5">
+                            <tableViewSection headerTitle="Type of exercise" id="o5K-fH-MQ5">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="M8G-yL-uZb">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -237,7 +262,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Khd-at-BNk">
+                            <tableViewSection headerTitle="Warmup time" id="Khd-at-BNk">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="XGV-W8-DZt">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -258,7 +283,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="1do-8h-uZw">
+                            <tableViewSection headerTitle="Exercise duration" id="1do-8h-uZw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="7Ff-8S-lg8">
                                         <autoresizingMask key="autoresizingMask"/>

@@ -29,7 +29,7 @@ class Training: NSObject, NSCoding {
     }
     
     // MARK: - Methods
-    func exerciseDuration() -> NSTimeInterval {
+    var exerciseDuration: NSTimeInterval {
         var duration: NSTimeInterval = 0.0
         for exercise in self.exercises {
             duration += exercise.duration

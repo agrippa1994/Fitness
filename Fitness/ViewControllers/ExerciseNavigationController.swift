@@ -8,20 +8,19 @@
 
 import UIKit
 
-@objc protocol ExerciseNavigationControllerDataSource {
-    
-}
 
 @objc protocol ExerciseNavigationControllerDelegate {
     
 }
 
 class ExerciseNavigationController: UINavigationController {
+    // MARK: - Vars
+    weak var exerciseDelegate: ExerciseNavigationControllerDelegate?
+    var training: Training?
+    
     // MARK: - Overrided Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     // MARK: - Private member functions

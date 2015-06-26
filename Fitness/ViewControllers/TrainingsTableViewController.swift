@@ -9,10 +9,17 @@
 import UIKit
 
 class TrainingsTableViewController: UITableViewController, EditTrainingTableViewControllerDelegate {
+    // MARK: - Vars
+    var currentSelectedIndexPath: NSIndexPath?
+    var trainings: [Training] = [] {
+        didSet {
+            Storage.trainings = self.trainings
+        }
+    }
+    
     // MARK: - Storyboard Actions
     @IBAction func onBarButtonItemAdd(sender: AnyObject) {
         if let vc: (UINavigationController, EditTrainingTableViewController) = self.storyboard?.instantiateNavigationControllerAndTopControllerWithIdentifier("EditTrainingTableViewController") {
-            
             vc.1.delegate = self
             self.presentViewController(vc.0, animated: true, completion: nil)
         }
@@ -21,9 +28,17 @@ class TrainingsTableViewController: UITableViewController, EditTrainingTableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Fetch all trainings from the persistent storage
+        self.trainings = Storage.trainings
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.tableView.allowsSelectionDuringEditing = true
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -33,17 +48,38 @@ class TrainingsTableViewController: UITableViewController, EditTrainingTableView
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.trainings.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TrainingCell", forIndexPath: indexPath) as! UITableViewCell
 
-        // Configure the cell...
-
+        let training = self.trainings[indexPath.row]
+        let minutes = training.exerciseDuration / 60
+        let seconds = training.exerciseDuration % 60
+        
+        cell.textLabel?.text = training.name
+        cell.detailTextLabel?.text = String(format: NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_DURATION", comment: "duration"), arguments: [minutes, seconds])
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.currentSelectedIndexPath = indexPath
+        
+        // If the table view is in editing mode, the selected training should be edited
+        if tableView.editing {
+            if let vc: (UINavigationController, EditTrainingTableViewController) = self.storyboard?.instantiateNavigationControllerAndTopControllerWithIdentifier("EditTrainingTableViewController") {
+                vc.1.delegate = self
+                vc.1.training = <-self.trainings[indexPath.row] // Create a copy!! Swift copies objects via ARC
+                
+                self.presentViewController(vc.0, animated: true, completion: nil)
+            }
+        }
+        // Otherwise start a training
+        else {
+
+        }
+    }
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -52,21 +88,43 @@ class TrainingsTableViewController: UITableViewController, EditTrainingTableView
         if editingStyle != .Delete {
             return
         }
+        
+        self.trainings.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+        self.trainings.moveFromIndex(fromIndexPath.row, toIndex: toIndexPath.row)
     }
 
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
+    // MARK: - EditTrainingTableViewControllerDelegate
     func editTrainingTableViewDidCancelled(controller: EditTrainingTableViewController) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismissViewControllerAnimated(true) {
+            if self.currentSelectedIndexPath != nil {
+                self.tableView.deselectRowAtIndexPath(self.currentSelectedIndexPath!, animated: true)
+                self.currentSelectedIndexPath = nil
+            }
+        }
     }
     
     func editTrainingTableViewDidFinished(controller: EditTrainingTableViewController) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        if self.currentSelectedIndexPath != nil {
+            self.trainings[self.currentSelectedIndexPath!.row] = controller.training
+        } else {
+            self.trainings += [controller.training]
+        }
+        
+        controller.dismissViewControllerAnimated(true) {
+            if self.currentSelectedIndexPath != nil {
+                self.tableView.deselectRowAtIndexPath(self.currentSelectedIndexPath!, animated: true)
+                self.currentSelectedIndexPath = nil
+            }
+        }
+        
+        self.tableView.reloadData()
     }
 }

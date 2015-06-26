@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 mani1337. All rights reserved.
 //
 
-import UIKit
 import Foundation
 
 enum ExerciseType: Int {
@@ -58,8 +57,8 @@ enum ExerciseType: Int {
 
 class Exercise: NSObject, NSCoding {
     // MARK: - Internal vars
-    var warmup: NSTimeInterval = 0
-    var duration: NSTimeInterval = 0
+    var warmup: NSTimeInterval = 5.0
+    var duration: NSTimeInterval = 60.0
     var type: ExerciseType = .Running
     
     // MARK: - NSCoding

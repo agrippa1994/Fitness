@@ -13,7 +13,7 @@ import UIKit
     func editTrainingTableViewDidFinished(controller: EditTrainingTableViewController)
 }
 
-class EditTrainingTableViewController: UITableViewController, EditExerciseTableViewControllerDelegate {
+class EditTrainingTableViewController: UITableViewController, EditExerciseTableViewControllerDelegate, InputTableViewCellDelegate {
     // MARK: - Vars
     weak var delegate: EditTrainingTableViewControllerDelegate?
     var training = Training()
@@ -21,9 +21,19 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
     
     // Storyboard Actions
     @IBAction func onBarButtonItemSave(sender: AnyObject) {
+        if self.training.name.isEmpty || self.training.exercises.isEmpty {
+            let title = NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_INVALID_DATA_TITLE", comment: "title")
+            let message = NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_INVALID_DATA_TEXT", comment: "text")
+            let ack = NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_INVALID_DATA_ACK", comment: "ack")
+            
+            return UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: ack).show()
+        }
+        
+        self.delegate?.editTrainingTableViewDidFinished(self)
     }
  
     @IBAction func onBarButtonItemClose(sender: AnyObject) {
+        self.delegate?.editTrainingTableViewDidCancelled(self)
     }
     
     // MARK: - Overrided Base Methods
@@ -36,14 +46,18 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            return 1
+        }
+        
+        if section == 1 {
             return self.training.exercises.count
         }
-        if section == 1 {
+        if section == 2 {
             return 1
         }
         
@@ -52,15 +66,26 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! UITableViewCell
-            
-            var exercise = self.training.exercises[indexPath.row]
-            cell.textLabel?.text = exercise.type.localizedName()
-            
+            let cell = tableView.dequeueReusableCellWithIdentifier("InputCell", forIndexPath: indexPath) as! InputTableViewCell
+            cell.delegate = self
+            cell.inputText = self.training.name
             return cell
         }
         
         if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! UITableViewCell
+            
+            var exercise = self.training.exercises[indexPath.row]
+            let minutes = exercise.duration / 60
+            let seconds = exercise.duration % 60
+            
+            cell.textLabel?.text = exercise.type.localizedName()
+            cell.detailTextLabel?.text = String(format: NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_DURATION", comment: "duration"), arguments: [minutes, seconds])
+            
+            return cell
+        }
+        
+        if indexPath.section == 2 {
             return tableView.dequeueReusableCellWithIdentifier("AddExerciseCell", forIndexPath: indexPath) as! UITableViewCell
         }
         
@@ -76,8 +101,8 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
             vc.1.delegate = self
             
             // Set the exercise
-            if indexPath.section == 0 {
-                vc.1.exercise = self.training.exercises[indexPath.row]
+            if indexPath.section == 1 {
+                vc.1.exercise = <-self.training.exercises[indexPath.row]
             }
             
             self.presentViewController(vc.0, animated: true, completion: nil)
@@ -86,7 +111,7 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
   
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Only exercises can be edited
-        return indexPath.section == 0
+        return indexPath.section == 1
     }
  
     // Override to support editing the table view.
@@ -100,8 +125,7 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
     }
 
     override func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
-        
-        if proposedDestinationIndexPath.section == 1 {
+        if proposedDestinationIndexPath.section != 1 {
             return NSIndexPath(forRow: tableView.numberOfRowsInSection(sourceIndexPath.section) - 1, inSection: sourceIndexPath.section)
         }
         
@@ -114,9 +138,21 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
 
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Only exercises can be moved
-        return indexPath.section == 0
+        return indexPath.section == 1
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_SECTION_0", comment: "Section 0")
+        case 1:
+            return NSLocalizedString("TRAININGSTABLEVIEWCONTROLLER_SECTION_1", comment: "Section 1")
+        default:
+            return ""
+        }
+    }
+
+    // MARK: - EditExerciseTableViewControllerDelegate
     func editExerciseTableViewControllerDidCancelled(controller: EditExerciseTableViewController) {
         controller.dismissViewControllerAnimated(true) {
             if self.currentSelectedIndexPath != nil {
@@ -143,5 +179,10 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
         }
         
         tableView.reloadData()
+    }
+    
+    // MARK: - InputTableViewCellDelegate
+    func inputTableViewCell(cell: InputTableViewCell, didChangedText newText: String) {
+        self.training.name = newText
     }
 }
