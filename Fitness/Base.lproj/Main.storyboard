@@ -61,7 +61,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instruction" id="X7X-cm-nvc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="lit-dn-KdT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="lit-dn-KdT">
+                            <connections>
+                                <action selector="onClose:" destination="lCT-hb-UgH" id="fUY-kJ-eE4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
@@ -124,7 +128,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Warmup" id="QtJ-FV-JWo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="kp2-cG-lYf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="kp2-cG-lYf">
+                            <connections>
+                                <action selector="onClose:" destination="L6F-LU-RAo" id="cHo-N9-dxg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>

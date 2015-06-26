@@ -30,7 +30,7 @@
 "QtJ-FV-JWo.title" = "Title";
 
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "X7X-cm-nvc"; */
-"X7X-cm-nvc.title" = "Title";
+"X7X-cm-nvc.title" = "Vorbereitung";
 
 /* Class = "UITextField"; placeholder = "Training's name"; ObjectID = "eeA-0B-hoz"; */
 "eeA-0B-hoz.placeholder" = "Name des Trainings";

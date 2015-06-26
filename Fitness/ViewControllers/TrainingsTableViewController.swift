@@ -77,7 +77,11 @@ class TrainingsTableViewController: UITableViewController, EditTrainingTableView
         }
         // Otherwise start a training
         else {
-
+            if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ExerciseNavigationController") as? ExerciseNavigationController {
+                vc.training = <-self.trainings[indexPath.row]
+                
+                self.presentViewController(vc, animated: true, completion: nil)
+            }
         }
     }
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

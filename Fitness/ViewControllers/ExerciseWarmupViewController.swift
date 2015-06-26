@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExerciseWarmupViewController: UIViewController {
+class ExerciseWarmupViewController: ExerciseNavigationChildController {
     // MARK: - Storyboard Outlets
     @IBOutlet weak var timerView: ExerciseTimerView!
     
