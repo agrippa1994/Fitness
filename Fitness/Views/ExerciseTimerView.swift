@@ -61,7 +61,7 @@ class ExerciseTimerView: UIView {
         let endAngle = CGFloat(((self.progress / self.maxProgress) * 360.0 - 90.0) * (M_PI / 180.0))
         let radius = CGFloat(Double(rect.width) / 2.0 - self.lineWidth)
         
-        var ovalPath = UIBezierPath()
+        let ovalPath = UIBezierPath()
         ovalPath.addArcWithCenter(CGPointMake(0.0, 0.0), radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
         var ovalTransform = CGAffineTransformMakeTranslation(CGRectGetMidX(rect), CGRectGetMidY(rect))

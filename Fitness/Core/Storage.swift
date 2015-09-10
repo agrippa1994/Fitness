@@ -36,7 +36,7 @@ class Storage {
             
             return []
         } set {
-            writeObjectForKey("trainings", newValue)
+            writeObjectForKey("trainings", object: newValue)
         }
     }
 }

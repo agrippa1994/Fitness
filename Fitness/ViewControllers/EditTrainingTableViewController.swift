@@ -73,9 +73,9 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
         }
         
         if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) 
             
-            var exercise = self.training.exercises[indexPath.row]
+            let exercise = self.training.exercises[indexPath.row]
             let minutes = exercise.duration / 60
             let seconds = exercise.duration % 60
             
@@ -86,7 +86,7 @@ class EditTrainingTableViewController: UITableViewController, EditExerciseTableV
         }
         
         if indexPath.section == 2 {
-            return tableView.dequeueReusableCellWithIdentifier("AddExerciseCell", forIndexPath: indexPath) as! UITableViewCell
+            return tableView.dequeueReusableCellWithIdentifier("AddExerciseCell", forIndexPath: indexPath) 
         }
         
         // This point should never be reached so we don't care what we return

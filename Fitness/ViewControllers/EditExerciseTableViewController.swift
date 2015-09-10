@@ -85,7 +85,7 @@ class EditExerciseTableViewController: UITableViewController, UIPickerViewDataSo
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case self.typePickerView:
             return ExerciseType(rawValue: row)!.localizedName()
@@ -94,7 +94,7 @@ class EditExerciseTableViewController: UITableViewController, UIPickerViewDataSo
         case self.durationTimerView:
             return "\(row + 1) " + NSLocalizedString("SECONDS", comment: "seconds")
         default:
-            return ""
+            return nil
         }
     }
 }

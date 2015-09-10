@@ -24,7 +24,7 @@ class ExerciseNavigationChildController: UIViewController {
         let cancelString = NSLocalizedString("EXERCISENAVIGATIONCHILDCONTROLLER_ACTIONSHEET_CANCEL", comment: "cancel")
         let cancelTrainingString = NSLocalizedString("EXERCISENAVIGATIONCHILDCONTROLLER_ACTIONSHEET_CANCEL_TRAINING", comment: "cancel training")
         
-        var controller = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         controller.addAction(UIAlertAction(title: cancelString, style: .Cancel) { action in })
         controller.addAction(UIAlertAction(title: cancelTrainingString, style: .Destructive) { action in
             self.childDelegate?.exerciseNavigationChildControllerClose(self)

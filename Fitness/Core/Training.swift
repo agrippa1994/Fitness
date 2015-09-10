@@ -14,7 +14,7 @@ class Training: NSObject, NSCoding {
     var exercises: [Exercise] = []
     
     // MARK: - NSCoding
-    @objc required init(coder aDecoder: NSCoder) {
+    @objc required init?(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObjectForKey("name") as! String
         self.exercises = aDecoder.decodeObjectForKey("exercises") as! [Exercise]
     }

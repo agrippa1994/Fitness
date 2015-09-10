@@ -26,7 +26,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: - Storyboard Actions
     @IBAction func onTextFieldChanged(sender: AnyObject) {
-        self.inputText = self.textField.text
+        self.inputText = self.textField.text!
         self.delegate?.inputTableViewCell(self, didChangedText: self.inputText)
     }
     

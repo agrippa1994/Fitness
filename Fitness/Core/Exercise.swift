@@ -62,7 +62,7 @@ class Exercise: NSObject, NSCoding {
     var type: ExerciseType = .Running
     
     // MARK: - NSCoding
-    @objc required init(coder aDecoder: NSCoder) {
+    @objc required init?(coder aDecoder: NSCoder) {
         self.warmup = aDecoder.decodeObjectForKey("warmup") as! NSTimeInterval
         self.duration = aDecoder.decodeObjectForKey("duration") as! NSTimeInterval
         self.type = ExerciseType(rawValue: aDecoder.decodeObjectForKey("type") as! Int)!

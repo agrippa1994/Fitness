@@ -52,7 +52,7 @@ class TrainingsTableViewController: UITableViewController, EditTrainingTableView
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TrainingCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TrainingCell", forIndexPath: indexPath) 
 
         let training = self.trainings[indexPath.row]
         let minutes = training.exerciseDuration / 60
