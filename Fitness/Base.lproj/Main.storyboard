@@ -154,12 +154,13 @@
         <!--Training-->
         <scene sceneID="iUF-Gf-nad">
             <objects>
-                <tableViewController id="EQu-FV-UHg" customClass="EditTrainingTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="EQu-FV-UHg" customClass="TrainingTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Kfd-Lb-WS5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InputCell" id="spW-HQ-vTn" customClass="InputTableViewCell" customModule="Fitness" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -218,31 +219,30 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="ZWP-aY-8TA" kind="show" identifier="Edit" id="yII-hr-G9T"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddExerciseCell" id="CKL-Q3-TvN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StartTrainingCell" textLabel="QXm-8j-fJe" style="IBUITableViewCellStyleDefault" id="k56-9q-MIg">
                                 <rect key="frame" x="0.0" y="202" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CKL-Q3-TvN" id="SF7-1O-Ty5">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k56-9q-MIg" id="X2C-jN-dMn">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add training ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Up-wb-vea">
-                                            <rect key="frame" x="8" y="8" width="584" height="24"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Start Training!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXm-8j-fJe">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
-                                    <constraints>
-                                        <constraint firstItem="6Up-wb-vea" firstAttribute="top" secondItem="SF7-1O-Ty5" secondAttribute="topMargin" id="6OB-EO-S6j"/>
-                                        <constraint firstItem="6Up-wb-vea" firstAttribute="trailing" secondItem="SF7-1O-Ty5" secondAttribute="trailingMargin" id="bXv-y9-vCc"/>
-                                        <constraint firstItem="6Up-wb-vea" firstAttribute="leading" secondItem="SF7-1O-Ty5" secondAttribute="leadingMargin" id="bdk-yf-v2e"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6Up-wb-vea" secondAttribute="bottom" constant="3" id="kPa-tg-3e8"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="backgroundColor" red="0.1911550909280777" green="0.6378670334815979" blue="0.26147949695587158" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -251,26 +251,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Training" id="jST-Lm-gPw">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="cTZ-sj-bpG">
-                            <connections>
-                                <action selector="onBarButtonItemClose:" destination="EQu-FV-UHg" id="2Je-Jp-bXh"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="bI0-7t-aOQ">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="bI0-7t-aOQ">
                             <connections>
                                 <action selector="onBarButtonItemSave:" destination="EQu-FV-UHg" id="61m-6Z-s8b"/>
+                                <segue destination="ZWP-aY-8TA" kind="show" identifier="Add" id="UJG-Wt-yam"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrm-UW-0HO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="579"/>
+            <point key="canvasLocation" x="1257" y="1281"/>
         </scene>
         <!--Exercise-->
         <scene sceneID="sxV-Xn-RBs">
             <objects>
-                <tableViewController id="ZWP-aY-8TA" customClass="EditExerciseTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZWP-aY-8TA" customClass="ExerciseTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="61U-dF-Z0Y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,7 +275,7 @@
                         <sections>
                             <tableViewSection headerTitle="Type of exercise" id="o5K-fH-MQ5">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="M8G-yL-uZb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="M8G-yL-uZb">
                                         <rect key="frame" x="0.0" y="114" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M8G-yL-uZb" id="AOd-bs-Hq7">
@@ -305,7 +301,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Warmup time" id="Khd-at-BNk">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="XGV-W8-DZt">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="XGV-W8-DZt">
                                         <rect key="frame" x="0.0" y="307" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGV-W8-DZt" id="LDA-Rc-Vt2">
@@ -331,7 +327,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Exercise duration" id="1do-8h-uZw">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="7Ff-8S-lg8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="7Ff-8S-lg8">
                                         <rect key="frame" x="0.0" y="500" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Ff-8S-lg8" id="EnN-wL-NQc">
@@ -362,100 +358,53 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Exercise" id="Jr3-rW-w68">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="5zb-U7-2wr">
-                            <connections>
-                                <action selector="onBarButtonItemClose:" destination="ZWP-aY-8TA" id="F4F-AJ-rSY"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FPg-kL-RQp">
-                            <connections>
-                                <action selector="onBarButtonItemSave:" destination="ZWP-aY-8TA" id="aaB-lf-bak"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Exercise" id="Jr3-rW-w68"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="durationTimerView" destination="7jo-PE-KaE" id="yQD-W8-c96"/>
-                        <outlet property="typePickerView" destination="ECc-eu-2ZO" id="Ism-8W-wd1"/>
-                        <outlet property="warmupPickerView" destination="cxy-ed-iUz" id="LLq-bv-JOL"/>
+                        <outlet property="durationPickerView" destination="7jo-PE-KaE" id="epx-Wj-slg"/>
+                        <outlet property="typePickerView" destination="ECc-eu-2ZO" id="4Qv-lP-EfV"/>
+                        <outlet property="warmupPickerView" destination="cxy-ed-iUz" id="wux-Vw-bup"/>
+                        <outletCollection property="pickerViews" destination="ECc-eu-2ZO" collectionClass="NSMutableArray" id="hZU-5f-nid"/>
+                        <outletCollection property="pickerViews" destination="cxy-ed-iUz" collectionClass="NSMutableArray" id="6ac-FZ-Nb9"/>
+                        <outletCollection property="pickerViews" destination="7jo-PE-KaE" collectionClass="NSMutableArray" id="96P-s5-whM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwU-lG-ZBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="-109"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5aO-uT-Yge">
-            <objects>
-                <navigationController storyboardIdentifier="EditExerciseTableViewController" id="apo-Zw-YI8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bRT-fO-qxh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ZWP-aY-8TA" kind="relationship" relationship="rootViewController" id="MDg-SJ-MKE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P0V-tl-sop" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-214" y="-109"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MGO-0g-Mdg">
-            <objects>
-                <navigationController storyboardIdentifier="EditTrainingTableViewController" id="gHH-oC-9ES" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Zn-s7-UCL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="EQu-FV-UHg" kind="relationship" relationship="rootViewController" id="Ruh-lk-hMg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oGs-bV-Z9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-214" y="579"/>
+            <point key="canvasLocation" x="1964" y="1281"/>
         </scene>
         <!--Trainings-->
         <scene sceneID="vGG-N5-fXG">
             <objects>
-                <tableViewController id="5AX-Va-qCS" customClass="TrainingsTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="5AX-Va-qCS" customClass="MainTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="7sC-Aj-w0p">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainingCell" textLabel="75e-uB-1Y3" detailTextLabel="zJp-lr-ttv" style="IBUITableViewCellStyleSubtitle" id="WBq-ZB-KgY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainingCell" textLabel="75e-uB-1Y3" style="IBUITableViewCellStyleDefault" id="WBq-ZB-KgY">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WBq-ZB-KgY" id="UmR-Aa-kGC">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="75e-uB-1Y3">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="75e-uB-1Y3">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zJp-lr-ttv">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="EQu-FV-UHg" kind="show" identifier="Edit" id="UUj-AL-kYC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -468,6 +417,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f8w-S6-mEZ">
                             <connections>
                                 <action selector="onBarButtonItemAdd:" destination="5AX-Va-qCS" id="7Pn-mH-JhD"/>
+                                <segue destination="EQu-FV-UHg" kind="show" identifier="Add" id="JSP-kx-N8M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -485,6 +435,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.17257410287857056" green="0.21834245324134827" blue="0.44677489995956421" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="5AX-Va-qCS" kind="relationship" relationship="rootViewController" id="B4V-Ay-Bn1"/>
@@ -495,4 +450,8 @@
             <point key="canvasLocation" x="-214" y="1281"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JSP-kx-N8M"/>
+        <segue reference="yII-hr-G9T"/>
+    </inferredMetricsTieBreakers>
 </document>

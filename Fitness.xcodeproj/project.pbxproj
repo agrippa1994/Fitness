@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CA52DB41B3C881D00439E58 /* EditExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA52DB31B3C881D00439E58 /* EditExerciseTableViewController.swift */; };
-		3CA52DB61B3C8E0F00439E58 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */; };
-		3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */; };
-		3CCDAC8A1B3B4A5800400C1F /* Copier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC861B3B4A5800400C1F /* Copier.swift */; };
-		3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC871B3B4A5800400C1F /* Exercise.swift */; };
-		3CCDAC8C1B3B4A5800400C1F /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC881B3B4A5800400C1F /* Training.swift */; };
-		3CCDAC8D1B3B4A5800400C1F /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */; };
+		3C0284451BA3032C009404A2 /* Storage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284431BA3032C009404A2 /* Storage.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		3C0284481BA30359009404A2 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284471BA30359009404A2 /* CoreData.swift */; settings = {ASSET_TAGS = (); }; };
+		3C02844F1BA30999009404A2 /* Training+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284491BA30999009404A2 /* Training+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284501BA30999009404A2 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844A1BA30999009404A2 /* Training.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284511BA30999009404A2 /* TrainingManager+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844B1BA30999009404A2 /* TrainingManager+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284521BA30999009404A2 /* TrainingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844C1BA30999009404A2 /* TrainingManager.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284531BA30999009404A2 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844D1BA30999009404A2 /* Exercise+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284541BA30999009404A2 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844E1BA30999009404A2 /* Exercise.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284561BA311B6009404A2 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284551BA311B6009404A2 /* MainTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284581BA311C2009404A2 /* TrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284571BA311C2009404A2 /* TrainingTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C02845A1BA311D1009404A2 /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C02845C1BA318E3009404A2 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		3C02845E1BA3287C009404A2 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845D1BA3287C009404A2 /* String+Localization.swift */; settings = {ASSET_TAGS = (); }; };
 		3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8361B3AFBDB003AC334 /* Images.xcassets */; };
 		3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */; };
 		3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86C1B3B2954003AC334 /* HealthKit.framework */; };
@@ -21,26 +27,26 @@
 		3CD8D8731B3B299B003AC334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8711B3B299B003AC334 /* Main.storyboard */; };
 		3CD8D8781B3B2A57003AC334 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D87A1B3B2A57003AC334 /* Localizable.strings */; };
 		3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */; };
-		3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */; };
 		3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */; };
-		3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */; };
-		3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */; };
-		3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */; };
-		3CE6B5A31B3D992E0030187A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B5A21B3D992E0030187A /* Storage.swift */; };
 		3CE6B5A51B3DBF880030187A /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */; };
-		3CE6B6261B3DE3400030187A /* ExerciseNavigationChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B6251B3DE3400030187A /* ExerciseNavigationChildController.swift */; };
 		BEF69D83D60A254B6A85C4BC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402A6B9E56E4ED2E9D799EB2 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3CA52DB31B3C881D00439E58 /* EditExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditExerciseTableViewController.swift; path = ViewControllers/EditExerciseTableViewController.swift; sourceTree = "<group>"; };
-		3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Core/Array+Extensions.swift"; sourceTree = "<group>"; };
-		3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTrainingTableViewController.swift; path = ViewControllers/EditTrainingTableViewController.swift; sourceTree = "<group>"; };
+		3C0284441BA3032C009404A2 /* Storage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Storage.xcdatamodel; sourceTree = "<group>"; };
+		3C0284471BA30359009404A2 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		3C0284491BA30999009404A2 /* Training+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Training+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C02844A1BA30999009404A2 /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		3C02844B1BA30999009404A2 /* TrainingManager+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingManager+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C02844C1BA30999009404A2 /* TrainingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingManager.swift; sourceTree = "<group>"; };
+		3C02844D1BA30999009404A2 /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C02844E1BA30999009404A2 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		3C0284551BA311B6009404A2 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = ViewControllers/MainTableViewController.swift; sourceTree = "<group>"; };
+		3C0284571BA311C2009404A2 /* TrainingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrainingTableViewController.swift; path = ViewControllers/TrainingTableViewController.swift; sourceTree = "<group>"; };
+		3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseTableViewController.swift; path = ViewControllers/ExerciseTableViewController.swift; sourceTree = "<group>"; };
+		3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		3C02845D1BA3287C009404A2 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Localization.swift"; path = "Core/String+Localization.swift"; sourceTree = "<group>"; };
 		3CCDAC701B3B3B7C00400C1F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3CCDAC861B3B4A5800400C1F /* Copier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copier.swift; path = Core/Copier.swift; sourceTree = "<group>"; };
-		3CCDAC871B3B4A5800400C1F /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Core/Exercise.swift; sourceTree = "<group>"; };
-		3CCDAC881B3B4A5800400C1F /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Training.swift; path = Core/Training.swift; sourceTree = "<group>"; };
-		3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "Core/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		3CD8D82A1B3AFBDB003AC334 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD8D82E1B3AFBDB003AC334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CD8D8361B3AFBDB003AC334 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -52,16 +58,10 @@
 		3CD8D8751B3B29EC003AC334 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3CD8D8791B3B2A57003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
-		3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrainingsTableViewController.swift; path = ViewControllers/TrainingsTableViewController.swift; sourceTree = "<group>"; };
 		3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseTimerView.swift; path = Views/ExerciseTimerView.swift; sourceTree = "<group>"; };
-		3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseNavigationController.swift; path = ViewControllers/ExerciseNavigationController.swift; sourceTree = "<group>"; };
-		3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExercisePrepareViewController.swift; path = ViewControllers/ExercisePrepareViewController.swift; sourceTree = "<group>"; };
-		3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseWarmupViewController.swift; path = ViewControllers/ExerciseWarmupViewController.swift; sourceTree = "<group>"; };
-		3CE6B5A21B3D992E0030187A /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Core/Storage.swift; sourceTree = "<group>"; };
 		3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTableViewCell.swift; path = Views/InputTableViewCell.swift; sourceTree = "<group>"; };
 		3CE6B5A71B3DC6820030187A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		3CE6B6111B3DD04D0030187A /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
-		3CE6B6251B3DE3400030187A /* ExerciseNavigationChildController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseNavigationChildController.swift; path = ViewControllers/ExerciseNavigationChildController.swift; sourceTree = "<group>"; };
 		402A6B9E56E4ED2E9D799EB2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8EAFE9E3BB183251DCBD0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EF90BD8C114533B9D2EFC9BF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +81,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C0284411BA30310009404A2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3C0284421BA30310009404A2 /* Entities */,
+				3C0284431BA3032C009404A2 /* Storage.xcdatamodeld */,
+				3C0284471BA30359009404A2 /* CoreData.swift */,
+				3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */,
+			);
+			name = CoreData;
+			path = Core/CoreData;
+			sourceTree = "<group>";
+		};
+		3C0284421BA30310009404A2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3C0284491BA30999009404A2 /* Training+CoreDataProperties.swift */,
+				3C02844A1BA30999009404A2 /* Training.swift */,
+				3C02844B1BA30999009404A2 /* TrainingManager+CoreDataProperties.swift */,
+				3C02844C1BA30999009404A2 /* TrainingManager.swift */,
+				3C02844D1BA30999009404A2 /* Exercise+CoreDataProperties.swift */,
+				3C02844E1BA30999009404A2 /* Exercise.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		3CD8D8211B3AFBDB003AC334 = {
 			isa = PBXGroup;
 			children = (
@@ -128,13 +153,9 @@
 		3CD8D85D1B3B28BF003AC334 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3CD8D8821B3B2E37003AC334 /* ExerciseNavigationController.swift */,
-				3CE6B6251B3DE3400030187A /* ExerciseNavigationChildController.swift */,
-				3CD8D8831B3B2E37003AC334 /* ExercisePrepareViewController.swift */,
-				3CD8D8841B3B2E37003AC334 /* ExerciseWarmupViewController.swift */,
-				3CD8D87E1B3B2D4B003AC334 /* TrainingsTableViewController.swift */,
-				3CCDAC641B3B341C00400C1F /* EditTrainingTableViewController.swift */,
-				3CA52DB31B3C881D00439E58 /* EditExerciseTableViewController.swift */,
+				3C0284551BA311B6009404A2 /* MainTableViewController.swift */,
+				3C0284571BA311C2009404A2 /* TrainingTableViewController.swift */,
+				3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -160,13 +181,9 @@
 		3CD8D87B1B3B2A84003AC334 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3C0284411BA30310009404A2 /* CoreData */,
 				3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */,
-				3CCDAC871B3B4A5800400C1F /* Exercise.swift */,
-				3CCDAC881B3B4A5800400C1F /* Training.swift */,
-				3CCDAC861B3B4A5800400C1F /* Copier.swift */,
-				3CCDAC891B3B4A5800400C1F /* UIStoryboard+Extensions.swift */,
-				3CA52DB51B3C8E0F00439E58 /* Array+Extensions.swift */,
-				3CE6B5A21B3D992E0030187A /* Storage.swift */,
+				3C02845D1BA3287C009404A2 /* String+Localization.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -328,22 +345,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C02845C1BA318E3009404A2 /* CoreDataHelper.swift in Sources */,
 				3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */,
-				3CE6B5A31B3D992E0030187A /* Storage.swift in Sources */,
-				3CE6B6261B3DE3400030187A /* ExerciseNavigationChildController.swift in Sources */,
-				3CCDAC8A1B3B4A5800400C1F /* Copier.swift in Sources */,
-				3CD8D8851B3B2E37003AC334 /* ExerciseNavigationController.swift in Sources */,
-				3CD8D8871B3B2E37003AC334 /* ExerciseWarmupViewController.swift in Sources */,
+				3C0284481BA30359009404A2 /* CoreData.swift in Sources */,
+				3C0284511BA30999009404A2 /* TrainingManager+CoreDataProperties.swift in Sources */,
+				3C02844F1BA30999009404A2 /* Training+CoreDataProperties.swift in Sources */,
+				3C0284561BA311B6009404A2 /* MainTableViewController.swift in Sources */,
+				3C0284581BA311C2009404A2 /* TrainingTableViewController.swift in Sources */,
+				3C0284521BA30999009404A2 /* TrainingManager.swift in Sources */,
 				3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */,
-				3CA52DB41B3C881D00439E58 /* EditExerciseTableViewController.swift in Sources */,
-				3CCDAC651B3B341C00400C1F /* EditTrainingTableViewController.swift in Sources */,
-				3CD8D8861B3B2E37003AC334 /* ExercisePrepareViewController.swift in Sources */,
-				3CD8D87F1B3B2D4B003AC334 /* TrainingsTableViewController.swift in Sources */,
+				3C0284531BA30999009404A2 /* Exercise+CoreDataProperties.swift in Sources */,
+				3C02845A1BA311D1009404A2 /* ExerciseTableViewController.swift in Sources */,
+				3C0284501BA30999009404A2 /* Training.swift in Sources */,
+				3C0284541BA30999009404A2 /* Exercise.swift in Sources */,
 				3CE6B5A51B3DBF880030187A /* InputTableViewCell.swift in Sources */,
-				3CA52DB61B3C8E0F00439E58 /* Array+Extensions.swift in Sources */,
-				3CCDAC8B1B3B4A5800400C1F /* Exercise.swift in Sources */,
-				3CCDAC8D1B3B4A5800400C1F /* UIStoryboard+Extensions.swift in Sources */,
-				3CCDAC8C1B3B4A5800400C1F /* Training.swift in Sources */,
+				3C0284451BA3032C009404A2 /* Storage.xcdatamodeld in Sources */,
+				3C02845E1BA3287C009404A2 /* String+Localization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +537,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C0284431BA3032C009404A2 /* Storage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C0284441BA3032C009404A2 /* Storage.xcdatamodel */,
+			);
+			currentVersion = 3C0284441BA3032C009404A2 /* Storage.xcdatamodel */;
+			path = Storage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3CD8D8221B3AFBDB003AC334 /* Project object */;
 }

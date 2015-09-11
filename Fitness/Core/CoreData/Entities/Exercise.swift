@@ -2,13 +2,14 @@
 //  Exercise.swift
 //  Fitness
 //
-//  Created by Manuel Stampfl on 24.06.15.
-//  Copyright (c) 2015 mani1337. All rights reserved.
+//  Created by Manuel Stampfl on 11.09.15.
+//  Copyright © 2015 mani1337. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-enum ExerciseType: Int {
+enum ExerciseType: Int32 {
     case Running = 0, Breast, Back, Triceps, Biceps, Legs, Calves, Shoulders, Stomach, LowerBack, Pause, Count
     
     func localizedName() -> String {
@@ -55,26 +56,9 @@ enum ExerciseType: Int {
     }
 }
 
-class Exercise: NSObject, NSCoding {
-    // MARK: - Internal vars
-    var warmup: NSTimeInterval = 5.0
-    var duration: NSTimeInterval = 60.0
-    var type: ExerciseType = .Running
-    
-    // MARK: - NSCoding
-    @objc required init?(coder aDecoder: NSCoder) {
-        self.warmup = aDecoder.decodeObjectForKey("warmup") as! NSTimeInterval
-        self.duration = aDecoder.decodeObjectForKey("duration") as! NSTimeInterval
-        self.type = ExerciseType(rawValue: aDecoder.decodeObjectForKey("type") as! Int)!
-    }
-    
-    @objc func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.warmup, forKey: "warmup")
-        aCoder.encodeObject(self.duration, forKey: "duration")
-        aCoder.encodeObject(self.type.rawValue, forKey: "type")
-    }
-    
-    // MARK: - Initializers
-    override init() {
-    }
+@objc(Exercise)
+class Exercise: NSManagedObject {
+
+// Insert code here to add functionality to your managed object subclass
+
 }
