@@ -140,8 +140,6 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         if indexPath.section == 2 && indexPath.row == 0 {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             self.startTraining()
-        } else {
-            return super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         }
     }
     
