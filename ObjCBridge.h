@@ -6,4 +6,3 @@
 //  Copyright (c) 2015 mani1337. All rights reserved.
 //
 
-#import "Chameleon/Chameleon.h"
