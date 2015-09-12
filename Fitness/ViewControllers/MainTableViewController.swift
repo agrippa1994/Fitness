@@ -35,11 +35,7 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = self.trainingManager.trainings?.count else {
-            return 0
-        }
-        
-        return count
+        return self.trainingManager.trainings!.count
     }
         
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -35,11 +35,7 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let exerciseCount = self.training.exercises?.count {
-            return [1, exerciseCount, 1][section]
-        } else {
-            return [1, 0, 1][section]
-        }
+        return [1, self.training.exercises!.count, 1][section]
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
