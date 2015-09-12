@@ -9,10 +9,7 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-    var trainingManager: TrainingManager {
-        return CoreData.shared.trainingManager
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +22,10 @@ class MainTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         CoreData.save()
@@ -35,13 +36,13 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.trainingManager.trainings!.count
+        return CoreData.shared.trainingManager.trainings!.count
     }
         
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TrainingCell", forIndexPath: indexPath)
 
-        let training = self.trainingManager.trainings!.objectAtIndex(indexPath.row)
+        let training = CoreData.shared.trainingManager.trainings!.objectAtIndex(indexPath.row)
         cell.textLabel?.text = training.name
         
         return cell
@@ -65,9 +66,7 @@ class MainTableViewController: UITableViewController {
         }
         
         // Remove data from CoreData
-        let set = self.trainingManager.trainings!.mutableCopy() as! NSMutableOrderedSet
-        set.removeObjectAtIndex(indexPath.row)
-        self.trainingManager.trainings = NSMutableOrderedSet(orderedSet: set)
+        CoreData.shared.trainingManager.removeTrainingAtIndex(indexPath.row)
         
         // Remove data from TableView
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -79,22 +78,18 @@ class MainTableViewController: UITableViewController {
         }
         
         // Move object in CoreData
-        let set = self.trainingManager.trainings!.mutableCopy() as! NSMutableOrderedSet
-        set.moveObjectsAtIndexes(NSIndexSet(index: fromIndexPath.row), toIndex: toIndexPath.row)
-        self.trainingManager.trainings! = NSMutableOrderedSet(orderedSet: set)
+       CoreData.shared.trainingManager.moveTrainingFromIndex(fromIndexPath.row, toIndex: toIndexPath.row)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let controller = segue.destinationViewController as? TrainingTableViewController where segue.identifier != nil {
             switch segue.identifier! {
             case "Add":
-                controller.training = CoreData.shared.training.create(true)
-                controller.training.name = "Unnamed"
-                controller.training.manager = self.trainingManager
+                controller.training = CoreData.shared.trainingManager.createTraining()
                 
             case "Edit" where sender is UITableViewCell:
                 let index = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
-                controller.training = self.trainingManager.trainings!.objectAtIndex(index) as! Training
+                controller.training = CoreData.shared.trainingManager.trainings!.objectAtIndex(index) as! Training
                 
             default:
                 break

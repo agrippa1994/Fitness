@@ -20,6 +20,15 @@
 		3C02845A1BA311D1009404A2 /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3C02845C1BA318E3009404A2 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		3C02845E1BA3287C009404A2 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845D1BA3287C009404A2 /* String+Localization.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35DD1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DB1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35DE1BA432A700DE4238 /* ActiveTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DC1BA432A700DE4238 /* ActiveTraining.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35E01BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DF1BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35E41BA43F7500DE4238 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E31BA43F7500DE4238 /* PrepareViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35E61BA45F3B00DE4238 /* WarmupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E51BA45F3B00DE4238 /* WarmupViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35E81BA45F4900DE4238 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E71BA45F4900DE4238 /* PracticeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35EA1BA460CB00DE4238 /* ActiveTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35EE1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3C1B35F01BA4C8A200DE4238 /* SpeakText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35EF1BA4C8A200DE4238 /* SpeakText.swift */; settings = {ASSET_TAGS = (); }; };
 		3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8361B3AFBDB003AC334 /* Images.xcassets */; };
 		3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */; };
 		3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86C1B3B2954003AC334 /* HealthKit.framework */; };
@@ -46,6 +55,15 @@
 		3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseTableViewController.swift; path = ViewControllers/ExerciseTableViewController.swift; sourceTree = "<group>"; };
 		3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		3C02845D1BA3287C009404A2 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Localization.swift"; path = "Core/String+Localization.swift"; sourceTree = "<group>"; };
+		3C1B35DB1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActiveTraining+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C1B35DC1BA432A700DE4238 /* ActiveTraining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTraining.swift; sourceTree = "<group>"; };
+		3C1B35DF1BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSOrdererdSet+Mutate.swift"; path = "Core/NSOrdererdSet+Mutate.swift"; sourceTree = "<group>"; };
+		3C1B35E31BA43F7500DE4238 /* PrepareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrepareViewController.swift; path = ViewControllers/PrepareViewController.swift; sourceTree = "<group>"; };
+		3C1B35E51BA45F3B00DE4238 /* WarmupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WarmupViewController.swift; path = ViewControllers/WarmupViewController.swift; sourceTree = "<group>"; };
+		3C1B35E71BA45F4900DE4238 /* PracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PracticeViewController.swift; path = ViewControllers/PracticeViewController.swift; sourceTree = "<group>"; };
+		3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveTrainingController.swift; path = Core/ActiveTrainingController.swift; sourceTree = "<group>"; };
+		3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveTrainingChildViewController.swift; path = ViewControllers/ActiveTrainingChildViewController.swift; sourceTree = "<group>"; };
+		3C1B35EF1BA4C8A200DE4238 /* SpeakText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakText.swift; path = Core/SpeakText.swift; sourceTree = "<group>"; };
 		3CCDAC701B3B3B7C00400C1F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD8D82A1B3AFBDB003AC334 /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD8D82E1B3AFBDB003AC334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +120,8 @@
 				3C02844C1BA30999009404A2 /* TrainingManager.swift */,
 				3C02844D1BA30999009404A2 /* Exercise+CoreDataProperties.swift */,
 				3C02844E1BA30999009404A2 /* Exercise.swift */,
+				3C1B35DB1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift */,
+				3C1B35DC1BA432A700DE4238 /* ActiveTraining.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -156,6 +176,10 @@
 				3C0284551BA311B6009404A2 /* MainTableViewController.swift */,
 				3C0284571BA311C2009404A2 /* TrainingTableViewController.swift */,
 				3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */,
+				3C1B35E31BA43F7500DE4238 /* PrepareViewController.swift */,
+				3C1B35E51BA45F3B00DE4238 /* WarmupViewController.swift */,
+				3C1B35E71BA45F4900DE4238 /* PracticeViewController.swift */,
+				3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +208,9 @@
 				3C0284411BA30310009404A2 /* CoreData */,
 				3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */,
 				3C02845D1BA3287C009404A2 /* String+Localization.swift */,
+				3C1B35DF1BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift */,
+				3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */,
+				3C1B35EF1BA4C8A200DE4238 /* SpeakText.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -356,8 +383,17 @@
 				3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */,
 				3C0284531BA30999009404A2 /* Exercise+CoreDataProperties.swift in Sources */,
 				3C02845A1BA311D1009404A2 /* ExerciseTableViewController.swift in Sources */,
+				3C1B35E81BA45F4900DE4238 /* PracticeViewController.swift in Sources */,
+				3C1B35DE1BA432A700DE4238 /* ActiveTraining.swift in Sources */,
+				3C1B35EE1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift in Sources */,
 				3C0284501BA30999009404A2 /* Training.swift in Sources */,
+				3C1B35DD1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift in Sources */,
 				3C0284541BA30999009404A2 /* Exercise.swift in Sources */,
+				3C1B35E01BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift in Sources */,
+				3C1B35F01BA4C8A200DE4238 /* SpeakText.swift in Sources */,
+				3C1B35E61BA45F3B00DE4238 /* WarmupViewController.swift in Sources */,
+				3C1B35EA1BA460CB00DE4238 /* ActiveTrainingController.swift in Sources */,
+				3C1B35E41BA43F7500DE4238 /* PrepareViewController.swift in Sources */,
 				3CE6B5A51B3DBF880030187A /* InputTableViewCell.swift in Sources */,
 				3C0284451BA3032C009404A2 /* Storage.xcdatamodeld in Sources */,
 				3C02845E1BA3287C009404A2 /* String+Localization.swift in Sources */,

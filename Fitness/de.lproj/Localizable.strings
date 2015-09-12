@@ -32,6 +32,18 @@
 
 "TRAININGTABLEVIEWCONTROLLER_EXERCISES_HEADER" = "Übungen für dieses Training";
 
+"TRAININGTABLEVIEWCONTROLLER_NO_EXERCISES" = "Du kannst kein Training ohne Übungen starten!";
+
+"ACTIVETRAININGCHILDVIEWCONTROLLER_CANCEL_TRAINING" = "Aktuelles Training abbrechen";
+
+"WARMUPVIEWCONTROLLER_FINISHED_WARMUP" = "Aufwärmen beendet!";
+
+"PRACTICEVIEWCONTROLLER_FINISHED_WARMUP" = "Übung beendet!";
+
+"SPEAKTEXT_BEGIN_EXERCISE" = "Übung beginnt jetzt!";
+
+"SPEAKTEXT_EXERCISE_FINISHED" = "Übung beendet!";
+
 "SECOND" = "Sekunde";
 
 "SECONDS" = "Sekunden";
@@ -39,3 +51,7 @@
 "MINUTE" = "Minute";
 
 "MINUTES" = "Minuten";
+
+"ERROR" = "Fehler";
+
+"CANCEL" = "Abbrechen";

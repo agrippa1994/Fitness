@@ -1,5 +1,5 @@
 //
-//  Training+CoreDataProperties.swift
+//  ActiveTraining+CoreDataProperties.swift
 //  Fitness
 //
 //  Created by Manuel Stampfl on 12.09.15.
@@ -12,11 +12,13 @@
 import Foundation
 import CoreData
 
-extension Training {
+extension ActiveTraining {
 
-    @NSManaged var name: String?
-    @NSManaged var exercises: NSOrderedSet?
+    @NSManaged var currentStep: Int32
+    @NSManaged var fireDate: NSTimeInterval
+    @NSManaged var startDate: NSTimeInterval
     @NSManaged var manager: TrainingManager?
-    @NSManaged var activeTraining: ActiveTraining?
+    @NSManaged var currentExercise: Exercise?
+    @NSManaged var currentTraining: Training?
 
 }

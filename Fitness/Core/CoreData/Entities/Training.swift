@@ -12,6 +12,40 @@ import CoreData
 @objc(Training)
 class Training: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+    func createExercise() -> Exercise {
+        let exercise = EntityHelper<Exercise>(name: "Exercise").create(true)!
+        self.addExercise(exercise)
+    
+        return exercise
+    }
+    
+    func addExercise(exercise: Exercise) {
+        self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
+            $0.addObject(exercise)
+        }
+        
+        exercise.training = self
+    }
+    
+    func moveExerciseFromIndex(fromIndex: Int, toIndex index: Int) {
+        self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
+            $0.moveObjectsAtIndexes(NSIndexSet(index: fromIndex), toIndex: index)
+        }
+    }
+    
+    func removeExerciseAtIndex(index: Int) {
+        EntityHelper<Exercise>(name: "Exercise").remove(self.exercises!.objectAtIndex(index) as! Exercise)
+        
+        self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
+            $0.removeObjectAtIndex(index)
+        }
+    }
+    
+    func removeExercise(exercise: Exercise) {
+        EntityHelper<Exercise>(name: "Exercise").remove(exercise)
+        
+        self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
+            $0.removeObject(exercise)
+        }
+    }
 }

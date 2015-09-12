@@ -11,6 +11,7 @@ import UIKit
 class TrainingTableViewController: UITableViewController, InputTableViewCellDelegate {
     
     var training: Training!
+    var activeTrainingController: ActiveTrainingController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,36 +81,23 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        defer {
-            CoreData.save()
-        }
-        
         if editingStyle != .Delete {
             return
         }
         
-        // Remove data from CoreData
-        let exercise = self.training.exercises!.objectAtIndex(indexPath.row) as! Exercise
-        CoreData.shared.exercise.remove(exercise)
-        
         // Remove exercise object from the training
-        let set = self.training.exercises!.mutableCopy() as! NSMutableOrderedSet
-        set.removeObject(exercise)
-        self.training.exercises = NSMutableOrderedSet(orderedSet: set)
+        self.training.removeExerciseAtIndex(indexPath.row)
         
         // Remove data from TableView
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        
+        CoreData.save()
     }
 
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        defer {
-            CoreData.save()
-        }
-        
         // Move object in CoreData
-        let set = self.training.exercises!.mutableCopy() as! NSMutableOrderedSet
-        set.moveObjectsAtIndexes(NSIndexSet(index: fromIndexPath.row), toIndex: toIndexPath.row)
-        self.training.exercises = NSMutableOrderedSet(orderedSet: set)
+        self.training!.moveExerciseFromIndex(fromIndexPath.row, toIndex: toIndexPath.row)
+        CoreData.save()
     }
 
     override func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
@@ -135,7 +123,7 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         // Start training
         if indexPath.section == 2 && indexPath.row == 0 {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            self.startTraining()
+            self.startTraining(self.training)
         }
     }
     
@@ -143,8 +131,7 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         if let controller = segue.destinationViewController as? ExerciseTableViewController where segue.identifier != nil {
             switch segue.identifier! {
             case "Add":
-                controller.exercise = CoreData.shared.exercise.create(true)
-                controller.exercise.training = self.training
+                controller.exercise = self.training.createExercise()
                 
             case "Edit" where sender is UITableViewCell:
                 let index = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
@@ -160,7 +147,18 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         self.training.name = newText
     }
     
-    func startTraining() {
+    func startTraining(training: Training) {
+        if self.training.exercises!.count == 0 {
+            let controller = UIAlertController(title: "ERROR".localized, message: "TRAININGTABLEVIEWCONTROLLER_NO_EXERCISES".localized, preferredStyle: .Alert)
+            controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            
+            return self.presentViewController(controller, animated: true, completion: nil)
+        }
         
+        let activeTraining = CoreData.shared.createActiveTrainingOrGetActive()
+        activeTraining.startTraining(training)
+        self.activeTrainingController = ActiveTrainingController(withStoryboard: self.storyboard!, andActiveTraining: activeTraining)
+        self.activeTrainingController!.startViaController(self)
+        CoreData.save()
     }
 }

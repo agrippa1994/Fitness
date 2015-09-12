@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A282b" minimumToolsVersion="Xcode 7.0">
+    <entity name="ActiveTraining" representedClassName="ActiveTraining" syncable="YES">
+        <attribute name="currentStep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fireDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="currentExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="activeTraining" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="currentTraining" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Training" inverseName="activeTraining" inverseEntity="Training" syncable="YES"/>
+        <relationship name="manager" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrainingManager" inverseName="activeTraining" inverseEntity="TrainingManager" syncable="YES"/>
+    </entity>
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="duration" attributeType="Double" defaultValueString="10" syncable="YES"/>
         <attribute name="exerciseType" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="warmup" attributeType="Double" defaultValueString="5" syncable="YES"/>
+        <relationship name="activeTraining" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActiveTraining" inverseName="currentExercise" inverseEntity="ActiveTraining" syncable="YES"/>
         <relationship name="training" maxCount="1" deletionRule="Nullify" destinationEntity="Training" inverseName="exercises" inverseEntity="Training" syncable="YES"/>
     </entity>
     <entity name="Training" representedClassName="Training" syncable="YES">
-        <attribute name="name" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="Unnamed" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <relationship name="activeTraining" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActiveTraining" inverseName="currentTraining" inverseEntity="ActiveTraining" syncable="YES"/>
         <relationship name="exercises" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Exercise" inverseName="training" inverseEntity="Exercise" syncable="YES"/>
-        <relationship name="isActive" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrainingManager" inverseName="activeTraining" inverseEntity="TrainingManager" syncable="YES"/>
         <relationship name="manager" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrainingManager" inverseName="trainings" inverseEntity="TrainingManager" syncable="YES"/>
     </entity>
     <entity name="TrainingManager" representedClassName="TrainingManager" syncable="YES">
-        <relationship name="activeTraining" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Training" inverseName="isActive" inverseEntity="Training" syncable="YES"/>
+        <relationship name="activeTraining" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ActiveTraining" inverseName="manager" inverseEntity="ActiveTraining" syncable="YES"/>
         <relationship name="trainings" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Training" inverseName="manager" inverseEntity="Training" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="432" positionY="-13" width="128" height="103"/>
-        <element name="Training" positionX="232" positionY="-22" width="128" height="103"/>
+        <element name="Exercise" positionX="529" positionY="-45" width="128" height="118"/>
+        <element name="Training" positionX="268" positionY="-18" width="128" height="28"/>
         <element name="TrainingManager" positionX="-27" positionY="9" width="128" height="73"/>
+        <element name="ActiveTraining" positionX="270" positionY="-220" width="128" height="28"/>
     </elements>
 </model>

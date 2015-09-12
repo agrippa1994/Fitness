@@ -21,25 +21,19 @@ class ExerciseTimerView: UIView {
         }
     }
     
-    var lineColor = UIColor.blueColor() {
+    var lineWidth = 4.0 {
         didSet {
             self.setNeedsDisplay()
         }
     }
     
-    var lineWidth = 2.0 {
+    var text = "3600" {
         didSet {
             self.setNeedsDisplay()
         }
     }
     
-    var text = "" {
-        didSet {
-            self.setNeedsDisplay()
-        }
-    }
-    
-    var textSize = Double(UIFont.systemFontSize()) {
+    var textSize = 25.0 {
         didSet {
             self.setNeedsDisplay()
         }
@@ -68,7 +62,7 @@ class ExerciseTimerView: UIView {
         ovalTransform = CGAffineTransformScale(ovalTransform, 1, rect.height / rect.width)
         ovalPath.applyTransform(ovalTransform)
         
-        self.lineColor.setStroke()
+        self.tintColor.setStroke()
         ovalPath.lineWidth = CGFloat(self.lineWidth)
         ovalPath.stroke()
     }

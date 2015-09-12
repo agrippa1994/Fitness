@@ -8,6 +8,8 @@
 
 import Foundation
 import CoreData
+import CoreSpotlight
+import MobileCoreServices
 
 private var g_coreData: CoreData?
 
@@ -58,6 +60,38 @@ class CoreData {
             return false
         }
         
+        // Update Spotlight entries
+        let index = CSSearchableIndex.defaultSearchableIndex()
+        index.deleteAllSearchableItemsWithCompletionHandler { error in
+            if error != nil {
+                return NSLog("Error while deleting all searchable items \(error)")
+            }
+            
+            var searchableItems = [CSSearchableItem]()
+            for obj in CoreData.shared.trainingManager.trainings! {
+                let training = obj as! Training
+                
+                let attributeSet = CSSearchableItemAttributeSet(itemContentType: String(kUTTypeText))
+                attributeSet.title = training.name!
+                searchableItems += [CSSearchableItem(uniqueIdentifier: training.name!, domainIdentifier: nil, attributeSet: attributeSet)]
+            }
+            
+            index.indexSearchableItems(searchableItems) { error in
+                if error != nil {
+                    return NSLog("Error while indexing searchable items \(error)")
+                }
+            }
+            
+        }
+        
+        for obj in CoreData.shared.trainingManager.trainings! {
+            let training = obj as! Training
+            let attributeSet = CSSearchableItemAttributeSet(itemContentType: training.name!)
+            let searchableItem = CSSearchableItem(uniqueIdentifier: training.name!, domainIdentifier: nil, attributeSet: attributeSet)
+            index.indexSearchableItems([searchableItem], completionHandler: nil)
+        }
+        
+        // Save
         if ctx.hasChanges {
             do {
                 try ctx.save()
@@ -70,10 +104,7 @@ class CoreData {
         return true
     }
     
-    var training = EntityHelper<Training>(name: "Training")
-    var exercise = EntityHelper<Exercise>(name: "Exercise")
-    
-    var trainingManager: TrainingManager {
+    lazy var trainingManager: TrainingManager = {
         let helper = EntityHelper<TrainingManager>(name: "TrainingManager")
         let all = helper.all()
         if all.count >= 1 {
@@ -81,5 +112,33 @@ class CoreData {
         }
         
         return helper.create(true)!
+    }()
+    
+    func createActiveTrainingOrGetActive() -> ActiveTraining {
+        if self.activeTraining != nil {
+            return self.activeTraining!
+        }
+        
+        let training = EntityHelper<ActiveTraining>(name: "ActiveTraining").create(true)!
+        training.manager = self.trainingManager
+        
+        return training
     }
+    
+    var activeTraining: ActiveTraining? {
+        get {
+            let objects = EntityHelper<ActiveTraining>(name: "ActiveTraining").all()
+            if objects.count == 0 {
+                return nil
+            }
+            
+            return objects[0]
+            
+        } set {
+            if let training = self.activeTraining where newValue == nil {
+                EntityHelper<ActiveTraining>(name: "ActiveTraining").remove(training)
+            }
+        }
+    }
+    
 }
