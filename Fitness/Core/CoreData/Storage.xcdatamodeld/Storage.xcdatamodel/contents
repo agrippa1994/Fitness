@@ -9,7 +9,7 @@
         <relationship name="manager" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrainingManager" inverseName="activeTraining" inverseEntity="TrainingManager" syncable="YES"/>
     </entity>
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
-        <attribute name="duration" attributeType="Double" defaultValueString="10" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="60" syncable="YES"/>
         <attribute name="exerciseType" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="warmup" attributeType="Double" defaultValueString="5" syncable="YES"/>
         <relationship name="activeTraining" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActiveTraining" inverseName="currentExercise" inverseEntity="ActiveTraining" syncable="YES"/>
@@ -26,9 +26,9 @@
         <relationship name="trainings" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Training" inverseName="manager" inverseEntity="Training" syncable="YES"/>
     </entity>
     <elements>
+        <element name="ActiveTraining" positionX="270" positionY="-220" width="128" height="28"/>
         <element name="Exercise" positionX="529" positionY="-45" width="128" height="118"/>
         <element name="Training" positionX="268" positionY="-18" width="128" height="28"/>
         <element name="TrainingManager" positionX="-27" positionY="9" width="128" height="73"/>
-        <element name="ActiveTraining" positionX="270" positionY="-220" width="128" height="28"/>
     </elements>
 </model>

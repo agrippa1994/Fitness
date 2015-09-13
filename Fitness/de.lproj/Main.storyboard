@@ -169,7 +169,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Training's name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eeA-0B-hoz">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name des Trainings" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eeA-0B-hoz">
                                             <rect key="frame" x="18" y="8" width="574" height="27"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -230,7 +230,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Start Training!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXm-8j-fJe">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Starte Training!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXm-8j-fJe">
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
@@ -263,7 +263,7 @@
             </objects>
             <point key="canvasLocation" x="1257" y="1281"/>
         </scene>
-        <!--Exercise-->
+        <!--Übung-->
         <scene sceneID="sxV-Xn-RBs">
             <objects>
                 <tableViewController id="ZWP-aY-8TA" customClass="ExerciseTableViewController" customModule="Fitness" customModuleProvider="target" sceneMemberID="viewController">
@@ -273,7 +273,7 @@
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Type of exercise" id="o5K-fH-MQ5">
+                            <tableViewSection headerTitle="Typ der Übung" id="o5K-fH-MQ5">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="M8G-yL-uZb">
                                         <rect key="frame" x="0.0" y="114" width="600" height="150"/>
@@ -299,7 +299,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Warmup time" id="Khd-at-BNk">
+                            <tableViewSection headerTitle="Aufwärmzeit" id="Khd-at-BNk">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="XGV-W8-DZt">
                                         <rect key="frame" x="0.0" y="307" width="600" height="150"/>
@@ -325,7 +325,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Exercise duration" id="1do-8h-uZw">
+                            <tableViewSection headerTitle="Trainingszeit" id="1do-8h-uZw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="7Ff-8S-lg8">
                                         <rect key="frame" x="0.0" y="500" width="600" height="150"/>
@@ -358,7 +358,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Exercise" id="Jr3-rW-w68"/>
+                    <navigationItem key="navigationItem" title="Übung" id="Jr3-rW-w68"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="durationPickerView" destination="7jo-PE-KaE" id="epx-Wj-slg"/>
@@ -467,7 +467,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prepare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zId-Iw-gp5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorbereitung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zId-Iw-gp5">
                                             <rect key="frame" x="60" y="20" width="480" height="50"/>
                                             <animations/>
                                             <constraints>
@@ -499,7 +499,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qu-XV-okN">
                                             <rect key="frame" x="8" y="322" width="584" height="30"/>
                                             <animations/>
-                                            <state key="normal" title="Let's go"/>
+                                            <state key="normal" title="Starte Übung"/>
                                             <connections>
                                                 <action selector="onStart:" destination="10F-nQ-mCR" eventType="touchUpInside" id="i6R-NT-7Cg"/>
                                             </connections>

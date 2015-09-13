@@ -24,6 +24,10 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        Health.sharedHealth().isAllowedToUse {
+            NSLog("Access to HealthKit \($0)")
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

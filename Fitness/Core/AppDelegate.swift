@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Initialize CoreData
         CoreData.initialize()
+        
+        
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            try audioSession.setActive(true)
+        } catch {
+            NSLog("Enabling playback failed \(error)")
+        }
         
         return true
     }

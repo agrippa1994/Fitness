@@ -31,7 +31,6 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
         for exercise in self.activeTraining.currentTraining!.exercises! {
             let newControllers = [
                 self.storyboard.instantiateViewControllerWithIdentifier("PrepareViewController") as! ActiveTrainingChildViewController,
-                self.storyboard.instantiateViewControllerWithIdentifier("WarmupViewController") as! ActiveTrainingChildViewController,
                 self.storyboard.instantiateViewControllerWithIdentifier("PracticeViewController") as! ActiveTrainingChildViewController
             ]
             
@@ -93,15 +92,17 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
     
     func activeTrainingChildViewControllerOnNext(controller: ActiveTrainingChildViewController) {
         self.currentViewControllerOffset++
+        
         if self.currentViewControllerOffset >= self.controllers.count {
+            Health.sharedHealth().addWorkout(NSDate(timeIntervalSince1970: self.activeTraining.startDate), end: NSDate()) {
+                NSLog("Store training to HealthKit: \($0)")
+            }
+            
             guard let _ = self.delegate?.activeTrainingControllerDidFinished(self) else {
                 return self.navigationController.dismissViewControllerAnimated(true, completion: nil)
             }
-            
-            self.navigationController.dismissViewControllerAnimated(true, completion: nil)
         } else {
             self.navigationController.pushViewController(self.controllers[currentViewControllerOffset], animated: true)
         }
     }
-    
 }

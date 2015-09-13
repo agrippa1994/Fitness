@@ -54,7 +54,7 @@ class ActiveTrainingChildViewController: UIViewController {
         // Register notifications
         let center = NSNotificationCenter.defaultCenter()
         center.addObserver(self, selector: Selector("appDidEnterBackground"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        center.addObserver(self, selector: Selector("appDidEnterForeground"), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        center.addObserver(self, selector: Selector("appDidEnterForeground"), name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
     
     override func viewDidDisappear(animated: Bool) {
