@@ -26,9 +26,9 @@
         <relationship name="trainings" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Training" inverseName="manager" inverseEntity="Training" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActiveTraining" positionX="270" positionY="-220" width="128" height="28"/>
-        <element name="Exercise" positionX="529" positionY="-45" width="128" height="118"/>
-        <element name="Training" positionX="268" positionY="-18" width="128" height="28"/>
-        <element name="TrainingManager" positionX="-27" positionY="9" width="128" height="73"/>
+        <element name="ActiveTraining" positionX="270" positionY="-220" width="128" height="133"/>
+        <element name="Exercise" positionX="529" positionY="-126" width="128" height="118"/>
+        <element name="Training" positionX="268" positionY="-18" width="128" height="88"/>
+        <element name="TrainingManager" positionX="-18" positionY="-90" width="128" height="73"/>
     </elements>
 </model>
