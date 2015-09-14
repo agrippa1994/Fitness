@@ -37,6 +37,7 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
             for controller in newControllers {
                 controller.exercise = exercise as! Exercise
                 controller.activeTraining = self.activeTraining
+                controller.startDate = NSDate()
             }
 
             self.controllers += newControllers
@@ -102,6 +103,7 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
                 return self.navigationController.dismissViewControllerAnimated(true, completion: nil)
             }
         } else {
+            self.controllers[currentViewControllerOffset].startDate = NSDate()
             self.navigationController.pushViewController(self.controllers[currentViewControllerOffset], animated: true)
         }
     }

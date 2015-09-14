@@ -25,6 +25,7 @@ class ActiveTrainingChildViewController: UIViewController {
     
     var exercise: Exercise!
     var activeTraining: ActiveTraining!
+    var startDate: NSDate!
     
     @IBAction func onCancel(sender: AnyObject) {
         // Display an alert controller

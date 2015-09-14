@@ -20,7 +20,6 @@ class PracticeViewController: ActiveTrainingChildViewController {
     
     // Class vars
     private var timer: NSTimer!
-    private var startDate: NSDate!
     private var oldSpeakerTimerState = State.UnknownOrFinished
     private var wasAppInactive = false
     
@@ -52,8 +51,6 @@ class PracticeViewController: ActiveTrainingChildViewController {
         
         // Initialize SpeakText
         Speaker.sharedSpeaker()
-        
-        self.startDate = NSDate()
     }
     
     override func viewWillAppear(animated: Bool) {
