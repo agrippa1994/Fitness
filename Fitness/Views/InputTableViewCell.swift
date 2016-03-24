@@ -2,8 +2,8 @@
 //  InputTableViewCell.swift
 //  Fitness
 //
-//  Created by Manuel Stampfl on 26.06.15.
-//  Copyright (c) 2015 mani1337. All rights reserved.
+//  Created by Manuel Leitold on 26.06.15.
+//  Copyright (c) 2015 - 2016 mani1337. All rights reserved.
 //
 
 import UIKit

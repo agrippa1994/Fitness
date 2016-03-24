@@ -2,8 +2,8 @@
 //  Health.swift
 //  Fitness
 //
-//  Created by Manuel Stampfl on 13.09.15.
-//  Copyright © 2015 mani1337. All rights reserved.
+//  Created by Manuel Leitold on 13.09.15.
+//  Copyright © 2015 - 2016 mani1337. All rights reserved.
 //
 
 import Foundation

@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ExerciseViewController
 //
-//  Created by Manuel Stampfl on 23.06.15.
-//  Copyright (c) 2015 mani1337. All rights reserved.
+//  Created by Manuel Leitold on 23.06.15.
+//  Copyright (c) 2015 - 2016 mani1337. All rights reserved.
 //
 
 import UIKit
