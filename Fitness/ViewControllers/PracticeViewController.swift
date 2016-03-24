@@ -102,7 +102,7 @@ class PracticeViewController: ActiveTrainingChildViewController {
     
     func startTimer() {
         self.onTimer()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("onTimer"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(PracticeViewController.onTimer), userInfo: nil, repeats: true)
     }
     
     func stopTimer() {

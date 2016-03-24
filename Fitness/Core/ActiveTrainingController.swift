@@ -87,12 +87,12 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
     }
     
     func activeTrainingChildViewControllerOnBack(controller: ActiveTrainingChildViewController) {
-        self.currentViewControllerOffset--
+        self.currentViewControllerOffset -= 1
         self.navigationController.popViewControllerAnimated(true)
     }
     
     func activeTrainingChildViewControllerOnNext(controller: ActiveTrainingChildViewController) {
-        self.currentViewControllerOffset++
+        self.currentViewControllerOffset += 1
         
         if self.currentViewControllerOffset >= self.controllers.count {
             Health.sharedHealth().addWorkout(NSDate(timeIntervalSince1970: self.activeTraining.startDate), end: NSDate()) {
