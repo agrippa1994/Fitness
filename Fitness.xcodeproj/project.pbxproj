@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C0284451BA3032C009404A2 /* Storage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284431BA3032C009404A2 /* Storage.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		3C0284481BA30359009404A2 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284471BA30359009404A2 /* CoreData.swift */; settings = {ASSET_TAGS = (); }; };
-		3C02844F1BA30999009404A2 /* Training+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284491BA30999009404A2 /* Training+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284501BA30999009404A2 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844A1BA30999009404A2 /* Training.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284511BA30999009404A2 /* TrainingManager+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844B1BA30999009404A2 /* TrainingManager+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284521BA30999009404A2 /* TrainingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844C1BA30999009404A2 /* TrainingManager.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284531BA30999009404A2 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844D1BA30999009404A2 /* Exercise+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284541BA30999009404A2 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844E1BA30999009404A2 /* Exercise.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284561BA311B6009404A2 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284551BA311B6009404A2 /* MainTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C0284581BA311C2009404A2 /* TrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284571BA311C2009404A2 /* TrainingTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C02845A1BA311D1009404A2 /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C02845C1BA318E3009404A2 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		3C02845E1BA3287C009404A2 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845D1BA3287C009404A2 /* String+Localization.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35DD1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DB1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35DE1BA432A700DE4238 /* ActiveTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DC1BA432A700DE4238 /* ActiveTraining.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35E01BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DF1BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35E41BA43F7500DE4238 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E31BA43F7500DE4238 /* PrepareViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35E81BA45F4900DE4238 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E71BA45F4900DE4238 /* PracticeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35EA1BA460CB00DE4238 /* ActiveTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35EE1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3C1B35F01BA4C8A200DE4238 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35EF1BA4C8A200DE4238 /* Speaker.swift */; settings = {ASSET_TAGS = (); }; };
-		3CD89B751BA586B20057F048 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD89B741BA586B20057F048 /* Health.swift */; settings = {ASSET_TAGS = (); }; };
+		3C0284451BA3032C009404A2 /* Storage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284431BA3032C009404A2 /* Storage.xcdatamodeld */; };
+		3C0284481BA30359009404A2 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284471BA30359009404A2 /* CoreData.swift */; };
+		3C02844F1BA30999009404A2 /* Training+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284491BA30999009404A2 /* Training+CoreDataProperties.swift */; };
+		3C0284501BA30999009404A2 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844A1BA30999009404A2 /* Training.swift */; };
+		3C0284511BA30999009404A2 /* TrainingManager+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844B1BA30999009404A2 /* TrainingManager+CoreDataProperties.swift */; };
+		3C0284521BA30999009404A2 /* TrainingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844C1BA30999009404A2 /* TrainingManager.swift */; };
+		3C0284531BA30999009404A2 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844D1BA30999009404A2 /* Exercise+CoreDataProperties.swift */; };
+		3C0284541BA30999009404A2 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02844E1BA30999009404A2 /* Exercise.swift */; };
+		3C0284561BA311B6009404A2 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284551BA311B6009404A2 /* MainTableViewController.swift */; };
+		3C0284581BA311C2009404A2 /* TrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284571BA311C2009404A2 /* TrainingTableViewController.swift */; };
+		3C02845A1BA311D1009404A2 /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0284591BA311D1009404A2 /* ExerciseTableViewController.swift */; };
+		3C02845C1BA318E3009404A2 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845B1BA318E3009404A2 /* CoreDataHelper.swift */; };
+		3C02845E1BA3287C009404A2 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02845D1BA3287C009404A2 /* String+Localization.swift */; };
+		3C1B35DD1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DB1BA432A700DE4238 /* ActiveTraining+CoreDataProperties.swift */; };
+		3C1B35DE1BA432A700DE4238 /* ActiveTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DC1BA432A700DE4238 /* ActiveTraining.swift */; };
+		3C1B35E01BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35DF1BA436AA00DE4238 /* NSOrdererdSet+Mutate.swift */; };
+		3C1B35E41BA43F7500DE4238 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E31BA43F7500DE4238 /* PrepareViewController.swift */; };
+		3C1B35E81BA45F4900DE4238 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E71BA45F4900DE4238 /* PracticeViewController.swift */; };
+		3C1B35EA1BA460CB00DE4238 /* ActiveTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */; };
+		3C1B35EE1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */; };
+		3C1B35F01BA4C8A200DE4238 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35EF1BA4C8A200DE4238 /* Speaker.swift */; };
+		3CD89B751BA586B20057F048 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD89B741BA586B20057F048 /* Health.swift */; };
 		3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8361B3AFBDB003AC334 /* Images.xcassets */; };
 		3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */; };
 		3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86C1B3B2954003AC334 /* HealthKit.framework */; };
@@ -468,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -507,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,6 +529,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridge.h;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -546,6 +547,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridge.h;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
