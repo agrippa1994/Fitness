@@ -12,9 +12,9 @@ import CoreData
 @objc(ActiveTraining)
 class ActiveTraining: NSManagedObject {
 
-    func startTraining(_ training: Training) -> Bool {
+    func startTraining(_ training: Training) {
         if training.exercises!.count == 0 {
-            return false
+            return
         }
         
         self.currentStep = 0
@@ -22,6 +22,5 @@ class ActiveTraining: NSManagedObject {
         self.currentExercise = training.exercises!.object(at: 0) as? Exercise
         self.currentTraining = training
         self.startDate = Date().timeIntervalSince1970
-        return true
     }
 }

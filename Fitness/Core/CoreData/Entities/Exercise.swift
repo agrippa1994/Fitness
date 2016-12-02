@@ -16,7 +16,7 @@ enum ExerciseType: Int32 {
         return NSLocalizedString(self.localizationKey(), comment: "Enumeration to string")
     }
     
-    fileprivate func localizationKey() -> String {
+    private func localizationKey() -> String {
         switch self {
         case .running:
             return "EXERCISETYPE_RUNNING"

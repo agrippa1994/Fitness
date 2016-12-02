@@ -10,10 +10,10 @@ import Foundation
 import HealthKit
 
 class Health {
-    fileprivate static var healthSingleTon: Health!
+    private static var healthSingleTon: Health!
     var healthStore = HKHealthStore()
     
-    fileprivate init() {
+    private init() {
         
     }
     

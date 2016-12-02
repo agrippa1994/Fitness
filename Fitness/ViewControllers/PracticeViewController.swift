@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import UserNotifications
 
 class PracticeViewController: ActiveTrainingChildViewController {
 
     // Enumerations
-    fileprivate enum State {
+    private enum State {
         case warmup, practice, unknownOrFinished
     }
     
@@ -19,12 +20,12 @@ class PracticeViewController: ActiveTrainingChildViewController {
     @IBOutlet weak var timerView: ExerciseTimerView!
     
     // Class vars
-    fileprivate var timer: Timer!
-    fileprivate var oldSpeakerTimerState = State.unknownOrFinished
-    fileprivate var wasAppInactive = false
+    private var timer: Timer!
+    private var oldSpeakerTimerState = State.unknownOrFinished
+    private var wasAppInactive = false
     
     // Computed vars
-    fileprivate var state: State {
+    private var state: State {
         // is warmup?
         if Date().timeIntervalSince1970 <= Date(timeInterval: self.exercise.warmup, since: self.startDate as Date).timeIntervalSince1970 {
             return .warmup
@@ -50,7 +51,7 @@ class PracticeViewController: ActiveTrainingChildViewController {
         self.timerView.text = "\(Int(self.exercise.duration))"
         
         // Initialize SpeakText
-        Speaker.sharedSpeaker()
+        let _ = Speaker.sharedSpeaker()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -17,10 +17,9 @@ class EntityHelper<T> where T: NSManagedObject {
     
     func all() -> [T] {
         let ctx = CoreData.shared.managedObjectContext
-        if let data = try? ctx.fetch(NSFetchRequest(entityName: self.name)) as? [T] {
-            return data!
+        if let data = try? ctx.fetch(NSFetchRequest(entityName: self.name)) {
+            return data as! [T]
         }
-        
         return []
     }
     

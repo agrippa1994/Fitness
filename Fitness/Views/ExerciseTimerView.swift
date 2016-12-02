@@ -50,7 +50,7 @@ class ExerciseTimerView: UIView {
         self.drawLabel(rect)
     }
     
-    fileprivate func drawCircle(_ rect: CGRect) {
+    private func drawCircle(_ rect: CGRect) {
         let startAngle = CGFloat(-90.0 * M_PI / 180.0)
         let endAngle = CGFloat(((self.progress / self.maxProgress) * 360.0 - 90.0) * (M_PI / 180.0))
         let radius = CGFloat(Double(rect.width) / 2.0 - self.lineWidth)
@@ -67,7 +67,7 @@ class ExerciseTimerView: UIView {
         ovalPath.stroke()
     }
     
-    fileprivate func drawLabel(_ rect: CGRect) {
+    private func drawLabel(_ rect: CGRect) {
         let textStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.center
         

@@ -9,7 +9,7 @@
 import AVFoundation
 
 class Speaker {
-    fileprivate static var _sharedSpeaker: Speaker?
+    private static var _sharedSpeaker: Speaker?
     let synthesizer: AVSpeechSynthesizer
     var pitch: Float = 1.4
     var rate: Float = 0.5
@@ -22,7 +22,7 @@ class Speaker {
         return _sharedSpeaker!
     }
     
-    fileprivate init() {
+    private init() {
         self.synthesizer = AVSpeechSynthesizer()
     }
     
