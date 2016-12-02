@@ -28,16 +28,17 @@
 		3C1B35EA1BA460CB00DE4238 /* ActiveTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */; };
 		3C1B35EE1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */; };
 		3C1B35F01BA4C8A200DE4238 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1B35EF1BA4C8A200DE4238 /* Speaker.swift */; };
+		3C6B071C1DF1FCB300580106 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6B071B1DF1FCB300580106 /* HealthKit.framework */; };
+		3C6B071E1DF1FD3F00580106 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6B071D1DF1FD3F00580106 /* AudioToolbox.framework */; };
 		3CD89B751BA586B20057F048 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD89B741BA586B20057F048 /* Health.swift */; };
 		3CD8D8371B3AFBDB003AC334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8361B3AFBDB003AC334 /* Images.xcassets */; };
 		3CD8D83A1B3AFBDB003AC334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8381B3AFBDB003AC334 /* LaunchScreen.xib */; };
-		3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86C1B3B2954003AC334 /* HealthKit.framework */; };
-		3CD8D86F1B3B295B003AC334 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */; };
 		3CD8D8731B3B299B003AC334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D8711B3B299B003AC334 /* Main.storyboard */; };
 		3CD8D8781B3B2A57003AC334 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8D87A1B3B2A57003AC334 /* Localizable.strings */; };
 		3CD8D87D1B3B2ABE003AC334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */; };
 		3CD8D8811B3B2E2A003AC334 /* ExerciseTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */; };
 		3CE6B5A51B3DBF880030187A /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */; };
+		3CF0DBFC1DF1FF7D008EB558 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF0DBFB1DF1FF7D008EB558 /* NotificationCenter.framework */; };
 		BEF69D83D60A254B6A85C4BC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402A6B9E56E4ED2E9D799EB2 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		3C1B35E91BA460CB00DE4238 /* ActiveTrainingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveTrainingController.swift; path = Core/ActiveTrainingController.swift; sourceTree = "<group>"; };
 		3C1B35ED1BA467BB00DE4238 /* ActiveTrainingChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveTrainingChildViewController.swift; path = ViewControllers/ActiveTrainingChildViewController.swift; sourceTree = "<group>"; };
 		3C1B35EF1BA4C8A200DE4238 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Speaker.swift; path = Core/Speaker.swift; sourceTree = "<group>"; };
+		3C6B071B1DF1FCB300580106 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		3C6B071D1DF1FD3F00580106 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3CCDAC701B3B3B7C00400C1F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD89B741BA586B20057F048 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Health.swift; path = Core/Health.swift; sourceTree = "<group>"; };
 		3CD89B771BA5AE4C0057F048 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,14 +74,13 @@
 		3CD8D8361B3AFBDB003AC334 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3CD8D8391B3AFBDB003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3CD8D86B1B3B2954003AC334 /* Fitness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Fitness.entitlements; sourceTree = "<group>"; };
-		3CD8D86C1B3B2954003AC334 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3CD8D8721B3B299B003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CD8D8791B3B2A57003AC334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CD8D87C1B3B2ABE003AC334 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Core/AppDelegate.swift; sourceTree = "<group>"; };
 		3CD8D8801B3B2E2A003AC334 /* ExerciseTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseTimerView.swift; path = Views/ExerciseTimerView.swift; sourceTree = "<group>"; };
 		3CE6B5A41B3DBF880030187A /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTableViewCell.swift; path = Views/InputTableViewCell.swift; sourceTree = "<group>"; };
 		3CE6B6111B3DD04D0030187A /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		3CF0DBFB1DF1FF7D008EB558 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		402A6B9E56E4ED2E9D799EB2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8EAFE9E3BB183251DCBD0E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EF90BD8C114533B9D2EFC9BF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,9 +91,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD8D86D1B3B2954003AC334 /* HealthKit.framework in Frameworks */,
-				3CD8D86F1B3B295B003AC334 /* AudioToolbox.framework in Frameworks */,
+				3CF0DBFC1DF1FF7D008EB558 /* NotificationCenter.framework in Frameworks */,
+				3C6B071C1DF1FCB300580106 /* HealthKit.framework in Frameworks */,
 				BEF69D83D60A254B6A85C4BC /* Pods.framework in Frameworks */,
+				3C6B071E1DF1FD3F00580106 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				3CE6B6111B3DD04D0030187A /* ObjCBridge.h */,
-				3CD8D86E1B3B295B003AC334 /* AudioToolbox.framework */,
-				3CD8D86C1B3B2954003AC334 /* HealthKit.framework */,
 				3CD8D82C1B3AFBDB003AC334 /* Fitness */,
 				3CD8D82B1B3AFBDB003AC334 /* Products */,
 				F7D547C5155AC0DFA681B24C /* Pods */,
@@ -217,6 +218,9 @@
 		98A17009FD17E3588CD458A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CF0DBFB1DF1FF7D008EB558 /* NotificationCenter.framework */,
+				3C6B071D1DF1FD3F00580106 /* AudioToolbox.framework */,
+				3C6B071B1DF1FCB300580106 /* HealthKit.framework */,
 				402A6B9E56E4ED2E9D799EB2 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -267,8 +271,9 @@
 				TargetAttributes = {
 					3CD8D8291B3AFBDB003AC334 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = PZP46GS9KE;
+						DevelopmentTeam = S96554Z38L;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -472,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -514,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -531,11 +536,13 @@
 				CODE_SIGN_ENTITLEMENTS = Fitness/Fitness.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = S96554Z38L;
 				INFOPLIST_FILE = Fitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "at.mani1337.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = software.leitold.Fitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridge.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -550,9 +557,10 @@
 				CODE_SIGN_ENTITLEMENTS = Fitness/Fitness.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = S96554Z38L;
 				INFOPLIST_FILE = Fitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "at.mani1337.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = software.leitold.Fitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ObjCBridge.h;
