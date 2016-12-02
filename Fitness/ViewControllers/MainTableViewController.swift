@@ -13,16 +13,16 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         CoreData.save()
         self.tableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         Health.sharedHealth().isAllowedToUse {
@@ -30,42 +30,42 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         CoreData.save()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CoreData.shared.trainingManager.trainings!.count
     }
         
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TrainingCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingCell", for: indexPath)
 
-        let training = CoreData.shared.trainingManager.trainings!.objectAtIndex(indexPath.row)
-        cell.textLabel?.text = training.name
+        let training = CoreData.shared.trainingManager.trainings!.object(at: indexPath.row)
+        cell.textLabel?.text = (training as AnyObject).name
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         defer {
             CoreData.save()
         }
         
-        if editingStyle != .Delete {
+        if editingStyle != .delete {
             return
         }
         
@@ -73,10 +73,10 @@ class MainTableViewController: UITableViewController {
         CoreData.shared.trainingManager.removeTrainingAtIndex(indexPath.row)
         
         // Remove data from TableView
-        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
 
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         defer {
             CoreData.save()
         }
@@ -85,15 +85,15 @@ class MainTableViewController: UITableViewController {
        CoreData.shared.trainingManager.moveTrainingFromIndex(fromIndexPath.row, toIndex: toIndexPath.row)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let controller = segue.destinationViewController as? TrainingTableViewController where segue.identifier != nil {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? TrainingTableViewController, segue.identifier != nil {
             switch segue.identifier! {
             case "Add":
                 controller.training = CoreData.shared.trainingManager.createTraining()
                 
             case "Edit" where sender is UITableViewCell:
-                let index = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
-                controller.training = CoreData.shared.trainingManager.trainings!.objectAtIndex(index) as! Training
+                let index = self.tableView.indexPath(for: sender as! UITableViewCell)!.row
+                controller.training = CoreData.shared.trainingManager.trainings!.object(at: index) as! Training
                 
             default:
                 break

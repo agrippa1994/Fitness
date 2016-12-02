@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSOrderedSet {
-    convenience init(setToMutate: NSOrderedSet, mutator: (NSMutableOrderedSet -> Void)) {
+    convenience init(setToMutate: NSOrderedSet, mutator: ((NSMutableOrderedSet) -> Void)) {
         let copy = setToMutate.mutableCopy() as! NSMutableOrderedSet
         mutator(copy)
         

@@ -10,10 +10,10 @@ import Foundation
 import HealthKit
 
 class Health {
-    private static var healthSingleTon: Health!
+    fileprivate static var healthSingleTon: Health!
     var healthStore = HKHealthStore()
     
-    private init() {
+    fileprivate init() {
         
     }
     
@@ -25,14 +25,14 @@ class Health {
         return healthSingleTon
     }
     
-    func isAllowedToUse(completion: (Bool -> Void)?) {
+    func isAllowedToUse(_ completion: ((Bool) -> Void)?) {
         if !HKHealthStore.isHealthDataAvailable() {
             completion?(false)
             return
         }
         
         let writeTypes = Set<HKSampleType>(arrayLiteral: HKSampleType.workoutType())
-        self.healthStore.requestAuthorizationToShareTypes(writeTypes, readTypes: nil) { success, error in
+        self.healthStore.requestAuthorization(toShare: writeTypes, read: nil) { success, error in
             if error != nil {
                 NSLog("Error while requesting HealthKit authorization: \(error)")
             }
@@ -41,14 +41,14 @@ class Health {
         }
     }
     
-    func addWorkout(start: NSDate, end: NSDate, completion: (Bool -> Void)?) {
-        let workout = HKWorkout(activityType: .CrossTraining, startDate: start, endDate: end)
-        self.healthStore.saveObject(workout) { success, error in
+    func addWorkout(_ start: Date, end: Date, completion: ((Bool) -> Void)?) {
+        let workout = HKWorkout(activityType: .crossTraining, start: start, end: end)
+        self.healthStore.save(workout, withCompletion: { success, error in
             if error != nil {
                 NSLog("Error while saving workout object to HealthKit: \(error)")
             }
             
             completion?(success)
-        }
+        }) 
     }
 }

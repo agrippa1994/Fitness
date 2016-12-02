@@ -15,8 +15,8 @@ import CoreData
 extension ActiveTraining {
 
     @NSManaged var currentStep: Int32
-    @NSManaged var fireDate: NSTimeInterval
-    @NSManaged var startDate: NSTimeInterval
+    @NSManaged var fireDate: TimeInterval
+    @NSManaged var startDate: TimeInterval
     @NSManaged var manager: TrainingManager?
     @NSManaged var currentExercise: Exercise?
     @NSManaged var currentTraining: Training?

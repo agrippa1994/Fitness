@@ -15,22 +15,22 @@ private var g_coreData: CoreData?
 
 class CoreData {
     
-    lazy var url: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    lazy var url: URL = {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count - 1]
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let fileUrl = NSBundle.mainBundle().URLForResource("Storage", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: fileUrl)!
+        let fileUrl = Bundle.main.url(forResource: "Storage", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: fileUrl)!
     }()
     
     lazy var persistanteStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.url.URLByAppendingPathComponent("Storage.sqlite")
+        let url = self.url.appendingPathComponent("Storage.sqlite")
         
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch {
             NSLog("Error while adding persistent store \(error)")
             abort()
@@ -40,7 +40,7 @@ class CoreData {
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = self.persistanteStoreCoordinator
         return managedObjectContext
     }()
@@ -55,14 +55,14 @@ class CoreData {
         return g_coreData!
     }
     
-    class func save() -> Bool {
+    class func save() -> Void {
         guard let ctx = g_coreData?.managedObjectContext else {
-            return false
+            return
         }
         
         // Update Spotlight entries
-        let index = CSSearchableIndex.defaultSearchableIndex()
-        index.deleteAllSearchableItemsWithCompletionHandler { error in
+        let index = CSSearchableIndex.default()
+        index.deleteAllSearchableItems { error in
             if error != nil {
                 return NSLog("Error while deleting all searchable items \(error)")
             }
@@ -97,11 +97,11 @@ class CoreData {
                 try ctx.save()
             } catch {
                 NSLog("Error while saving in CoreData \(error)")
-                return false
+                return
             }
         }
         
-        return true
+        return
     }
     
     lazy var trainingManager: TrainingManager = {
@@ -135,7 +135,7 @@ class CoreData {
             return objects[0]
             
         } set {
-            if let training = self.activeTraining where newValue == nil {
+            if let training = self.activeTraining, newValue == nil {
                 EntityHelper<ActiveTraining>(name: "ActiveTraining").remove(training)
             }
         }

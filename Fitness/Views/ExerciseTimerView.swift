@@ -39,46 +39,46 @@ class ExerciseTimerView: UIView {
         }
     }
     
-    var textColor = UIColor.blackColor() {
+    var textColor = UIColor.black {
         didSet {
             self.setNeedsDisplay()
         }
     }
     
-    override internal func drawRect(rect: CGRect) {
+    override internal func draw(_ rect: CGRect) {
         self.drawCircle(rect)
         self.drawLabel(rect)
     }
     
-    private func drawCircle(rect: CGRect) {
+    fileprivate func drawCircle(_ rect: CGRect) {
         let startAngle = CGFloat(-90.0 * M_PI / 180.0)
         let endAngle = CGFloat(((self.progress / self.maxProgress) * 360.0 - 90.0) * (M_PI / 180.0))
         let radius = CGFloat(Double(rect.width) / 2.0 - self.lineWidth)
         
         let ovalPath = UIBezierPath()
-        ovalPath.addArcWithCenter(CGPointMake(0.0, 0.0), radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        ovalPath.addArc(withCenter: CGPoint(x: 0.0, y: 0.0), radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
-        var ovalTransform = CGAffineTransformMakeTranslation(CGRectGetMidX(rect), CGRectGetMidY(rect))
-        ovalTransform = CGAffineTransformScale(ovalTransform, 1, rect.height / rect.width)
-        ovalPath.applyTransform(ovalTransform)
+        var ovalTransform = CGAffineTransform(translationX: rect.midX, y: rect.midY)
+        ovalTransform = ovalTransform.scaledBy(x: 1, y: rect.height / rect.width)
+        ovalPath.apply(ovalTransform)
         
         self.tintColor.setStroke()
         ovalPath.lineWidth = CGFloat(self.lineWidth)
         ovalPath.stroke()
     }
     
-    private func drawLabel(rect: CGRect) {
-        let textStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        textStyle.alignment = NSTextAlignment.Center
+    fileprivate func drawLabel(_ rect: CGRect) {
+        let textStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.center
         
-        let textFontAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(CGFloat(self.textSize)), NSForegroundColorAttributeName: self.textColor, NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(self.textSize)), NSForegroundColorAttributeName: self.textColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
         
-        let textTextHeight = self.text.boundingRectWithSize(CGSizeMake(rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        let textTextHeight = self.text.boundingRect(with: CGSize(width: rect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSaveGState(context)
-        CGContextClipToRect(context, rect);
-        self.text.drawInRect(CGRectMake(rect.minX, rect.minY + (rect.height - textTextHeight) / 2, rect.width, textTextHeight), withAttributes: textFontAttributes)
-        CGContextRestoreGState(context)
+        context?.saveGState()
+        context?.clip(to: rect);
+        self.text.draw(in: CGRect(x: rect.minX, y: rect.minY + (rect.height - textTextHeight) / 2, width: rect.width, height: textTextHeight), withAttributes: textFontAttributes)
+        context?.restoreGState()
     }
 }

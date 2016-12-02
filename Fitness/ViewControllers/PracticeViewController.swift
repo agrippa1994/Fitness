@@ -11,32 +11,32 @@ import UIKit
 class PracticeViewController: ActiveTrainingChildViewController {
 
     // Enumerations
-    private enum State {
-        case Warmup, Practice, UnknownOrFinished
+    fileprivate enum State {
+        case warmup, practice, unknownOrFinished
     }
     
     // Storyboard outlets
     @IBOutlet weak var timerView: ExerciseTimerView!
     
     // Class vars
-    private var timer: NSTimer!
-    private var oldSpeakerTimerState = State.UnknownOrFinished
-    private var wasAppInactive = false
+    fileprivate var timer: Timer!
+    fileprivate var oldSpeakerTimerState = State.unknownOrFinished
+    fileprivate var wasAppInactive = false
     
     // Computed vars
-    private var state: State {
+    fileprivate var state: State {
         // is warmup?
-        if NSDate().timeIntervalSince1970 <= NSDate(timeInterval: self.exercise.warmup, sinceDate: self.startDate).timeIntervalSince1970 {
-            return .Warmup
+        if Date().timeIntervalSince1970 <= Date(timeInterval: self.exercise.warmup, since: self.startDate as Date).timeIntervalSince1970 {
+            return .warmup
         }
         
         // is exercise?
-        if NSDate().timeIntervalSince1970 <= NSDate(timeInterval: self.exercise.duration + self.exercise.warmup, sinceDate: self.startDate).timeIntervalSince1970 {
-            return .Practice
+        if Date().timeIntervalSince1970 <= Date(timeInterval: self.exercise.duration + self.exercise.warmup, since: self.startDate as Date).timeIntervalSince1970 {
+            return .practice
         }
         
         // Maybe finished?
-        return .UnknownOrFinished
+        return .unknownOrFinished
     }
     
     override func viewDidLoad() {
@@ -53,37 +53,37 @@ class PracticeViewController: ActiveTrainingChildViewController {
         Speaker.sharedSpeaker()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.startTimer()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.stopTimer()
     }
     
     override func appDidEnterBackground() {
-        let app = UIApplication.sharedApplication()
+        let app = UIApplication.shared
  
         switch self.state {
-        case .Warmup:
+        case .warmup:
             let notification = UILocalNotification()
-            notification.fireDate = NSDate(timeInterval: self.exercise.warmup, sinceDate: self.startDate)
+            notification.fireDate = Date(timeInterval: self.exercise.warmup, since: self.startDate as Date)
             notification.alertBody = "WARMUPVIEWCONTROLLER_FINISHED_WARMUP".localized
             notification.soundName = UILocalNotificationDefaultSoundName
-            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.timeZone = TimeZone.current
             app.scheduleLocalNotification(notification)
             
             fallthrough
-        case .Practice:
+        case .practice:
             let notification = UILocalNotification()
-            notification.fireDate = NSDate(timeInterval: self.exercise.duration, sinceDate: NSDate(timeInterval: self.exercise.warmup, sinceDate: self.startDate))
+            notification.fireDate = Date(timeInterval: self.exercise.duration, since: Date(timeInterval: self.exercise.warmup, since: self.startDate as Date))
             notification.alertBody = "PRACTICEVIEWCONTROLLER_FINISHED_WARMUP".localized
             notification.soundName = UILocalNotificationDefaultSoundName
-            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.timeZone = TimeZone.current
             app.scheduleLocalNotification(notification)
             
         default:
@@ -94,7 +94,7 @@ class PracticeViewController: ActiveTrainingChildViewController {
     }
     
     override func appDidEnterForeground() {
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        UIApplication.shared.cancelAllLocalNotifications()
 
         self.wasAppInactive = true
         self.startTimer()
@@ -102,7 +102,7 @@ class PracticeViewController: ActiveTrainingChildViewController {
     
     func startTimer() {
         self.onTimer()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(PracticeViewController.onTimer), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(PracticeViewController.onTimer), userInfo: nil, repeats: true)
     }
     
     func stopTimer() {
@@ -124,7 +124,7 @@ class PracticeViewController: ActiveTrainingChildViewController {
         
         switch currentState {
         // Warmup -> Practice
-        case .Practice where self.oldSpeakerTimerState == .Warmup:
+        case .practice where self.oldSpeakerTimerState == .warmup:
             self.titleLabel.text = "PRACTICEVIEWCONTROLLER_PRACTICE".localized
             self.timerView.maxProgress = self.exercise.duration
             
@@ -134,7 +134,7 @@ class PracticeViewController: ActiveTrainingChildViewController {
             }
             
         // Practice -> Finished
-        case .UnknownOrFinished where self.oldSpeakerTimerState == .Practice:
+        case .unknownOrFinished where self.oldSpeakerTimerState == .practice:
             // Don't speak when the application wakes up
             if !self.wasAppInactive {
                 Speaker.sharedSpeaker().speakText("SPEAKTEXT_EXERCISE_FINISHED".localized)
@@ -150,15 +150,15 @@ class PracticeViewController: ActiveTrainingChildViewController {
         let timeDiffSinceStart: Double
         
         switch self.state {
-        case .Warmup:
-            timeDiffSinceStart = NSDate().timeIntervalSinceDate(startDate)
+        case .warmup:
+            timeDiffSinceStart = Date().timeIntervalSince(startDate as Date)
             progress = self.timerView.maxProgress - timeDiffSinceStart
             
-        case .Practice:
-            timeDiffSinceStart = NSDate(timeIntervalSince1970: self.startDate.timeIntervalSince1970 + self.exercise.warmup).timeIntervalSinceNow * (-1)
+        case .practice:
+            timeDiffSinceStart = Date(timeIntervalSince1970: self.startDate.timeIntervalSince1970 + self.exercise.warmup).timeIntervalSinceNow * (-1)
             progress = self.timerView.maxProgress - timeDiffSinceStart
             
-        case .UnknownOrFinished:
+        case .unknownOrFinished:
             timeDiffSinceStart = 0.0
             progress = 0.0
             

@@ -19,33 +19,33 @@ class Training: NSManagedObject {
         return exercise
     }
     
-    func addExercise(exercise: Exercise) {
+    func addExercise(_ exercise: Exercise) {
         self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
-            $0.addObject(exercise)
+            $0.add(exercise)
         }
         
         exercise.training = self
     }
     
-    func moveExerciseFromIndex(fromIndex: Int, toIndex index: Int) {
+    func moveExerciseFromIndex(_ fromIndex: Int, toIndex index: Int) {
         self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
-            $0.moveObjectsAtIndexes(NSIndexSet(index: fromIndex), toIndex: index)
+            $0.moveObjects(at: IndexSet(integer: fromIndex), to: index)
         }
     }
     
-    func removeExerciseAtIndex(index: Int) {
-        EntityHelper<Exercise>(name: "Exercise").remove(self.exercises!.objectAtIndex(index) as! Exercise)
+    func removeExerciseAtIndex(_ index: Int) {
+        EntityHelper<Exercise>(name: "Exercise").remove(self.exercises!.object(at: index) as! Exercise)
         
         self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
-            $0.removeObjectAtIndex(index)
+            $0.removeObject(at: index)
         }
     }
     
-    func removeExercise(exercise: Exercise) {
+    func removeExercise(_ exercise: Exercise) {
         EntityHelper<Exercise>(name: "Exercise").remove(exercise)
         
         self.exercises = NSOrderedSet(setToMutate: self.exercises!) {
-            $0.removeObject(exercise)
+            $0.remove(exercise)
         }
     }
 }

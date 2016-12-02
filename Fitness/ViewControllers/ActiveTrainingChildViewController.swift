@@ -9,9 +9,9 @@
 import UIKit
 
 @objc protocol ActiveTrainingChildViewControllerDelegate {
-    func activeTrainingChildViewControllerDidCancel(controller: ActiveTrainingChildViewController)
-    func activeTrainingChildViewControllerOnBack(controller: ActiveTrainingChildViewController)
-    func activeTrainingChildViewControllerOnNext(controller: ActiveTrainingChildViewController)
+    func activeTrainingChildViewControllerDidCancel(_ controller: ActiveTrainingChildViewController)
+    func activeTrainingChildViewControllerOnBack(_ controller: ActiveTrainingChildViewController)
+    func activeTrainingChildViewControllerOnNext(_ controller: ActiveTrainingChildViewController)
 }
 
 class ActiveTrainingChildViewController: UIViewController {
@@ -25,44 +25,44 @@ class ActiveTrainingChildViewController: UIViewController {
     
     var exercise: Exercise!
     var activeTraining: ActiveTraining!
-    var startDate: NSDate!
+    var startDate: Date!
     
-    @IBAction func onCancel(sender: AnyObject) {
+    @IBAction func onCancel(_ sender: AnyObject) {
         // Display an alert controller
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        alert.addAction(UIAlertAction(title: "ACTIVETRAININGCHILDVIEWCONTROLLER_CANCEL_TRAINING".localized, style: .Destructive) { _ in
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "ACTIVETRAININGCHILDVIEWCONTROLLER_CANCEL_TRAINING".localized, style: .destructive) { _ in
             self.delegate?.activeTrainingChildViewControllerDidCancel(self)
         })
         
-        alert.addAction(UIAlertAction(title: "CANCEL".localized, style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: nil))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func onBack(sender: AnyObject) {
+    @IBAction func onBack(_ sender: AnyObject) {
         self.delegate?.activeTrainingChildViewControllerOnBack(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let index = Float(self.activeTraining.currentTraining!.exercises!.indexOfObject(self.exercise))
+        let index = Float(self.activeTraining.currentTraining!.exercises!.index(of: self.exercise))
         let count = Float(self.activeTraining.currentTraining!.exercises!.count)
         
         // Update the progress bar
         self.trainingProgressBar.progress = index / count
         
         // Register notifications
-        let center = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: #selector(ActiveTrainingChildViewController.appDidEnterBackground), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        center.addObserver(self, selector: #selector(ActiveTrainingChildViewController.appDidEnterForeground), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(ActiveTrainingChildViewController.appDidEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        center.addObserver(self, selector: #selector(ActiveTrainingChildViewController.appDidEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         // Remove all notifications
-        let center = NSNotificationCenter.defaultCenter()
+        let center = NotificationCenter.default
         center.removeObserver(self)
     }
     

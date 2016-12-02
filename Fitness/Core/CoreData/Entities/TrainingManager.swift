@@ -18,33 +18,33 @@ class TrainingManager: NSManagedObject {
         return training
     }
     
-    func addTraining(training: Training) {
+    func addTraining(_ training: Training) {
         self.trainings = NSOrderedSet(setToMutate: self.trainings!) {
-            $0.addObject(training)
+            $0.add(training)
         }
         
         training.manager = self
     }
 
-    func moveTrainingFromIndex(fromIndex: Int, toIndex index: Int) {
+    func moveTrainingFromIndex(_ fromIndex: Int, toIndex index: Int) {
         self.trainings = NSOrderedSet(setToMutate: self.trainings!) {
-            $0.moveObjectsAtIndexes(NSIndexSet(index: fromIndex), toIndex: index)
+            $0.moveObjects(at: IndexSet(integer: fromIndex), to: index)
         }
     }
     
-    func removeTrainingAtIndex(index: Int) {
-        EntityHelper<Training>(name: "Training").remove(self.trainings!.objectAtIndex(index) as! Training)
+    func removeTrainingAtIndex(_ index: Int) {
+        EntityHelper<Training>(name: "Training").remove(self.trainings!.object(at: index) as! Training)
         
         self.trainings = NSOrderedSet(setToMutate: self.trainings!) {
-            $0.removeObjectAtIndex(index)
+            $0.removeObject(at: index)
         }
     }
     
-    func removeTraining(training: Training) {
+    func removeTraining(_ training: Training) {
         EntityHelper<Training>(name: "Training").remove(training)
         
         self.trainings = NSOrderedSet(setToMutate: self.trainings!) {
-            $0.removeObject(training)
+            $0.remove(training)
         }
     }
 }

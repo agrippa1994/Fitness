@@ -8,7 +8,7 @@
 
 import CoreData
 
-class EntityHelper<T where T: NSManagedObject> {
+class EntityHelper<T> where T: NSManagedObject {
     let name: String
     
     init(name: String) {
@@ -17,29 +17,29 @@ class EntityHelper<T where T: NSManagedObject> {
     
     func all() -> [T] {
         let ctx = CoreData.shared.managedObjectContext
-        if let data = try? ctx.executeFetchRequest(NSFetchRequest(entityName: self.name)) as? [T] {
+        if let data = try? ctx.fetch(NSFetchRequest(entityName: self.name)) as? [T] {
             return data!
         }
         
         return []
     }
     
-    func create(shouldSave: Bool = false) -> T? {
+    func create(_ shouldSave: Bool = false) -> T? {
         let ctx = CoreData.shared.managedObjectContext
-        if let desc = NSEntityDescription.entityForName(self.name, inManagedObjectContext: ctx) {
-            return NSManagedObject(entity: desc, insertIntoManagedObjectContext: shouldSave ? ctx : nil) as? T
+        if let desc = NSEntityDescription.entity(forEntityName: self.name, in: ctx) {
+            return NSManagedObject(entity: desc, insertInto: shouldSave ? ctx : nil) as? T
         }
 
         return nil
     }
     
-    func insert(value: T) {
+    func insert(_ value: T) {
         let ctx = CoreData.shared.managedObjectContext
-        ctx.insertObject(value)
+        ctx.insert(value)
     }
     
-    func remove(value: T) {
+    func remove(_ value: T) {
         let ctx = CoreData.shared.managedObjectContext
-        ctx.deleteObject(value)
+        ctx.delete(value)
     }
 }

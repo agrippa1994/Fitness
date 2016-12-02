@@ -9,8 +9,8 @@
 import UIKit
 
 @objc protocol ActiveTrainingControllerDelegate {
-    func activeTrainingControllerDidCancelled(controller: ActiveTrainingController)
-    func activeTrainingControllerDidFinished(controller: ActiveTrainingController)
+    func activeTrainingControllerDidCancelled(_ controller: ActiveTrainingController)
+    func activeTrainingControllerDidFinished(_ controller: ActiveTrainingController)
 }
 
 class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegate, ActiveTrainingChildViewControllerDelegate {
@@ -30,14 +30,14 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
         self.controllers = []
         for exercise in self.activeTraining.currentTraining!.exercises! {
             let newControllers = [
-                self.storyboard.instantiateViewControllerWithIdentifier("PrepareViewController") as! ActiveTrainingChildViewController,
-                self.storyboard.instantiateViewControllerWithIdentifier("PracticeViewController") as! ActiveTrainingChildViewController
+                self.storyboard.instantiateViewController(withIdentifier: "PrepareViewController") as! ActiveTrainingChildViewController,
+                self.storyboard.instantiateViewController(withIdentifier: "PracticeViewController") as! ActiveTrainingChildViewController
             ]
             
             for controller in newControllers {
                 controller.exercise = exercise as! Exercise
                 controller.activeTraining = self.activeTraining
-                controller.startDate = NSDate()
+                controller.startDate = Date()
             }
 
             self.controllers += newControllers
@@ -52,58 +52,58 @@ class ActiveTrainingController: NSObject, UIPopoverPresentationControllerDelegat
         super.init()
     }
     
-    func createViewControllerViaStoryboard<T>(storyboard: UIStoryboard, withIdentifier identifier: String) -> T {
-        return storyboard.instantiateViewControllerWithIdentifier(identifier) as! T
+    func createViewControllerViaStoryboard<T>(_ storyboard: UIStoryboard, withIdentifier identifier: String) -> T {
+        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
     
-    func startViaController(controller: UIViewController) {
+    func startViaController(_ controller: UIViewController) {
         // Add all view controllers to the navigation stack
         for controller in self.controllers {
             controller.delegate = self
         }
         
-        self.navigationController.modalPresentationStyle = .Popover
+        self.navigationController.modalPresentationStyle = .popover
         self.navigationController.presentationController?.delegate = self
 
-        controller.presentViewController(self.navigationController, animated: true, completion: nil)
+        controller.present(self.navigationController, animated: true, completion: nil)
     }
     
-    func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
-        self.navigationController.dismissViewControllerAnimated(flag, completion: completion)
+    func dismissViewControllerAnimated(_ flag: Bool, completion: (() -> Void)?) {
+        self.navigationController.dismiss(animated: flag, completion: completion)
     }
     
     // MARK: - UIPopoverPresentationControllerDelegate
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .OverFullScreen
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .overFullScreen
     }
     
     // MARK: - ActiveTrainingChildViewControllerDelegate
-    func activeTrainingChildViewControllerDidCancel(controller: ActiveTrainingChildViewController) {
+    func activeTrainingChildViewControllerDidCancel(_ controller: ActiveTrainingChildViewController) {
         guard let _ = self.delegate?.activeTrainingControllerDidCancelled(self) else {
-            return self.navigationController.dismissViewControllerAnimated(true, completion: nil)
+            return self.navigationController.dismiss(animated: true, completion: nil)
         }
         
-        self.navigationController.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
     
-    func activeTrainingChildViewControllerOnBack(controller: ActiveTrainingChildViewController) {
+    func activeTrainingChildViewControllerOnBack(_ controller: ActiveTrainingChildViewController) {
         self.currentViewControllerOffset -= 1
-        self.navigationController.popViewControllerAnimated(true)
+        self.navigationController.popViewController(animated: true)
     }
     
-    func activeTrainingChildViewControllerOnNext(controller: ActiveTrainingChildViewController) {
+    func activeTrainingChildViewControllerOnNext(_ controller: ActiveTrainingChildViewController) {
         self.currentViewControllerOffset += 1
         
         if self.currentViewControllerOffset >= self.controllers.count {
-            Health.sharedHealth().addWorkout(NSDate(timeIntervalSince1970: self.activeTraining.startDate), end: NSDate()) {
+            Health.sharedHealth().addWorkout(Date(timeIntervalSince1970: self.activeTraining.startDate), end: Date()) {
                 NSLog("Store training to HealthKit: \($0)")
             }
             
             guard let _ = self.delegate?.activeTrainingControllerDidFinished(self) else {
-                return self.navigationController.dismissViewControllerAnimated(true, completion: nil)
+                return self.navigationController.dismiss(animated: true, completion: nil)
             }
         } else {
-            self.controllers[currentViewControllerOffset].startDate = NSDate()
+            self.controllers[currentViewControllerOffset].startDate = Date()
             self.navigationController.pushViewController(self.controllers[currentViewControllerOffset], animated: true)
         }
     }

@@ -12,7 +12,7 @@ class PrepareViewController: ActiveTrainingChildViewController {
     
     @IBOutlet weak var mainLabel: UILabel!
     
-    @IBAction func onStart(sender: AnyObject) {
+    @IBAction func onStart(_ sender: AnyObject) {
         self.delegate?.activeTrainingChildViewControllerOnNext(self)
     }
     

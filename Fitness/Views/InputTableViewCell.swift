@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol InputTableViewCellDelegate {
-    func inputTableViewCell(cell: InputTableViewCell, didChangedText newText: String)
+    func inputTableViewCell(_ cell: InputTableViewCell, didChangedText newText: String)
 }
 
 class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -25,7 +25,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     
     // MARK: - Storyboard Actions
-    @IBAction func onTextFieldChanged(sender: AnyObject) {
+    @IBAction func onTextFieldChanged(_ sender: AnyObject) {
         self.inputText = self.textField.text!
         self.delegate?.inputTableViewCell(self, didChangedText: self.inputText)
     }
@@ -39,7 +39,7 @@ class InputTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     // MARK: - UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

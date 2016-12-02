@@ -10,45 +10,45 @@ import Foundation
 import CoreData
 
 enum ExerciseType: Int32 {
-    case Running = 0, Breast, Back, Triceps, Biceps, Legs, Calves, Shoulders, Stomach, LowerBack, Pause, Count
+    case running = 0, breast, back, triceps, biceps, legs, calves, shoulders, stomach, lowerBack, pause, count
     
     func localizedName() -> String {
         return NSLocalizedString(self.localizationKey(), comment: "Enumeration to string")
     }
     
-    private func localizationKey() -> String {
+    fileprivate func localizationKey() -> String {
         switch self {
-        case .Running:
+        case .running:
             return "EXERCISETYPE_RUNNING"
             
-        case .Breast:
+        case .breast:
             return "EXERCISETYPE_BREAST"
             
-        case .Back:
+        case .back:
             return "EXERCISETYPE_BACK"
             
-        case .Triceps:
+        case .triceps:
             return "EXERCISETYPE_TRICEPS"
             
-        case .Biceps:
+        case .biceps:
             return "EXERCISETYPE_BICEPS"
             
-        case .Legs:
+        case .legs:
             return "EXERCISETYPE_LEGS"
             
-        case .Calves:
+        case .calves:
             return "EXERCISETYPE_CALVES"
             
-        case .Shoulders:
+        case .shoulders:
             return "EXERCISETYPE_SHOULDERS"
             
-        case .Stomach:
+        case .stomach:
             return "EXERCISETYPE_STOMACH"
             
-        case .LowerBack:
+        case .lowerBack:
             return "EXERCISETYPE_LOWERBACK"
             
-        case .Pause:
+        case .pause:
             return "EXERCISETYPE_PAUSE"
         default:
             return ""

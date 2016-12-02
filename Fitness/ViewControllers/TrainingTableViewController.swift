@@ -16,35 +16,35 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.editing = true
+        self.tableView.isEditing = true
         self.tableView.allowsSelectionDuringEditing = true
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         CoreData.save()
         self.tableView.reloadData()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         CoreData.save()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return [1, self.training.exercises!.count, 1][section]
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         
         switch indexPath.section {
         case 0:
-            let newCell = tableView.dequeueReusableCellWithIdentifier("InputCell", forIndexPath: indexPath) as! InputTableViewCell
+            let newCell = tableView.dequeueReusableCell(withIdentifier: "InputCell", for: indexPath) as! InputTableViewCell
             
             newCell.delegate = self
             newCell.textField.text = self.training.name
@@ -52,8 +52,8 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
             cell = newCell
             
         case 1:
-            let exercise = self.training.exercises!.objectAtIndex(indexPath.row) as! Exercise
-            let newCell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath)
+            let exercise = self.training.exercises!.object(at: indexPath.row) as! Exercise
+            let newCell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath)
             
             newCell.textLabel?.text = ExerciseType(rawValue: exercise.exerciseType)?.localizedName()
             newCell.detailTextLabel?.text = Int(exercise.duration).asTime
@@ -61,7 +61,7 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
             cell = newCell
             
         case 2:
-            cell = tableView.dequeueReusableCellWithIdentifier("StartTrainingCell", forIndexPath: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "StartTrainingCell", for: indexPath)
             
         default:
             cell = UITableViewCell()
@@ -72,16 +72,16 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
     }
     
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.section == 1
     }
     
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return indexPath.section == 1
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle != .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle != .delete {
             return
         }
         
@@ -89,26 +89,26 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         self.training.removeExerciseAtIndex(indexPath.row)
         
         // Remove data from TableView
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         
         CoreData.save()
     }
 
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         // Move object in CoreData
         self.training!.moveExerciseFromIndex(fromIndexPath.row, toIndex: toIndexPath.row)
         CoreData.save()
     }
 
-    override func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         if proposedDestinationIndexPath.section != 1 {
-            return NSIndexPath(forItem: sourceIndexPath.row, inSection: 1)
+            return IndexPath(item: sourceIndexPath.row, section: 1)
         }
         
         return proposedDestinationIndexPath
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
             return "TRAININGTABLEVIEWCONTROLLER_NAME_HEADER".localized
@@ -119,23 +119,23 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Start training
         if indexPath.section == 2 && indexPath.row == 0 {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             self.startTraining(self.training)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let controller = segue.destinationViewController as? ExerciseTableViewController where segue.identifier != nil {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? ExerciseTableViewController, segue.identifier != nil {
             switch segue.identifier! {
             case "Add":
                 controller.exercise = self.training.createExercise()
                 
             case "Edit" where sender is UITableViewCell:
-                let index = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
-                controller.exercise = self.training.exercises!.objectAtIndex(index) as! Exercise
+                let index = self.tableView.indexPath(for: sender as! UITableViewCell)!.row
+                controller.exercise = self.training.exercises!.object(at: index) as! Exercise
                 
             default:
                 break
@@ -143,16 +143,16 @@ class TrainingTableViewController: UITableViewController, InputTableViewCellDele
         }
     }
     
-    func inputTableViewCell(cell: InputTableViewCell, didChangedText newText: String) {
+    func inputTableViewCell(_ cell: InputTableViewCell, didChangedText newText: String) {
         self.training.name = newText
     }
     
-    func startTraining(training: Training) {
+    func startTraining(_ training: Training) {
         if self.training.exercises!.count == 0 {
-            let controller = UIAlertController(title: "ERROR".localized, message: "TRAININGTABLEVIEWCONTROLLER_NO_EXERCISES".localized, preferredStyle: .Alert)
-            controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            let controller = UIAlertController(title: "ERROR".localized, message: "TRAININGTABLEVIEWCONTROLLER_NO_EXERCISES".localized, preferredStyle: .alert)
+            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
-            return self.presentViewController(controller, animated: true, completion: nil)
+            return self.present(controller, animated: true, completion: nil)
         }
         
         let activeTraining = CoreData.shared.createActiveTrainingOrGetActive()

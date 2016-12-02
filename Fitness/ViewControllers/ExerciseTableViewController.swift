@@ -49,34 +49,34 @@ class ExerciseTableViewController: UITableViewController, UIPickerViewDataSource
         
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         CoreData.save()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.exercise.exerciseType = Int32(self.typePickerView.selectedRowInComponent(0))
-        self.exercise.warmup = Double(self.warmupPickerView.selectedRowInComponent(0)) + 5.0
-        self.exercise.duration = Double(self.durationPickerView.selectedRowInComponent(0)) + 10.0
+        self.exercise.exerciseType = Int32(self.typePickerView.selectedRow(inComponent: 0))
+        self.exercise.warmup = Double(self.warmupPickerView.selectedRow(inComponent: 0)) + 5.0
+        self.exercise.duration = Double(self.durationPickerView.selectedRow(inComponent: 0)) + 10.0
         
         CoreData.save()
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return [
-            self.typePickerView: Int(ExerciseType.Count.rawValue),
+            self.typePickerView: Int(ExerciseType.count.rawValue),
             self.warmupPickerView: 6,
             self.durationPickerView: 3600
         ][pickerView]!
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case self.typePickerView:
             return ExerciseType(rawValue: Int32(row))!.localizedName()
